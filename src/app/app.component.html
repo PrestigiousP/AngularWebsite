@@ -500,7 +500,35 @@
       </svg>
     </a>
   </div>
+  <section>
+  <ol >
+    <li *ngFor="let s of individus; let i = index"
+        (click)="selIdx = i"
+        [ngClass]="selIdx == i ?'selected':''">
+      <img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>
+      <span class="NAS">{{s.NAS}}</span>
+      <span class="name">{{s.fName + ' ' + s.lName.toUpperCase()}}</span>
+      <span class="red cote"></span>
+      <nav>
+        <a [routerLink]="['/details',selIdx]" routerLinkActive="">Détails</a>
+        <strong class="red"> | </strong>
+        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Édit</a>
+      </nav>
 
+    </li>
+  </ol>
+<div>
+  <h2>détails</h2>
+  <router-outlet>
+
+
+
+  </router-outlet>
+</div>
+
+
+
+  </section>
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;
