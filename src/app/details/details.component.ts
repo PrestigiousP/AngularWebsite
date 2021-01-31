@@ -9,7 +9,7 @@ import {Individu} from '../model/individu.model';
 export class DetailsComponent implements OnInit {
   @Input() individu: Individu;
   constructor() { }
-  @Input() test: any;
+  @Input() test;
   // @Output() navReqest =  new EventEmitter<number>(); navigation avec fleches
 
   ngOnInit(): void {
