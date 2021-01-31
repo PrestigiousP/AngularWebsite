@@ -8,9 +8,10 @@ import {Individu} from './model/individu.model';
 })
 export class AppComponent {
   title = 'travail-session';
-  selIdx: number;
+  selIdx: number; // change le url
   individus = this.mockIndividusData();
-
+  index: number;
+  // test pour l'instant sera à completer
   mockIndividusData(): Individu[] {
     return[
       {gender: 'male', fName: 'Jean-Paul', lName: 'Mendel', NAS: 'MENDEL20202311'},
