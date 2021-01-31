@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Individu} from '../model/individu.model';
 
 @Component({
@@ -9,7 +9,8 @@ import {Individu} from '../model/individu.model';
 export class DetailsComponent implements OnInit {
   @Input() individu: Individu;
   constructor() { }
-  // @Output() navReqest =  new EventEmitter<number>();
+  @Input() test: any;
+  // @Output() navReqest =  new EventEmitter<number>(); navigation avec fleches
 
   ngOnInit(): void {
   }

@@ -1,51 +1,40 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
   <section>
-  <ol >
+
+  <ol>
+    <h2>Personnes inscrites</h2>
+
     <li *ngFor="let s of individus; let i = index"
         (click)="selIdx = i"
         [ngClass]="selIdx == i ?'selected':''">
-      <img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>
-      <span class="NAS">{{s.NAS}}</span>
-      <span class="name">{{s.fName + ' ' + s.lName.toUpperCase()}}</span>
+      <!--<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                -->
+
+      <span class="name"> {{s.fName + ' ' + s.lName}} </span>
+      <span class="NAS"> {{', '+s.NAS+' '}}</span>
       <span class="red cote"></span>
       <nav>
-        <a [routerLink]="['/details',selIdx]" routerLinkActive="active" >Détails</a>
+        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>
         <strong class="red"> | </strong>
-        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Édit</a>
+        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>
       </nav>
-
     </li>
   </ol>
 <div class="details">
-  <h2>détails</h2>
-  <router-outlet></router-outlet>
+
+  <router-outlet></router-outlet><!--insert component ici-->
 </div>
 
 
 
   </section>
-  <!-- Footer -->
 
 <app-details
   *ngIf="index >= 0"
-  [individu] = individus[selIdx]
-
+  [individu] = individus[index]
+  [test]="title"
 ></app-details>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 
 

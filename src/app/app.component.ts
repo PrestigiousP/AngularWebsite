@@ -9,7 +9,7 @@ import {Individu} from './model/individu.model';
 export class AppComponent {
   title = 'travail-session';
   selIdx: number; // change le url
-  individus = this.mockIndividusData();
+  individus = this.mockIndividusData(); // associe les data mock à un tableau d'individu
   index: number;
   // test pour l'instant sera à completer
   mockIndividusData(): Individu[] {
