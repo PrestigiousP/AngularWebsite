@@ -1,0 +1,6 @@
+.textarea[contenteditable]:empty::before {
+  content: "Ajouter note sur le la personne";
+  background-color: white;
+  border: solid 2px black;
+  max-width: 30px;
+}
