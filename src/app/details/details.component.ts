@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Individu} from '../model/individu.model';
 import {ActivatedRoute} from '@angular/router';
 
-class IndividuService {
-}
+
 
 @Component({
   selector: 'app-details',
@@ -13,7 +12,7 @@ class IndividuService {
 export class DetailsComponent implements OnInit {
   @Input() individu: Individu;
 
-  constructor(private route: ActivatedRoute, private  service: IndividuService) {
+  constructor(private route: ActivatedRoute/*, private  service: individu*/) {
   }
 
   @Input() test;
@@ -21,10 +20,10 @@ export class DetailsComponent implements OnInit {
   // @Output() navReqest =  new EventEmitter<number>(); navigation avec fleches
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    /*this.route.paramMap.subscribe(params => {
       const idx = Number(params.get('idx'));
-      this.individu = this.service.individu[idx];
-    });
+      this.individu = this.service.individu;// à modifier
+    });*/
 
   }
 }
