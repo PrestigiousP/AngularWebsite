@@ -1,40 +1,40 @@
 
 
-  <section>
+<!--  <section>-->
 
-  <ol>
-    <h2>Personnes inscrites</h2>
+<!--  <ol>-->
+<!--    <h2>Personnes inscrites</h2>-->
 
-    <li *ngFor="let s of individus; let i = index"
-        (click)="selIdx = i"
-        [ngClass]="selIdx == i ?'selected':''">
+<!--    <li *ngFor="let s of individus; let i = index"-->
+<!--        (click)="selIdx = i"-->
+<!--        [ngClass]="selIdx == i ?'selected':''">-->
 
-      <!--<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                -->
+<!--      &lt;!&ndash;<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                &ndash;&gt;-->
 
-      <span class="name"> {{s.fName + ' ' + s.lName}} </span>
-      <span class="NAS"> {{', '+s.NAS+' '}}</span>
-      <span class="red cote"></span>
-      <nav>
-        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>
-        <strong class="red"> | </strong>
-        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>
-      </nav>
-    </li>
-  </ol>
-<div class="details">
+<!--      <span class="name"> {{s.fName + ' ' + s.lName}} </span>-->
+<!--      <span class="NAS"> {{', '+s.NAS+' '}}</span>-->
+<!--      <span class="red cote"></span>-->
+<!--      <nav>-->
+<!--        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>-->
+<!--        <strong class="red"> | </strong>-->
+<!--        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>-->
+<!--      </nav>-->
+<!--    </li>-->
+<!--  </ol>-->
+<!--<div class="details">-->
 
-  <router-outlet></router-outlet><!--insert component ici-->
-</div>
+<!--  <router-outlet></router-outlet>&lt;!&ndash;insert component ici&ndash;&gt;-->
+<!--</div>-->
 
 
 
-  </section>
+<!--  </section>-->
 
-<app-details
-  [test]="title"
-  [individu] = individus[1]
+<!--<app-details-->
+<!--  [test]="title"-->
+<!--  [individu] = individus[1]-->
 
-></app-details>
+<!--&gt;</app-details>-->
 
 
 
