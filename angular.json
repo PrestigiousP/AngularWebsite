@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "travail-session"
+  "defaultProject": "travail-session",
+  "cli": {
+    "analytics": "717a966c-3e74-46ef-b1f3-009899200fc1"
+  }
 }

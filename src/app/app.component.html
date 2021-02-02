@@ -1,38 +1,35 @@
+<!--  <section>-->
 
+<!--  <ol>-->
+<!--    <h2>Personnes inscrites</h2>-->
 
-  <section>
+<!--    <li *ngFor="let s of individus; let i = index"-->
+<!--        (click)="selIdx = i"-->
+<!--        [ngClass]="selIdx == i ?'selected':''">-->
 
-  <ol>
-    <h2>Personnes inscrites</h2>
+<!--      &lt;!&ndash;<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                &ndash;&gt;-->
 
-    <li *ngFor="let s of individus; let i = index"
-        (click)="selIdx = i"
-        [ngClass]="selIdx == i ?'selected':''">
+<!--      <span class="name"> {{s.fName + ' ' + s.lName}} </span>-->
+<!--      <span class="NAS"> {{', '+s.NAS+' '}}</span>-->
+<!--      <span class="red cote"></span>-->
+<!--      <nav>-->
+<!--        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>-->
+<!--        <strong class="red"> | </strong>-->
+<!--        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>-->
+<!--      </nav>-->
+<!--    </li>-->
+<!--  </ol>-->
+<!--<div class="details">-->
 
-      <!--<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                -->
+<!--  <router-outlet></router-outlet>&lt;!&ndash;insert component ici&ndash;&gt;-->
 
-      <span class="name"> {{s.fName + ' ' + s.lName}} </span>
-      <span class="NAS"> {{', '+s.NAS+' '}}</span>
-      <span class="red cote"></span>
-      <nav>
-        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>
-        <strong class="red"> | </strong>
-        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>
-      </nav>
-    </li>
-  </ol>
-<div class="details">
-
-  <router-outlet></router-outlet><!--insert component ici-->
-
-</div>
-
-
-
-  </section>
+<!--</div>-->
 
 
 
+<!--  </section>-->
+
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 
 
 
