@@ -21,4 +21,11 @@ export class AppComponent {
   }
 
 
+
+
+  ///////
+  hide =true;
+
+  ///////
+
 }
