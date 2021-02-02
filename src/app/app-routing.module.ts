@@ -6,7 +6,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
-  { path: 'detailsddd/:idx',  component: DetailsComponent },
+  { path: 'details/:idx',  component: DetailsComponent },
   { path: 'edit/:idx',  component: EditorComponent },
   { path: '**', component: PageNotFoundComponent }
 
