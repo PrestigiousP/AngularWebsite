@@ -3,15 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {DetailsComponent} from './details/details.component';
 import {EditorComponent} from './editor/editor.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {FormulaireComponent} from './formulaire/formulaire.component';
 
 
 const routes: Routes = [
-  { path: 'detailsddd/:idx',  component: DetailsComponent },
+  { path: '', component: FormulaireComponent}, // Seulement à titre de test
+  { path: 'details/:idx',  component: DetailsComponent },
   { path: 'edit/:idx',  component: EditorComponent },
   { path: '**', component: PageNotFoundComponent }
-
-
-
 ];
 
 @NgModule({

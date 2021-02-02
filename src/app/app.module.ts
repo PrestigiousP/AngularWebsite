@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { EditorComponent } from './editor/editor.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
     EditorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,
