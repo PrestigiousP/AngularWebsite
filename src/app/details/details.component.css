@@ -1,7 +1,3 @@
-div{
-  padding:5px;
-}
-.commentaires{
-  border: solid 1px lightgrey;
-
+mat-grid-tile {
+  background: lightblue;
 }
