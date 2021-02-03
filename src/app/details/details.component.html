@@ -1,10 +1,50 @@
-
-<section>
-  <mat-grid-list cols="2" rowHeight="4:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
+<div class="grid-container">
+  <h1 class="mat-h1">Détails de l'individu</h1>
+  <mat-grid-list cols="2" rowHeight="500px">
+<!--    Tuile dans notre détails-->
+    <mat-grid-tile *ngFor="let card of cards| async, let idxCard = index " [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon *ngIf="idxCard==0">person</mat-icon>
+            <mat-icon *ngIf="idxCard==1">health_and_safety</mat-icon>
+            <mat-icon *ngIf="idxCard==2">work</mat-icon>
+            <mat-icon *ngIf="idxCard==3">people</mat-icon>
+            <mat-icon *ngIf="idxCard==4">list</mat-icon>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+<!--        Contenu de la carte-->
+        <mat-card-content class="dashboard-card-content">
+<!--          Informations personnelles-->
+          <div *ngIf="idxCard==0" style="overflow:auto; height:300px;" >
+            <p>Actif</p>
+            <p>Nom : Turcotte</p>
+            <p>Prénom : Julien</p>
+            <p>Date de naissance : julien_turcotte@hotmail.fr</p>
+            <p>Sexe : Male</p>
+            <p>Adresse : 915, 9e rang, Saint-Léonard d'Aston</p>
+            <p>Numéro de téléphone : 819-944-2824</p>
+            <p>NAS : *** *** ***</p>
+          </div>
+          <div *ngIf="idxCard==1" style="overflow:auto; height:300px;" >
+            <p>Problèmes de santé / allergies : Aucun</p>
+            <p>Nom : Turcotte</p>
+            <p>Prénom : Julien</p>
+            <p>Date de naissance : julien_turcotte@hotmail.fr</p>
+            <p>Sexe : Male</p>
+            <p>Adresse : 915, 9e rang, Saint-Léonard d'Aston</p>
+            <p>Numéro de téléphone : 819-944-2824</p>
+            <p>NAS : *** *** ***</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="idxCard<4">
+          <button mat-button><mat-icon>edit</mat-icon>Modifier</button>
+        </mat-card-actions>
+        <mat-card-actions *ngIf="idxCard==4">
+          <button mat-button><mat-icon>add</mat-icon>Ajouter</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
   </mat-grid-list>
-</section>
-
+</div>
