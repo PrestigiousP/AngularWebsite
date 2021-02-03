@@ -1,35 +1,31 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<header>
+  <div class="example-sidenav-content">
+    <div (click)="drawer.toggle()" style="color:white"><span class="material-icons md-36 md-light">menu</span>Menu</div>
+  </div>
+</header>
 
+<section>
+  <mat-drawer-container class="example-container" autosize hasBackdrop="false">
+    <mat-drawer #drawer class="example-sidenav" mode="push">
+      <ul>
+        <li><span class="material-icons">login</span>Connexion</li>
+        <li><span class="material-icons">list</span>Liste individus</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </mat-drawer>
+    <app-details></app-details>
+  </mat-drawer-container>
+</section>
 
-  <section>
+<footer>
 
-  <ol>
-    <h2>Personnes inscrites</h2>
-
-    <li *ngFor="let s of individus; let i = index"
-        (click)="selIdx = i"
-        [ngClass]="selIdx == i ?'selected':''">
-
-      <!--<img class="avatar" src="{{'assets/icons/'+s.gender+'.png'}}"/>                -->
-
-      <span class="name"> {{s.fName + ' ' + s.lName}} </span>
-      <span class="NAS"> {{', '+s.NAS+' '}}</span>
-      <span class="red cote"></span>
-      <nav>
-        <a [routerLink]="['/details',selIdx]" routerLinkActive="active">Détails</a>
-        <strong class="red"> | </strong>
-        <a [routerLink]="['/edit', selIdx]" routerLinkActive="active">Modifier</a>
-      </nav>
-    </li>
-  </ol>
-<div class="details">
-
-  <router-outlet></router-outlet><!--insert component ici-->
-
-</div>
+</footer>
 
 
 
-  </section>
 
 
 
