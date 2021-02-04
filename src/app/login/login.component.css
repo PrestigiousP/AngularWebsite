@@ -1,0 +1,34 @@
+mat-form-field {
+  width: 7cm;
+
+}
+body {
+  background-color: lightblue;
+}
+.example-right-align {
+  text-align: right;
+}
+
+.login{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 10cm;
+  border: 1px solid slategrey;
+}
+.login>div{
+  display:flex;
+  padding-left: 1.6cm;
+}
+.login>h1{
+  text-align: center;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}

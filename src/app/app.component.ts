@@ -7,10 +7,18 @@ import {Individu} from './model/individu.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   title = 'travail-session';
   selIdx: number; // change le url
   index: number;
   individus = this.mockIndividusData(); // associe les data mock à un tableau d'individu
+
+
+
+
+  ///////
+  hide = true;
   // test pour l'instant sera à completer
   mockIndividusData(): Individu[] {
     return[
@@ -19,12 +27,6 @@ export class AppComponent {
       {gender: 'male', fName: 'Betrand', lName: 'Ouellette', NAS: 'OUELLET20120104'}
       ];
   }
-
-
-
-
-  ///////
-  hide =true;
 
   ///////
 
