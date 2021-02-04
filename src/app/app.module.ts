@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonToggle, MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 
@@ -28,6 +30,7 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonToggleModule,
 
   ],
   providers: [IndividuService],
