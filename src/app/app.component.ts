@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Individu} from './model/individu.model';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ export class AppComponent {
 
 
   title = 'travail-session';
-  selIdx: number; // change le url
+ selIdx: number; // change le url
   index: number;
   individus = this.mockIndividusData(); // associe les data mock à un tableau d'individu
 
@@ -30,4 +30,7 @@ export class AppComponent {
 
   ///////
 
+  showFiller = false;
+//    "analytics": "311cd479-776e-4cb1-880a-8b8662a84f3d"
 }
+
