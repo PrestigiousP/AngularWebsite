@@ -1,13 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {IndividuService} from './individu.service';
+
 import { AppRoutingModule } from './app-routing.module';
+
+// Les services
+import {IntervenantService} from './intervenant.service';
+import {MedecinService} from './medecin.service';
+import {IndividuService} from './individu.service';
+
+// Composants dans notre service
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { EditorComponent } from './editor/editor.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { ListeIndividuComponent } from './liste-individu/liste-individu.component';
+import { FormComponent } from './form/form.component';
+
+// Module pour les formulaires
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { LayoutModule } from '@angular/cdk/layout';
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -41,10 +54,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
-import { FormComponent } from './form/form.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { ListeIndividuComponent } from './liste-individu/liste-individu.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +75,6 @@ import { ListeIndividuComponent } from './liste-individu/liste-individu.componen
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatGridListModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -108,7 +117,11 @@ import { ListeIndividuComponent } from './liste-individu/liste-individu.componen
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [IndividuService],
+  providers: [
+    IndividuService,
+    IntervenantService,
+    MedecinService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

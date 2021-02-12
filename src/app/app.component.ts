@@ -9,9 +9,6 @@ import {Individu} from './model/individu.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showFiller = false;
   title = 'travail-session';
-  hide = true;
-
 }
 

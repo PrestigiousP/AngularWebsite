@@ -14,11 +14,16 @@ export class IndividuService{
   private listIndividu: Individu[];
   private listIntervenant: Intervenant[];
   private listMedecin: Medecin[];
+  private nbInter: number;
+  private nbMedecin: number;
 
   constructor(private interService: IntervenantService, private medecinService: MedecinService) {
     this.listMedecin = this.medecinService.listeMedecin;
-    this.listIndividu = this.mockIndividusData();
     this.listIntervenant = this.interService.listeIntervenant;
+    this.nbInter = this.listIntervenant.length;
+    this.nbMedecin = this.listIntervenant.length;
+
+    this.listIndividu = this.mockIndividusData();
   }
 
   mockIndividusData(): Individu[]{
@@ -29,7 +34,7 @@ export class IndividuService{
         age: 20,
         donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
         nas: 847938625,
         niveauScolarite: 'secondaire',
@@ -42,7 +47,7 @@ export class IndividuService{
         santeAllergie: 'Banane',
         statut: 'clientèle',
         suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
         travail: this.mockTravailData()
       },
       {
@@ -51,7 +56,7 @@ export class IndividuService{
         age: 20,
         donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
         nas: 9348437489,
         niveauScolarite: 'universitaire',
@@ -64,7 +69,7 @@ export class IndividuService{
         santeAllergie: 'Banane',
         statut: 'clientèle',
         suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
         travail: this.mockTravailData()
       },
       {
@@ -73,7 +78,7 @@ export class IndividuService{
         age: 20,
         donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
         nas: 847938625,
         niveauScolarite: 'aucun',
@@ -86,7 +91,7 @@ export class IndividuService{
         santeAllergie: 'Banane',
         statut: 'clientèle',
         suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
         travail: this.mockTravailData()
       },
     ];
