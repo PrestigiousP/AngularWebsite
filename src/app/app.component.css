@@ -1,1 +1,53 @@
+section{
+  display: flex;
+}
+nav{
+  padding-left: 10px;
+  margin-left:auto;
+}
 
+
+ol>li{
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border: solid 1px lightgrey;
+  border-bottom: none;
+  cursor: pointer;
+}
+ol>li:last-child{
+  border: solid 1px lightgray;
+
+}
+ol>li:hover{
+  background-color: lightgray;
+}
+ol>li.selected{
+  background-color: lightgray;
+}
+ol>li:active{
+  color: brown;
+}
+
+
+
+
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}

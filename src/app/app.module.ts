@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {IndividuService} from './individu.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { EditorComponent } from './editor/editor.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonToggle, MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -58,12 +63,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DetailsComponent,
     EditorComponent,
     PageNotFoundComponent,
+    LoginComponent,
     NavMenuComponent,
     FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatGridListModule,
@@ -111,7 +120,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [IndividuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

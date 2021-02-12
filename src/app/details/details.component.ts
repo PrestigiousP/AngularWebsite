@@ -1,3 +1,7 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {Individu} from '../model/individu.model';
+import {ActivatedRoute} from '@angular/router';
+import {IndividuService} from '../individu.service';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -7,7 +11,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   cardContent: string[];
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -30,6 +34,20 @@ export class DetailsComponent {
       ];
     })
   );
+  @Input() individu: Individu;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private  service: IndividuService) {
+  }
+
+  @Input() test;
+
+  // @Output() navReqest =  new EventEmitter<number>(); navigation avec fleches
+
+  ngOnInit(): void {
+   /* this.route.paramMap.subscribe(params => {
+      const idx = Number(params.get('idx'));
+      this.individu = this.service.getIndividu[idx];
+    });
+*/
+  }
 }
