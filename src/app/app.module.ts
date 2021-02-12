@@ -44,6 +44,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { ListeIndividuComponent } from './liste-individu/liste-individu.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {MatButtonModule} from '@angular/material/button';
     PageNotFoundComponent,
     LoginComponent,
     NavMenuComponent,
-    FormComponent
+    FormComponent,
+    ListeIndividuComponent
   ],
   imports: [
     BrowserModule,

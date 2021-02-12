@@ -2,9 +2,7 @@ mat-form-field {
   width: 7cm;
 
 }
-body {
-  background-color: lightblue;
-}
+
 .example-right-align {
   text-align: right;
 }
@@ -14,8 +12,11 @@ body {
   top: 40%;
   left: 40%;
   width: 10cm;
-  border: 1px solid slategrey;
+  background-color: #f0f3f6;
+  padding: 10px;
+  border-radius: 25px;
 }
+
 .login>div{
   display:flex;
   padding-left: 1.6cm;
