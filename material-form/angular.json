@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "travail-session": {
+    "material-form": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/travail-session",
+            "outputPath": "dist/material-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +28,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -47,13 +50,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -62,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "travail-session:build"
+            "browserTarget": "material-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "travail-session:build:production"
+              "browserTarget": "material-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "travail-session:build"
+            "browserTarget": "material-form:build"
           }
         },
         "test": {
@@ -88,7 +91,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -111,19 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "travail-session:serve"
+            "devServerTarget": "material-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "travail-session:serve:production"
+              "devServerTarget": "material-form:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "travail-session",
-  "cli": {
-    "analytics": "717a966c-3e74-46ef-b1f3-009899200fc1"
-  }
+  "defaultProject": "material-form"
 }
