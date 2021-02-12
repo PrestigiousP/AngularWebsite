@@ -16,17 +16,17 @@ export class DetailsComponent {
         return [
           { title: 'Informations personnelles', cols: 1, rows: 1 },
           { title: 'Santé et sécurité', cols: 1, rows: 1 },
-          { title: 'Travail et expériences', cols: 1, rows: 1 },
+          { title: 'Travail et expériences', cols: 1, rows: 2 },
           { title: 'Contacts', cols: 1, rows: 1 },
-          { title: 'Données qualitatives', cols: 1, rows: 1}
+          { title: 'Données qualitatives', cols: 1, rows: 2}
         ];
       }
-      return [
-        { title: 'Informations personnelles', cols: 2, rows: 1 },
+        return [
+        { title: 'Informations personnelles', cols: 1, rows: 1 },
         { title: 'Santé et sécurité', cols: 1, rows: 1 },
-        { title: 'Travail et expériences', cols: 1, rows: 2 },
+        { title: 'Travail et expériences', cols: 2, rows: 1 },
         { title: 'Contacts', cols: 1, rows: 1 },
-        { title: 'Données qualitatives', cols: 2, rows: 1}
+        { title: 'Données qualitatives', cols: 2, rows: 2}
       ];
     })
   );
