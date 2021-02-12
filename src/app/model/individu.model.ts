@@ -2,7 +2,6 @@ import {Adresse} from './adresse.model';
 import {Travail} from './travail.model';
 import {Intervenant} from './intervenant.model';
 import {Medecin} from './medecin';
-import {Organisme} from './organisme';
 import {DonneesQualitatives} from './donneesQualitatives';
 import {Contact} from './contact.model';
 
@@ -20,12 +19,12 @@ export interface Individu {
   travail: Travail;
   reference: string; // ami, famille, etc.
   niveauScolarite: 'aucun' | 'secondaire' | 'professionnel' | 'collégial' | 'universitaire';
-  programmeEmployabilite: {dateDebut: string; dateFin: string};
+  programmeEmployabilite: {dateDebut: Date; dateFin: Date};
   motifDepart: string; // choix de réponses ?
   statut: 'clientèle' | 'employé régulier' | 'autre'; // pas sûr de comprendre
   suiviItinerance: {dateDebut: Date; dateFin: Date} | null;
   intervenantResponsable: Intervenant;
   personneRessource: Contact; // devrait-on faire un model pour lui ?
-  suiviPar: Intervenant | Medecin | Organisme;
+  suiviPar: Intervenant | Medecin | 'Autres';
   donnesQualitatives: DonneesQualitatives; // not sure
 }

@@ -1,5 +1,5 @@
 export interface Medecin{
-  genre: 'M' | 'Mme' | 'autre';
+  genre: 'M' | 'F' | 'autre';
   prenom: string;
   nom: string;
   noTel: number;

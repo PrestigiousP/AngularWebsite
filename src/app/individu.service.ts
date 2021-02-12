@@ -2,48 +2,104 @@ import {Injectable, OnInit} from '@angular/core';
 import {Individu} from './model/individu.model';
 import {Adresse} from './model/adresse.model';
 import {Travail} from './model/travail.model';
+import {IntervenantService} from './intervenant.service';
+import {MedecinService} from './medecin.service';
+import {Intervenant} from './model/intervenant.model';
+import {Medecin} from './model/medecin';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IndividuService{
   private listIndividu: Individu[];
-  constructor() {
+  private listIntervenant: Intervenant[];
+  private listMedecin: Medecin[];
+
+  constructor(private interService: IntervenantService, private medecinService: MedecinService) {
+    this.listMedecin = this.medecinService.listeMedecin;
     this.listIndividu = this.mockIndividusData();
+    this.listIntervenant = this.interService.listeIntervenant;
   }
 
-  mockIndividusData(): Individu[] {
-    return[];
-  }
-
-  mockIndividuData(): Individu{
-    return{
-      actif: true,
-      adresse: this.mockAdresseData(),
-      age: 20,
-      donnesQualitatives: undefined,
-      genre: 'M',
-      intervenantResponsable: undefined,
-      motifDepart: '',
-      nas: 0,
-      niveauScolarite: undefined,
-      noTel: 0,
-      nom: '',
-      personneRessource: undefined,
-      prenom: '',
-      programmeEmployabilite: {dateDebut: '', dateFin: ''},
-      reference: '',
-      santeAllergie: '',
-      statut: undefined,
-      suiviItinerance: undefined,
-      suiviPar: undefined,
-      travail: this.mockTravailData()
-    };
+  mockIndividusData(): Individu[]{
+    return[
+      {
+        actif: true,
+        adresse: this.mockAdresseData(),
+        age: 20,
+        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        genre: 'M',
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        motifDepart: 'S/O',
+        nas: 847938625,
+        niveauScolarite: 'secondaire',
+        noTel: 8547940329,
+        nom: 'Turcotte',
+        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
+        prenom: 'Julien',
+        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        reference: 'Ami',
+        santeAllergie: 'Banane',
+        statut: 'clientèle',
+        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        travail: this.mockTravailData()
+      },
+      {
+        actif: true,
+        adresse: this.mockAdresseData(),
+        age: 20,
+        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        genre: 'M',
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        motifDepart: 'S/O',
+        nas: 9348437489,
+        niveauScolarite: 'universitaire',
+        noTel: 8594840329,
+        nom: 'Roy-Ouellet',
+        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
+        prenom: 'Julien',
+        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        reference: 'Ami',
+        santeAllergie: 'Banane',
+        statut: 'clientèle',
+        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        travail: this.mockTravailData()
+      },
+      {
+        actif: true,
+        adresse: this.mockAdresseData(),
+        age: 20,
+        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        genre: 'M',
+        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.listIntervenant.length)],
+        motifDepart: 'S/O',
+        nas: 847938625,
+        niveauScolarite: 'aucun',
+        noTel: 8547940329,
+        nom: 'Dumont',
+        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
+        prenom: 'Tommy',
+        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        reference: 'Ami',
+        santeAllergie: 'Banane',
+        statut: 'clientèle',
+        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
+        suiviPar: this.listMedecin[Math.floor(Math.random() * this.listMedecin.length)],
+        travail: this.mockTravailData()
+      },
+    ];
   }
 
   mockAdresseData(): Adresse{
     return {
-      numCivic : Math.floor(Math.random() * 3000), appartement : 7, codePostal: 'J0C 1M0', rue: '9e Rang', ville: 'Saint-Léonard d\'Aston', typeResidence: 'appartement'
+      numCivic : Math.floor(Math.random() * 3000),
+      appartement : null,
+      codePostal: 'J0C 1M0',
+      rue: '9e Rang',
+      ville: 'Saint-Léonard d\'Aston',
+      typeResidence: 'maison'
     };
   }
 
