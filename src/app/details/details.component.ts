@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Individu} from '../model/individu.model';
 import {ActivatedRoute} from '@angular/router';
 import {IndividuService} from '../individu.service';
-import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
