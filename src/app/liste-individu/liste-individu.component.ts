@@ -8,10 +8,13 @@ import {Individu} from '../model/individu.model';
   styleUrls: ['./liste-individu.component.css']
 })
 export class ListeIndividuComponent implements OnInit {
-  private listIndividu: Individu[];
+
+  listIndividu: Individu[];
+  columnsToDisplay = ['no', 'sexe', 'prenom', 'nom', 'lieuTravail', 'intervenant'];
   constructor(private service: IndividuService) { }
 
   ngOnInit(): void {
+    this.listIndividu = this.service.listeIndividu;
   }
 
 }

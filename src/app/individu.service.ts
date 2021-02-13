@@ -26,6 +26,7 @@ export class IndividuService{
     this.listIndividu = this.mockIndividusData();
   }
 
+  // Créer des individus
   mockIndividusData(): Individu[]{
     return[
       {
@@ -157,5 +158,9 @@ export class IndividuService{
 
   mockRandomDate(): Date{
     return new Date(2020, Math.floor(Math.random() * 13), Math.floor(Math.random() * 29));
+  }
+
+  get listeIndividu(): Individu[]{
+    return this.listIndividu;
   }
 }
