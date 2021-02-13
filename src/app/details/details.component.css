@@ -28,3 +28,8 @@
 p{
   margin: 3px;
 }
+
+#infoPers{
+  overflow:auto;
+  height:80%;
+}

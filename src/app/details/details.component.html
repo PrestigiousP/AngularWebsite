@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Détails de l'individu</h1>
-  <mat-grid-list cols="2" rowHeight="500px">
+  <mat-grid-list cols="2" rowHeight="400px">
 <!--    Tuile dans notre détails-->
     <mat-grid-tile *ngFor="let card of cards| async, let idxCard = index " [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
@@ -17,16 +17,23 @@
 <!--        Contenu de la carte-->
         <mat-card-content class="dashboard-card-content">
 <!--          Informations personnelles-->
-          <div *ngIf="idxCard==0" style="overflow:auto; height:80%;" >
-            <p>Actif</p>
-            <p>Nom : Turcotte</p>
-            <p>Prénom : Julien</p>
-            <p>Date de naissance : julien_turcotte@hotmail.fr</p>
-            <p>Sexe : Male</p>
-            <p>Adresse : 915, 9e rang, Saint-Léonard d'Aston</p>
-            <p>Numéro de téléphone : 819-944-2824</p>
-            <p>NAS : *** *** ***</p>
+          <div *ngIf="idxCard==0" id="infoPers">
+            <h3><b>Informations génériques</b></h3>
+            <p>Nom : {{individu.nom}}</p>
+            <p>Prénom : {{individu.prenom}}</p>
+            <p>Âge: {{individu.age}}</p>
+            <p>Sexe : {{individu.genre}}</p>
+            <h3><b>Adresse</b></h3>
+            <p>Numéro : {{individu.adresse.numCivic}}</p>
+            <p>Rue : {{individu.adresse.rue}}</p>
+            <p>Ville : {{individu.adresse.ville}}</p>
+            <h3><b>Pour contacter</b></h3>
+            <p>Numéro de téléphone : {{individu.noTel}}</p>
+            <img src="assets/img/account-picture.png">
           </div>
+
+
+
           <div *ngIf="idxCard==1" style="overflow:auto; height:80%;" >
             <p>Problèmes de santé / allergies : Aucun</p>
             <h3><b>Suivi par</b></h3>

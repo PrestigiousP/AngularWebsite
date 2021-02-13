@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: '', component: ListeIndividuComponent},
   {path: 'form', component: FormComponent},
   {path: 'details', component: DetailsComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'details/:idx', component: DetailsComponent}
 ];
 
 @NgModule({

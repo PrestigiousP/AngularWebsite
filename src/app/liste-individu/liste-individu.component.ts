@@ -10,7 +10,7 @@ import {Individu} from '../model/individu.model';
 export class ListeIndividuComponent implements OnInit {
 
   listIndividu: Individu[];
-  columnsToDisplay = ['no', 'sexe', 'prenom', 'nom', 'lieuTravail', 'intervenant'];
+  columnsToDisplay = ['no', 'sexe', 'prenom', 'nom', 'lieuTravail', 'intervenant', 'liens'];
   constructor(private service: IndividuService) { }
 
   ngOnInit(): void {
