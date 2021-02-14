@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggle, MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -31,6 +32,7 @@ import {MatButtonToggle, MatButtonToggleModule} from '@angular/material/button-t
     MatFormFieldModule,
     MatInputModule,
     MatButtonToggleModule,
+    MatIconModule,
 
   ],
   providers: [IndividuService],

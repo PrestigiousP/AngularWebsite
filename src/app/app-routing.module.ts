@@ -12,8 +12,7 @@ import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   { path: 'details/:idx',  component: DetailsComponent },
   { path: 'edit/:idx',  component: EditorComponent },
-  { path: '**', component: PageNotFoundComponent }
-  // { path: 'login/', component: LoginComponent }
+  { path: '**', component: PageNotFoundComponent },
 
 
 
