@@ -18,7 +18,7 @@ export class IntervenantService {
         prenom: 'Frédérique',
         nom: 'Poliquin',
         email: 'frederique_poliquin@hotmail.com',
-        numTel: 4836587485,
+        noTel: 4836587485,
         address: this.mockAdresseData(),
         organisme: 'CoeurPetit'
       },
@@ -26,7 +26,7 @@ export class IntervenantService {
         prenom: 'Maxime',
         nom: 'Larivière',
         email: 'maxime_lariviere@hotmail.com',
-        numTel: 8547327695,
+        noTel: 8547327695,
         address: this.mockAdresseData(),
         organisme: 'AdulteUnJour'
       },
@@ -34,7 +34,7 @@ export class IntervenantService {
         prenom: 'Olivier',
         nom: 'Beauchemin',
         email: 'olivier_beauchemin@hotmail.com',
-        numTel: 7590489375,
+        noTel: 7590489375,
         address: this.mockAdresseData(),
         organisme: 'FiabilitéPourTous'
       }

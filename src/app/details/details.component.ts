@@ -20,18 +20,16 @@ export class DetailsComponent implements OnInit {
         if (matches) {
         return [
           { title: 'Informations personnelles', cols: 2, rows: 2 },
-          { title: 'Santé et sécurité', cols: 2, rows: 1 },
+          { title: 'Santé et sécurité', cols: 2, rows: 2 },
           { title: 'Travail et expériences', cols: 2, rows: 2 },
-          { title: 'Contacts', cols: 2, rows: 1 },
           { title: 'Données qualitatives', cols: 2, rows: 2}
         ];
       }
         return [
         { title: 'Informations personnelles', cols: 1, rows: 2 },
-        { title: 'Santé et sécurité', cols: 1, rows: 1 },
-        { title: 'Travail et expériences', cols: 2, rows: 1 },
-        { title: 'Contacts', cols: 1, rows: 1 },
-        { title: 'Données qualitatives', cols: 2, rows: 2}
+        { title: 'Santé et sécurité', cols: 1, rows: 2 },
+        { title: 'Travail et expériences', cols: 1, rows: 2 },
+        { title: 'Données qualitatives', cols: 1, rows: 2}
       ];
     })
   );

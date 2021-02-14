@@ -4,7 +4,7 @@ export interface Intervenant {
   prenom: string;
   nom: string;
   email: string;
-  numTel: number;
+  noTel: number;
   address: Adresse;
   organisme: string;
 }
