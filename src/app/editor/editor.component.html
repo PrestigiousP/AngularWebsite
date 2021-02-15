@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="grid-container">
   <h1 class="mat-h1">Détails de l'individu</h1>
 
@@ -22,19 +21,53 @@
           <div *ngIf="idxCard==0" id="infoPers">
 
             <h3><b>Informations génériques</b></h3>
-            <p >Nom : <input [(ngModel)]="individu.nom"></p>
-            <p >Prénom : <input [(ngModel)]="individu.prenom"></p>
-            <p >Âge: <input [(ngModel)]="individu.age"></p>
-            <p >Sexe : <input [(ngModel)]="individu.genre"></p>
-            <p >Statut : <input [(ngModel)]="individu.statut"></p>
+            <mat-form-field class="nom">
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.nom">
+            </mat-form-field>
+
+            <mat-form-field class="nom">
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Âge</mat-label>
+              <input matInput  [(ngModel)]="individu.age">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Sexe</mat-label>
+              <input matInput  [(ngModel)]="individu.genre">
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label>Statut</mat-label>
+              <input matInput  [(ngModel)]="individu.statut">
+            </mat-form-field>
+
 
             <h3><b>Adresse</b></h3>
-            <p>Numéro civique : <input [(ngModel)]="individu.adresse.numCivic"></p>
-            <p>Rue : <input [(ngModel)]="individu.adresse.rue"></p>
-            <p>Ville : <input [(ngModel)]="individu.adresse.ville"></p>
+            <mat-form-field>
+              <mat-label>Numéro civique</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.numCivic">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Rue</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.rue">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Ville</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.ville">
+            </mat-form-field>
 
             <h3><b>Pour contacter</b></h3>
-            <p>Numéro de téléphone : <input [(ngModel)]=individu.noTel></p>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.noTel">
+            </mat-form-field>
             <!--            Image account-->
             <div class="imgContainer">
               <img src="assets/img/account-picture.png">
@@ -44,30 +77,75 @@
 
 
           <div *ngIf="idxCard==1" style="overflow:auto; height:80%;" >
-            <p>Problèmes de santé / allergies : <input [(ngModel)]="individu.santeAllergie"> </p>
+
+            <mat-form-field >
+              <mat-label>Problèmes de santé / allergies</mat-label>
+              <input matInput  [(ngModel)]="individu.santeAllergie">
+            </mat-form-field>
 
             <h3><b>Suivi par</b></h3>
-            <p>Nom: <input [(ngModel)]="individu.suiviPar.nom"></p>
-            <p>Prénom: <input [(ngModel)]="individu.suiviPar.prenom"></p>
-            <p>Numéro de téléphone: <input [(ngModel)]="individu.suiviPar.noTel"></p>
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.nom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.noTel">
+            </mat-form-field>
 
             <h3><b>Intervenant responsable</b></h3>
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.nom">
+            </mat-form-field>
 
-            <p>Nom: <input [(ngModel)]="individu.intervenantResponsable.nom"></p>
-            <p>Prénom: <input [(ngModel)]="individu.intervenantResponsable.prenom"></p>
-            <p>Organisme: <input [(ngModel)]="individu.intervenantResponsable.organisme"></p>
-            <p>Numéro de téléphone: <input [(ngModel)]="individu.intervenantResponsable.noTel"></p>
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Organisme</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.organisme">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numméro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.noTel">
+            </mat-form-field>
 
             <h3><b>En cas d'urgence</b></h3>
 
-            <p>Nom: <input [(ngModel)]="individu.personneRessource.nom"></p>
-            <p>Prénom: <input [(ngModel)]="individu.personneRessource.prenom"></p>
-            <p>Numéro de téléphone: <input [(ngModel)]="individu.personneRessource.noTel"></p>
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.nom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.noTel">
+            </mat-form-field>
 
           </div>
           <!--          Travail-->
           <div *ngIf="idxCard==2" style="overflow:auto; height:80%;">
             <h3><b>Travail</b></h3>
+
+            <mat-form-field >
+              <mat-label>Lieux de travail</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.lieu">
+            </mat-form-field>
             <p>Lieu de travail : <input [(ngModel)]="individu.travail.lieu"></p>
 
             <mat-form-field appearance="fill">
@@ -83,11 +161,27 @@
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
 
-            <p>Heures/jour : <input [(ngModel)]="individu.travail.heuresTravailJour"> heures</p>
-            <p>Motifs de départ : <input [(ngModel)]="individu.motifDepart"></p>
-            <p>Taux horaire : <input [(ngModel)]="individu.travail.tauxHoraire">$/heures</p>
+            <mat-form-field >
+              <mat-label>Heures/jour</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.heuresTravailJour">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Motifs de départ</mat-label>
+              <input matInput  [(ngModel)]="individu.motifDepart">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Taux horaire</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.tauxHoraire">
+            </mat-form-field>
 
             <h3><b>Scolarité et expériences</b></h3>
+            <mat-form-field >
+              <mat-label>Niveau de scolarité</mat-label>
+              <input matInput  [(ngModel)]="individu.niveauScolarite">
+            </mat-form-field>
+
             <p>Niveau de scolarité : {{individu.niveauScolarite}}
               <mat-form-field appearance="fill">
                 <mat-label>{{individu.niveauScolarite}}</mat-label>
@@ -111,7 +205,12 @@
                 </mat-select>
               </mat-form-field>
             </p>
-            <p>Référence : <input [(ngModel)]="individu.reference"></p>
+
+            <mat-form-field >
+              <mat-label>Référence</mat-label>
+              <input matInput  [(ngModel)]="individu.reference">
+
+            </mat-form-field>
             <p>Participe programme employabilité : {{individu.programmeEmployabilite.dateDebut.toLocaleDateString()}} au
               {{individu.programmeEmployabilite.dateFin.toLocaleDateString()}}</p>
 
@@ -122,6 +221,7 @@
               <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
               <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field>
+
             <mat-form-field appearance="fill">
               <mat-label>Date fin</mat-label>
               <input matInput [matDatepicker]="picker4" [value]="individu.travail.dateFin" [(ngModel)]="individu.programmeEmployabilite.dateFin">
@@ -188,5 +288,4 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-
 

@@ -58,3 +58,7 @@ button{
 mat-form-field {
   width: 90%;
 }
+.nom{
+  width: 50%;
+  padding-right: 50%;
+}

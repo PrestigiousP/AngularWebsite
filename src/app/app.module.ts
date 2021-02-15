@@ -47,6 +47,7 @@ import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavMenuComponent} from './nav-menu/nav-menu.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatPaginatorModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
 
   ],
   providers: [IndividuService],
