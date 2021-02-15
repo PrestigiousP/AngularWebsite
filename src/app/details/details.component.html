@@ -1,16 +1,94 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Détails de l'individu</h1>
+  <mat-grid-list cols="2" rowHeight="500px">
+<!--    Tuile dans notre détails-->
+    <mat-grid-tile *ngFor="let card of cards| async, let idxCard = index " [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon *ngIf="idxCard==0">person</mat-icon>
+            <mat-icon *ngIf="idxCard==1">health_and_safety</mat-icon>
+            <mat-icon *ngIf="idxCard==2">work</mat-icon>
+            <mat-icon *ngIf="idxCard==3">people</mat-icon>
+            <mat-icon *ngIf="idxCard==4">list</mat-icon>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+<!--        Contenu de la carte-->
+        <mat-card-content class="dashboard-card-content">
+<!--          Informations personnelles-->
+          <div *ngIf="idxCard==0" style="overflow:auto; height:80%;" >
+            <p>Actif</p>
+            <p>Nom : Turcotte</p>
+            <p>Prénom : Julien</p>
+            <p>Date de naissance : julien_turcotte@hotmail.fr</p>
+            <p>Sexe : Male</p>
+            <p>Adresse : 915, 9e rang, Saint-Léonard d'Aston</p>
+            <p>Numéro de téléphone : 819-944-2824</p>
+            <p>NAS : *** *** ***</p>
+          </div>
+          <div *ngIf="idxCard==1" style="overflow:auto; height:80%;" >
+            <p>Problèmes de santé / allergies : Aucun</p>
+            <h3><b>Suivi par</b></h3>
+            <p>Dr. Guy Turcotte</p>
+            <p>CIUSS</p>
+            <p>819-944-2824</p>
+          </div>
+<!--          Travail-->
+          <div *ngIf="idxCard==2" style="overflow:auto; height:80%;" >
+            <p>Lieu de travail : Trois-Rivières</p>
+            <p>Date de début : 02 février 2020</p>
+            <p>Date de fin : 10 février 2020</p>
+            <p>Référence : CIUSS</p>
+            <p>Niveau de scolarité : Secondaire</p>
+            <p>Participe programme employabilité : 02 février 2020 au 07 février 2020</p>
+            <p>Motifs de départ : S/O</p>
+            <p>Heures/jour : 8 heures</p>
+            <p>Statut : Client</p>
+            <p>Taux horaire : 15$/heure</p>
+            <p>Travaux communautaires : non</p>
+          </div>
+<!--          Contact-->
+          <div *ngIf="idxCard==3" style="overflow:auto; height:80%;" >
+            <h3><b>Intervenant responsable</b></h3>
+            <p>Tommy Dumont</p>
+            <p>CIUSS</p>
+            <p>819-690-2874</p>
+            <h3><b>En cas d'urgence</b></h3>
+            <p>Philippe Baillargeon</p>
+            <p>CIUSS</p>
+            <p>450-494-2085</p>
+          </div>
+          <div *ngIf="idxCard==4" style="overflow:auto; height:100%;" >
+            <h3>Notes évolutives</h3>
+            <div style="height: 20%;"></div>
+            <h3>Suivi</h3>
+            <div style="height: 20%;"></div>
+            <h3>Objectifs</h3>
+            <div style="height: 20%;"></div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="idxCard<4">
+          <button mat-button><mat-icon>edit</mat-icon>Modifier</button>
+        </mat-card-actions>
+        <mat-card-actions *ngIf="idxCard==4">
+          <button mat-button><mat-icon>add</mat-icon>Ajouter</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<!--<section class="flex-v">-->
+<!--  <h2>Détails sur la personne</h2>-->
+<!--  <div><label>Prénom:</label><span>{{individu.fName}}</span></div>-->
+<!--  <div><label>Nom: </label><span>{{individu.lName}}</span></div>-->
+<!--  <div><label>Sexe: </label><span>{{individu.gender === 'male' ? 'Masculin':'Féminin'}}</span></div>-->
+<!--  <div><label>Numéro d'assurance social: </label><span>{{individu.NAS}}</span></div>-->
+<!--  <div><label>Description:  </label></div>-->
+<!--  <div ><label>Commentaires: </label></div> &lt;!&ndash; ici on affiche les commentaires sur le patient &ndash;&gt;-->
 
-<section class="flex-v">
-  <h2>Détails sur la personne</h2>
-  <div><label>Prénom:</label><span>{{individu.fName}}</span></div>
-  <div><label>Nom: </label><span>{{individu.lName}}</span></div>
-  <div><label>Sexe: </label><span>{{individu.gender === 'male' ? 'Masculin':'Féminin'}}</span></div>
-  <div><label>Numéro d'assurance social: </label><span>{{individu.NAS}}</span></div>
-  <div><label>Description:  </label></div>
-  <div ><label>Commentaires: </label></div> <!-- ici on affiche les commentaires sur le patient -->
-
-  <p class="commentaires"> on mettra l'interpolation ici  </p>
+<!--  <p class="commentaires"> on mettra l'interpolation ici  </p>-->
 
 
 
-</section>
-
+<!--</section>-->

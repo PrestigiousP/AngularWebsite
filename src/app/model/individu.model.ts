@@ -1,32 +1,35 @@
-export class Individu {
+import {Intervenant} from './intervenant.model';
+import {Medecin} from './medecin';
+import {Organisme} from './organisme';
+import {DonneesQualitatives} from './donneesQualitatives';
 
-  fName: string;
-  lName: string;
+export interface Individu {
 
-  gender: 'male'|'female';
-  NAS: string; // il avait **** dans le doc du prof je sais pas pk
-/*
-
-
-
-
-
-  actif: boolean; // vrai = actif
-  email: string;
-  numTel: string;
-  address: string;
-
-  DOB: Date; // comme ca ???
-  // note sur le patient (o	Problèmes de santé/allergies : notes qualitatives )
-  notes: string;
-  //lieu de travail
+  prenom: string;
+  nomFamille: string;
+  genre: 'M' | 'Mme' | 'autre'; // pt à changer
+  age: number;
+  Nas: number; // il avait **** dans le doc du prof je sais pas pk
+  actif: true | false;
+  adresse: string;
+  noTel: number;
+  santeAllergie: string;
   travail: 'Trois-Rivières' | 'Shawinigan' | 'Louiseville'|'St-Tite';
-
-  // début participation
-  dateDL: Date;
-  // fin participation
-  dateF: Date;
-// Référence (CIUSSS (SIV, SI, Autres), Organismes communautaires, Centre local d’emploi, SEMO, Personne elle-même, ami, famille, autres
-  ref: string;
-*/
+  dateDebut: Date;
+  dateFin: Date;
+  reference: string; // ami, famille, etc.
+  residence: 'appartement' | 'famille d\'accueil' | 'logement supervisé' | 'maison' | 'autre';
+  niveauScolarite: 'aucun' | 'secondaire' | 'professionnel' | 'collégial' | 'universitaire';
+  programmeEmployabilite: {dateDebut: string; dateFin: string};
+  motifDepart: string; // choix de réponses ?
+  heuresTravailJour: number;
+  statut: 'clientèle' | 'employé régulier' | 'autre'; // pas sûr de comprendre
+  suiviItinerance: {dateDebut: Date; dateFin: Date} | null;
+  travauxCommunautaires: {dateDebut: Date; dateFin: Date} | null;
+  tauxHoraire: number; // + transport ?
+  transport: number; // Coût de transport ?
+  intervenantResponsable: Intervenant;
+  personneRessource: {prenom: string; nom: string; noTel: number; }; // devrait-on faire un model pour lui ?
+  suiviPar: Intervenant | Medecin | Organisme;
+  donnesQualitatives: DonneesQualitatives; // not sure
 }
