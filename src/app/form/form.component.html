@@ -1,28 +1,27 @@
-<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Formulaire d'enrôlement</mat-card-title>
     </mat-card-header>
     <mat-card-content>
 
-
-     <div class="row">
-       <div class="col">
-         <label>Actif</label>
-         <mat-radio-group aria-label="Select an option">
-           <mat-radio-button value="true">Oui</mat-radio-button>
-           <mat-radio-button value="false">Non</mat-radio-button>
-         </mat-radio-group>
-       </div>
-     </div>
+      <div class="row">
+        <div class="col">
+          <label>Actif</label>
+          <mat-radio-group aria-label="Select an option" formControlName="actif">
+            <mat-radio-button value="1">Oui</mat-radio-button>
+            <mat-radio-button value="2">Non</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col">
           <label>Sexe</label>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="true">Homme</mat-radio-button>
-            <mat-radio-button value="false">Femme</mat-radio-button>
-            <mat-radio-button value="false">Autre</mat-radio-button>
+          <mat-radio-group aria-label="Select an option" formControlName="sexe">
+            <mat-radio-button value="Homme">Homme</mat-radio-button>
+            <mat-radio-button value="Femme">Femme</mat-radio-button>
+            <mat-radio-button value="Autre">Autre</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
@@ -31,13 +30,13 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Prénom</mat-label>
-            <input matInput>
+            <input formControlName="prenom" matInput>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Nom</mat-label>
-            <input matInput>
+            <input formControlName="nom" matInput>
           </mat-form-field>
         </div>
       </div>
@@ -46,18 +45,18 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Date de naissance</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            <input [matDatepicker]="picker" formControlName="dateNaissance" matInput>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker [startAt]="startDate" startView="year"></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <mat-form-field class="mat-form-field-flex" appearance="fill" class="full-width">
+          <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
             <mat-label>Adresse</mat-label>
-            <input matInput>
+            <input formControlName="adresse" matInput>
           </mat-form-field>
         </div>
       </div>
@@ -66,7 +65,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Numéro de téléphone</mat-label>
-            <input matInput type="number">
+            <input formControlName="noTelephone" matInput type="number">
             <mat-icon matSuffix>phone</mat-icon>
             <mat-hint>Entrez seulement des nombres</mat-hint>
           </mat-form-field>
@@ -77,262 +76,363 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>NAS</mat-label>
-            <input matInput type="number">
+            <input formControlName="nas" matInput type="number">
           </mat-form-field>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Problèmes de santé/Allergies</mat-label>
-            <textarea matInput></textarea>
-          </mat-form-field>
+      <div formGroupName="infosAdd">
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Problèmes de santé/Allergies</mat-label>
+              <textarea formControlName="sante" matInput></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Lieu de travail</mat-label>
+              <mat-select formControlName="lieuTravail">
+                <mat-option value="Trois-Rivières">Trois-Rivières</mat-option>
+                <mat-option value="Shawinigan">Shawinigan</mat-option>
+                <mat-option value="Louiseville">Louiseville</mat-option>
+                <mat-option value="St-Tite">St-Tite</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de début</mat-label>
+              <input [matDatepicker]="picker1" formControlName="dateDebutParticipation" matInput>
+              <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker1 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de fin</mat-label>
+              <input [matDatepicker]="picker2" formControlName="dateFinParticipation" matInput>
+              <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker2 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Référence</mat-label>
+              <input formControlName="reference" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Type de résidence</mat-label>
+              <mat-select formControlName="typeResidence">
+                <mat-option value="appartement">Appartement</mat-option>
+                <mat-option value="maison">Maison</mat-option>
+                <mat-option value="logement">Logement suppervisé</mat-option>
+                <mat-option value="familleAccueil">Famille d'accueil</mat-option>
+                <mat-option value="autre">Autre</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Niveau de scolarité</mat-label>
+              <mat-select formControlName="niveauScolarite">
+                <mat-option value="aucun">Aucun</mat-option>
+                <mat-option value="secondaire">Secondaire</mat-option>
+                <mat-option value="professionnel">Professionnel</mat-option>
+                <mat-option value="collegial">Collégial</mat-option>
+                <mat-option value="universitaire">Universitaire</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        Participation à un programme d'employabilité
+
+        <div formGroupName="programmeEmployabilite">
+          <div class="row">
+            <div class="col">
+              <label>Actif</label>
+              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+                <mat-radio-button value="oui">Oui</mat-radio-button>
+                <mat-radio-button value="non">Non</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div *ngIf="form.value.infosAdd.programmeEmployabilite.ouiNon === 'oui'">
+            <div class="row">
+              <div class="col">
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Date de début</mat-label>
+                  <input [matDatepicker]="picker3" formControlName="dateDebut" matInput>
+                  <mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #picker3 [startAt]="startDate" startView="year"></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Date de fin</mat-label>
+                  <input [matDatepicker]="picker4" formControlName="dateFin" matInput>
+                  <mat-datepicker-toggle [for]="picker4" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #picker4 [startAt]="startDate" startView="year"></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Motif de départ</mat-label>
+                  <mat-select formControlName="motifDepart">
+                    <mat-option value="emploi">Emploi</mat-option>
+                    <mat-option value="retourEtudes">Retour aux études</mat-option>
+                    <mat-option value="santeMentale">Problèmes de santé mentale</mat-option>
+                    <mat-option value="santePhysique">Problèmes de santé physique</mat-option>
+                    <mat-option value="Demenagement">Déménagement</mat-option>
+                    <mat-option value="finContrat">Fin de contrat</mat-option>
+                    <mat-option value="deces">Décès</mat-option>
+                    <mat-option value="autre">Autres</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Heures travaillées par jour</mat-label>
+                  <input formControlName="heuresParJour" matInput type="number">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        Je ne comprends pas encore la signification de ce champ
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Statut</mat-label>
+              <mat-select formControlName="statut">
+                <mat-option value="clientele">Clientèle</mat-option>
+                <mat-option value="administrateur">Administration</mat-option>
+                <mat-option value="intervenant">Intervenant</mat-option>
+                <mat-option value="soutient">Soutient</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div formGroupName="itinerance">
+          <div class="row">
+            <div class="col">
+              <label>Suivi en itinérance</label>
+              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+                <mat-radio-button value="oui">Oui</mat-radio-button>
+                <mat-radio-button value="non">Non</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div *ngIf="form.value.infosAdd.itinerance.ouiNon === 'oui'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de début</mat-label>
+                <input [matDatepicker]="picker5" formControlName="dateDebut" matInput>
+                <mat-datepicker-toggle [for]="picker5" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker5 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de fin</mat-label>
+                <input [matDatepicker]="picker6" formControlName="dateFin" matInput>
+                <mat-datepicker-toggle [for]="picker6" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker6 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div formGroupName="travauxCommunautaires">
+          <div class="row">
+            <div class="col">
+              <label>Travaux communautaire</label>
+              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+                <mat-radio-button value="oui">Oui</mat-radio-button>
+                <mat-radio-button value="non">Non</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div *ngIf="form.value.infosAdd.travauxCommunautaires.ouiNon === 'oui'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de début</mat-label>
+                <input [matDatepicker]="picker7" formControlName="dateDebut" matInput>
+                <mat-datepicker-toggle [for]="picker7" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker7 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de fin</mat-label>
+                <input [matDatepicker]="picker8" formControlName="dateFin" matInput>
+                <mat-datepicker-toggle [for]="picker8" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker8 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Taux horaire</mat-label>
+              <input formControlName="tauxHoraire" matInput type="number">
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Prime de transport</mat-label>
+              <input formControlName="primeTransport" matInput type="number">
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!--              PAS ENCORE FINI IL VA FALLOIR AVOIR LA LISTE DES INTERVENANT DANS LE PROGRAMME-->
+        Intervenant Responsable
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-select aria-label="Select an option" formControlName="intervenantResponsable">
+                <mat-option value="Jannie Ducharme">Jannie Ducharme</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        Personne ressource en cas d'urgence
+        <div formGroupName="personneRessource">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Prénom</mat-label>
+                <input formControlName="prenom" matInput>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Nom</mat-label>
+                <input formControlName="nom" matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Lien</mat-label>
+                <input formControlName="lien" matInput type="text">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Numéro de téléphone</mat-label>
+                <input formControlName="noTelephone" matInput type="number">
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Entrez seulement des nombres</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div formGroupName="suiviPar">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-select aria-label="Select an option" formControlName="statut">
+                  <mat-option value="intervenant">Intervenant</mat-option>
+                  <mat-option value="médecin">Médecin</mat-option>
+                  <mat-option value="autre">Autre</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Prénom</mat-label>
+                <input formControlName="prenom" matInput type="text">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Nom</mat-label>
+                <input formControlName="nom" matInput type="text">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Numéro de téléphone</mat-label>
+                <input formControlName="noTelephone" matInput type="number">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div *ngIf="form.value.infosAdd.suiviPar.statut !== 'médecin'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Organisme</mat-label>
+                <input formControlName="organisme" matInput type="text">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div *ngIf="form.value.infosAdd.suiviPar.statut !== 'autre'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>courriel</mat-label>
+                <input formControlName="courriel" matInput type="text">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div *ngIf="form.value.infosAdd.suiviPar.statut === 'médecin'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Fax</mat-label>
+                <input formControlName="fax" matInput type="number">
+              </mat-form-field>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Lieu de travail</mat-label>
-            <mat-select>
-              <mat-option value="one">Trois-Rivières</mat-option>
-              <mat-option value="two">Shawinigan</mat-option>
-              <mat-option value="two">Louiseville</mat-option>
-              <mat-option value="two">St-Tite</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de début</mat-label>
-            <input matInput [matDatepicker]="picker1">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de fin</mat-label>
-            <input matInput [matDatepicker]="picker2">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Référence</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Type de résidence</mat-label>
-            <mat-select>
-              <mat-option value="one">Appartement</mat-option>
-              <mat-option value="two">Maison</mat-option>
-              <mat-option value="two">Logement suppervisé</mat-option>
-              <mat-option value="two">Famille d'accueil</mat-option>
-              <mat-option value="two">Autre ?</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Niveau de scolarité</mat-label>
-            <mat-select>
-              <mat-option value="one">Aucun</mat-option>
-              <mat-option value="two">Secondaire</mat-option>
-              <mat-option value="two">Professionnel</mat-option>
-              <mat-option value="two">Collégial</mat-option>
-              <mat-option value="two">Universitaire</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-      Participation à un programme d'employabilité
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de début</mat-label>
-            <input matInput [matDatepicker]="picker3">
-            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de fin</mat-label>
-            <input matInput [matDatepicker]="picker4">
-            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
-            <mat-datepicker #picker4 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Motif de départ</mat-label>
-            <mat-select>
-              <mat-option value="one">Emploi</mat-option>
-              <mat-option value="two">Retour aux études</mat-option>
-              <mat-option value="two">Problèmes de santé mentale</mat-option>
-              <mat-option value="two">Problèmes de santé physique</mat-option>
-              <mat-option value="two">Déménagement</mat-option>
-              <mat-option value="two">Fin de contrat</mat-option>
-              <mat-option value="two">Décès</mat-option>
-              <mat-option value="two">Autres</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Heures travaillées par jour</mat-label>
-            <input matInput type="number">
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Status</mat-label>
-            <mat-select>
-              <mat-option value="one">Clientèle</mat-option>
-              <mat-option value="two">Administration</mat-option>
-              <mat-option value="two">Intervenant</mat-option>
-              <mat-option value="two">Soutient</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <label>Suivi en itinérance</label>
-          <mat-radio-group aria-label="Select an option"
-          [(ngModel)]="itinerance">
-            <mat-radio-button (click)="test()" value="true">Oui</mat-radio-button>
-            <mat-radio-button value="false">Non</mat-radio-button>
-          </mat-radio-group>
-        </div>
-
-        <div class="col" *ngIf="itinerance">
-          <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Date de début</mat-label>
-          <input matInput [matDatepicker]="picker5">
-          <!--      <input matInput>-->
-          <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
-          <mat-datepicker #picker5 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-
-        <div class="col" *ngIf="itinerance">
-          <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Date de fin</mat-label>
-          <input matInput [matDatepicker]="picker6">
-          <!--      <input matInput>-->
-          <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
-          <mat-datepicker #picker6 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <label>Travaux communautaire</label>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="true">Oui</mat-radio-button>
-            <mat-radio-button value="false">Non</mat-radio-button>
-          </mat-radio-group>
-        </div>
-
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de début</mat-label>
-            <input matInput [matDatepicker]="picker7">
-            <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
-            <mat-datepicker #picker7 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Date de fin</mat-label>
-            <input matInput [matDatepicker]="picker8">
-            <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
-            <mat-datepicker #picker8 startView="year" [startAt]="startDate"></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Taux horaire</mat-label>
-            <input matInput type="number">
-            <mat-icon matSuffix>attach_money</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Frais de transport</mat-label>
-            <input matInput type="number">
-            <mat-icon matSuffix>attach_money</mat-icon>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Intervenant responsable</mat-label>
-            <input matInput type="number">
-          </mat-form-field>
-        </div>
-      </div>
-      Personne ressource en cas d'urgence
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Prénom</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Nom</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Numéro de téléphone</mat-label>
-            <input matInput type="number">
-            <mat-icon matSuffix>phone</mat-icon>
-            <mat-hint>Entrez seulement des nombres</mat-hint>
-          </mat-form-field>
-        </div>
-      </div>
-
-
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button color="primary" mat-raised-button type="submit">Submit</button>
+      <p>
+        {{form.value | json}}
+      </p>
     </mat-card-actions>
   </mat-card>
 </form>
