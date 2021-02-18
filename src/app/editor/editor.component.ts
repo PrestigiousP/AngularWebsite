@@ -20,17 +20,17 @@ export class EditorComponent implements OnInit {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Informations personnelles', cols: 2, rows: 2 },
-          { title: 'Santé et sécurité', cols: 2, rows: 2 },
-          { title: 'Travail et expériences', cols: 2, rows: 2 },
-          { title: 'Données qualitatives', cols: 2, rows: 2}
+          { title: 'Informations personnelles', cols: 2, rows: 3 },
+          { title: 'Santé et sécurité', cols: 2, rows: 3 },
+          { title: 'Travail et expériences', cols: 2, rows: 3 },
+          { title: 'Données qualitatives', cols: 2, rows: 3}
         ];
       }
       return [
-        { title: 'Informations personnelles', cols: 1, rows: 2 },
-        { title: 'Santé et sécurité', cols: 1, rows: 2 },
-        { title: 'Travail et expériences', cols: 1, rows: 2 },
-        { title: 'Données qualitatives', cols: 1, rows: 2}
+        { title: 'Informations personnelles', cols: 1, rows: 3 },
+        { title: 'Santé et sécurité', cols: 1, rows: 3 },
+        { title: 'Travail et expériences', cols: 1, rows: 3 },
+        { title: 'Données qualitatives', cols: 1, rows: 3}
       ];
     })
   );

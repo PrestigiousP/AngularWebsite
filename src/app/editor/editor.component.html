@@ -33,13 +33,21 @@
 
             <mat-form-field >
               <mat-label>Âge</mat-label>
-              <input matInput  [(ngModel)]="individu.age">
+              <input matInput type="number" [(ngModel)]="individu.age">
             </mat-form-field>
 
             <mat-form-field >
               <mat-label>Sexe</mat-label>
               <input matInput  [(ngModel)]="individu.genre">
             </mat-form-field>
+
+<!--            <mat-radio-group aria-label="Select an option" formControlName="sexe">-->
+<!--              <mat-radio-button value="Homme">Homme</mat-radio-button>-->
+<!--              <mat-radio-button value="Femme">Femme</mat-radio-button>-->
+<!--              <mat-radio-button value="Autre">Autre</mat-radio-button>-->
+<!--            </mat-radio-group>-->
+
+
             <mat-form-field >
               <mat-label>Statut</mat-label>
               <input matInput  [(ngModel)]="individu.statut">
@@ -49,7 +57,7 @@
             <h3><b>Adresse</b></h3>
             <mat-form-field>
               <mat-label>Numéro civique</mat-label>
-              <input matInput  [(ngModel)]="individu.adresse.numCivic">
+              <input matInput type="number" [(ngModel)]="individu.adresse.numCivic">
             </mat-form-field>
 
             <mat-form-field >
@@ -66,7 +74,7 @@
 
             <mat-form-field >
               <mat-label>Numéro de téléphone</mat-label>
-              <input matInput  [(ngModel)]="individu.noTel">
+              <input matInput type="number" [(ngModel)]="individu.noTel">
             </mat-form-field>
             <!--            Image account-->
             <div class="imgContainer">
@@ -96,7 +104,7 @@
 
             <mat-form-field >
               <mat-label>Numéro de téléphone</mat-label>
-              <input matInput  [(ngModel)]="individu.suiviPar.noTel">
+              <input matInput type="number"  [(ngModel)]="individu.suiviPar.noTel">
             </mat-form-field>
 
             <h3><b>Intervenant responsable</b></h3>
@@ -117,7 +125,7 @@
 
             <mat-form-field >
               <mat-label>Numméro de téléphone</mat-label>
-              <input matInput  [(ngModel)]="individu.intervenantResponsable.noTel">
+              <input matInput type="number" [(ngModel)]="individu.intervenantResponsable.noTel">
             </mat-form-field>
 
             <h3><b>En cas d'urgence</b></h3>
@@ -134,7 +142,7 @@
 
             <mat-form-field >
               <mat-label>Numéro de téléphone</mat-label>
-              <input matInput  [(ngModel)]="individu.personneRessource.noTel">
+              <input type="number" matInput  [(ngModel)]="individu.personneRessource.noTel">
             </mat-form-field>
 
           </div>
@@ -142,11 +150,21 @@
           <div *ngIf="idxCard==2" style="overflow:auto; height:80%;">
             <h3><b>Travail</b></h3>
 
-            <mat-form-field >
-              <mat-label>Lieux de travail</mat-label>
-              <input matInput  [(ngModel)]="individu.travail.lieu">
+<!--            <mat-form-field >-->
+<!--              <mat-label>Lieux de travail</mat-label>-->
+<!--              <input matInput  [(ngModel)]="individu.travail.lieu">-->
+<!--            </mat-form-field>-->
+<!--            <p>Lieu de travail : <input [(ngModel)]="individu.travail.lieu"></p>-->
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Lieu de travail</mat-label>
+              <mat-select>
+                <mat-option value="Trois-Rivières">Trois-Rivières</mat-option>
+                <mat-option value="Shawinigan">Shawinigan</mat-option>
+                <mat-option value="Louiseville">Louiseville</mat-option>
+                <mat-option value="St-Tite">St-Tite</mat-option>
+              </mat-select>
             </mat-form-field>
-            <p>Lieu de travail : <input [(ngModel)]="individu.travail.lieu"></p>
 
             <mat-form-field appearance="fill">
               <mat-label>Date début</mat-label>
@@ -163,7 +181,7 @@
 
             <mat-form-field >
               <mat-label>Heures/jour</mat-label>
-              <input matInput  [(ngModel)]="individu.travail.heuresTravailJour">
+              <input matInput type="number"  [(ngModel)]="individu.travail.heuresTravailJour">
             </mat-form-field>
 
             <mat-form-field >
@@ -173,7 +191,7 @@
 
             <mat-form-field >
               <mat-label>Taux horaire</mat-label>
-              <input matInput  [(ngModel)]="individu.travail.tauxHoraire">
+              <input matInput type="number" [(ngModel)]="individu.travail.tauxHoraire">
             </mat-form-field>
 
             <h3><b>Scolarité et expériences</b></h3>

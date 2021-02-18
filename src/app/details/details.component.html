@@ -92,7 +92,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button><mat-icon>edit</mat-icon>Modifier</button>
+          <button mat-button [routerLink]="['/edit', index]" routerLinkActive="active"><mat-icon>edit</mat-icon>Modifier</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

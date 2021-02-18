@@ -55,8 +55,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
-import { FormComponent } from './form/form.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+// import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -113,8 +112,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
-
+    AppRoutingModule,
   ],
   providers: [
     IndividuService,

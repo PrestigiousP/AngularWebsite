@@ -4,6 +4,8 @@ import {ListeIndividuComponent} from './liste-individu/liste-individu.component'
 import {FormComponent} from './form/form.component';
 import {DetailsComponent} from './details/details.component';
 import {LoginComponent} from './login/login.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {EditorComponent} from './editor/editor.component';
 
 
 
