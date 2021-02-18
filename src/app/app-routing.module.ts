@@ -16,8 +16,7 @@ const routes: Routes = [
   { path: 'details',  component: DetailsComponent },
   { path: 'edit/:idx',  component: EditorComponent },
   { path: '**', component: PageNotFoundComponent }
-  // { path: 'login/', component: LoginComponent }
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

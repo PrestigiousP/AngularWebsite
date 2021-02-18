@@ -43,7 +43,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -56,11 +55,6 @@ import {MatButtonModule} from '@angular/material/button';
     FormComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatGridListModule,
@@ -104,7 +98,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
+
   ],
   providers: [IndividuService],
   bootstrap: [AppComponent]
