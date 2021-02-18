@@ -32,13 +32,28 @@
             <mat-label>Prénom</mat-label>
             <input formControlName="prenom" matInput>
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('prenom').invalid
+          && (form.get('prenom').dirty
+          || form.get('prenom').touched)">
+            <mat-hint *ngIf="form.get('prenom').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Nom</mat-label>
             <input formControlName="nom" matInput>
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('nom').invalid
+          && (form.get('nom').dirty
+          || form.get('nom').touched)">
+            <mat-hint *ngIf="form.get('nom').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
+
       </div>
 
       <div class="row">
@@ -49,6 +64,13 @@
             <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #picker [startAt]="startDate" startView="year"></mat-datepicker>
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('dateNaissance').invalid
+          && (form.get('dateNaissance').dirty
+          || form.get('dateNaissance').touched)">
+            <mat-hint *ngIf="form.get('dateNaissance').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
       </div>
 
@@ -58,6 +80,13 @@
             <mat-label>Adresse</mat-label>
             <input formControlName="adresse" matInput>
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('adresse').invalid
+          && (form.get('adresse').dirty
+          || form.get('adresse').touched)">
+            <mat-hint *ngIf="form.get('adresse').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
       </div>
 
@@ -67,8 +96,15 @@
             <mat-label>Numéro de téléphone</mat-label>
             <input formControlName="noTelephone" matInput type="number">
             <mat-icon matSuffix>phone</mat-icon>
-            <mat-hint>Entrez seulement des nombres</mat-hint>
+<!--            <mat-hint>Entrez seulement des nombres</mat-hint>-->
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('noTelephone').invalid
+          && (form.get('noTelephone').dirty
+          || form.get('noTelephone').touched)">
+            <mat-hint *ngIf="form.get('noTelephone').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
       </div>
 
@@ -78,6 +114,13 @@
             <mat-label>NAS</mat-label>
             <input formControlName="nas" matInput type="number">
           </mat-form-field>
+          <div class="invalid" *ngIf="form.get('nas').invalid
+          && (form.get('nas').dirty
+          || form.get('nas').touched)">
+            <mat-hint *ngIf="form.get('nas').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
+          </div>
         </div>
       </div>
 
@@ -360,7 +403,7 @@
             </div>
           </div>
         </div>
-
+        Suivi par:
         <div formGroupName="suiviPar">
           <div class="row">
             <div class="col">
@@ -429,10 +472,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button color="primary" mat-raised-button type="submit">Submit</button>
-      <p>
-        {{form.value | json}}
-      </p>
+      <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Submit</button>
     </mat-card-actions>
   </mat-card>
 </form>
