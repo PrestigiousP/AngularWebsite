@@ -55,6 +55,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
+import { FormComponent } from './form/form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -68,11 +70,6 @@ import {MatButtonModule} from '@angular/material/button';
     ListeIndividuComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     LayoutModule,
@@ -115,7 +112,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
+
   ],
   providers: [
     IndividuService,

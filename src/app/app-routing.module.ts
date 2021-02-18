@@ -10,9 +10,11 @@ import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   {path: '', component: ListeIndividuComponent},
   {path: 'form', component: FormComponent},
-  {path: 'details', component: DetailsComponent},
+//   {path: 'details', component: DetailsComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'details/:idx', component: DetailsComponent}
+  {path: 'details/:idx', component: DetailsComponent},
+{ path: 'edit/:idx',  component: EditorComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

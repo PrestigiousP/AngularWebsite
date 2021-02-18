@@ -1,20 +1,268 @@
-<!--<h2>Détails sur la personne</h2>-->
-<!--<div><label>Prénom:</label><span>{{individu.fName}}</span>-->
-<!--  <input type="text" id="fname" name="fname">-->
-<!--</div>-->
-<!-- les inputs sont à modifier pour avoir une grosseur qui resize auto -->
-<!--<div><label>Nom: </label><span>{{individu.nom}}</span></div>-->
-<!--<div><label>Sexe: </label><span>{{individu.genre === 'M' ? 'Homme':'Femme'}}</span></div>-->
-<!--<div><label>Numéro d'assurance social: </label><span>{{individu.nas}}</span></div>-->
-<!--<div><label>Description:  </label></div>-->
-<!--<div ><label>Commentaires: </label></div> &lt;!&ndash; ici on affiche les commentaires sur le patient &ndash;&gt;-->
-<!--<p> <span class="textarea" role="textbox" contenteditable></span> </p>-->
-<!--<p></p>-->
-<!--&lt;!&ndash; les inputs sont à modifier pour avoir ne grosseur qui resize auto &ndash;&gt;-->
-<!--<div><label>Nom: </label><span>{{individu.lName}}</span></div>-->
-<!--<div><label>Sexe: </label><span>{{individu.gender === 'male' ? 'Masculin':'Féminin'}}</span></div>-->
-<!--<div><label>Numéro d'assurance social: </label><span>{{individu.NAS}}</span></div>-->
-<!--<div><label>Description:  </label></div>-->
-<!--<div ><label>Commentaires: </label></div> &lt;!&ndash; ici on affiche les commentaires sur le patient &ndash;&gt;-->
-<!--<p> <span class="textarea" role="textbox" contenteditable></span> </p>-->
-<!--<p></p>-->
+<div class="grid-container">
+  <h1 class="mat-h1">Détails de l'individu</h1>
+
+  <mat-grid-list cols="2" rowHeight="325px">
+    <!--    Tuile dans notre détails-->
+    <mat-grid-tile *ngFor="let card of cards| async, let idxCard = index " [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon *ngIf="idxCard==0">person</mat-icon>
+            <mat-icon *ngIf="idxCard==1">health_and_safety</mat-icon>
+            <mat-icon *ngIf="idxCard==2">work</mat-icon>
+            <mat-icon *ngIf="idxCard==3">people</mat-icon>
+            <mat-icon *ngIf="idxCard==4">list</mat-icon>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <!--        Contenu de la carte-->
+        <mat-card-content class="dashboard-card-content">
+          <!--          Informations personnelles-->
+          <div *ngIf="idxCard==0" id="infoPers">
+
+            <h3><b>Informations génériques</b></h3>
+            <mat-form-field class="nom">
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.nom">
+            </mat-form-field>
+
+            <mat-form-field class="nom">
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Âge</mat-label>
+              <input matInput  [(ngModel)]="individu.age">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Sexe</mat-label>
+              <input matInput  [(ngModel)]="individu.genre">
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label>Statut</mat-label>
+              <input matInput  [(ngModel)]="individu.statut">
+            </mat-form-field>
+
+
+            <h3><b>Adresse</b></h3>
+            <mat-form-field>
+              <mat-label>Numéro civique</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.numCivic">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Rue</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.rue">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Ville</mat-label>
+              <input matInput  [(ngModel)]="individu.adresse.ville">
+            </mat-form-field>
+
+            <h3><b>Pour contacter</b></h3>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.noTel">
+            </mat-form-field>
+            <!--            Image account-->
+            <div class="imgContainer">
+              <img src="assets/img/account-picture.png">
+            </div>
+          </div>
+
+
+
+          <div *ngIf="idxCard==1" style="overflow:auto; height:80%;" >
+
+            <mat-form-field >
+              <mat-label>Problèmes de santé / allergies</mat-label>
+              <input matInput  [(ngModel)]="individu.santeAllergie">
+            </mat-form-field>
+
+            <h3><b>Suivi par</b></h3>
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.nom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.suiviPar.noTel">
+            </mat-form-field>
+
+            <h3><b>Intervenant responsable</b></h3>
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.nom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Organisme</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.organisme">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numméro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.intervenantResponsable.noTel">
+            </mat-form-field>
+
+            <h3><b>En cas d'urgence</b></h3>
+
+            <mat-form-field >
+              <mat-label>Nom</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.nom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Prénom</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.prenom">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Numéro de téléphone</mat-label>
+              <input matInput  [(ngModel)]="individu.personneRessource.noTel">
+            </mat-form-field>
+
+          </div>
+          <!--          Travail-->
+          <div *ngIf="idxCard==2" style="overflow:auto; height:80%;">
+            <h3><b>Travail</b></h3>
+
+            <mat-form-field >
+              <mat-label>Lieux de travail</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.lieu">
+            </mat-form-field>
+            <p>Lieu de travail : <input [(ngModel)]="individu.travail.lieu"></p>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Date début</mat-label>
+              <input matInput [matDatepicker]="picker1" [value]="individu.travail.dateDebut" [(ngModel)]="individu.travail.dateDebut">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Date fin</mat-label>
+              <input matInput [matDatepicker]="picker2" [value]="individu.travail.dateFin" [(ngModel)]="individu.travail.dateFin">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Heures/jour</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.heuresTravailJour">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Motifs de départ</mat-label>
+              <input matInput  [(ngModel)]="individu.motifDepart">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Taux horaire</mat-label>
+              <input matInput  [(ngModel)]="individu.travail.tauxHoraire">
+            </mat-form-field>
+
+            <h3><b>Scolarité et expériences</b></h3>
+
+            <mat-form-field >
+              <mat-label>Niveau de scolarité</mat-label>
+              <input matInput  [(ngModel)]="individu.niveauScolarite">
+            </mat-form-field>
+
+
+            <mat-form-field >
+              <mat-label>Référence</mat-label>
+              <input matInput  [(ngModel)]="individu.reference">
+
+            </mat-form-field>
+            <p>Participe programme employabilité : {{individu.programmeEmployabilite.dateDebut.toLocaleDateString()}} au
+              {{individu.programmeEmployabilite.dateFin.toLocaleDateString()}}</p>
+
+
+            <mat-form-field appearance="fill">
+              <mat-label>Date début</mat-label>
+              <input matInput [matDatepicker]="picker3" [value]="individu.travail.dateDebut" [(ngModel)]="individu.programmeEmployabilite.dateDebut">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Date fin</mat-label>
+              <input matInput [matDatepicker]="picker4" [value]="individu.travail.dateFin" [(ngModel)]="individu.programmeEmployabilite.dateFin">
+              <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+              <mat-datepicker #picker4></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+
+          <div *ngIf="idxCard==3" style="overflow:auto; height:100%;" >
+            <mat-form-field>
+              <mat-label>Font size</mat-label>
+              <mat-select #fontSize value="16px" (selectionChange)="triggerResize()">
+                <mat-option value="10px">10px</mat-option>
+                <mat-option value="12px">12px</mat-option>
+                <mat-option value="14px">14px</mat-option>
+                <mat-option value="16px">16px</mat-option>
+                <mat-option value="18px">18px</mat-option>
+                <mat-option value="20px">20px</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field [style.fontSize]="fontSize.value">
+              <mat-label>Notes évolutives</mat-label>
+              <textarea #fontSize value="16px"
+                        matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="5"
+                        cdkAutosizeMaxRows="20"
+                        [(ngModel)]="individu.donnesQualitatives.notesEvolutives"
+              ></textarea>
+            </mat-form-field>
+
+            <mat-form-field [style.fontSize]="fontSize.value">
+              <mat-label>Suivi</mat-label>
+              <textarea #fontSize value="16px"
+                        matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="5"
+                        cdkAutosizeMaxRows="20"
+                        [(ngModel)]="individu.donnesQualitatives.suivi"
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field [style.fontSize]="fontSize.value">
+              <mat-label>Objectifs</mat-label>
+              <textarea #fontSize value="16px"
+                        matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="5"
+                        cdkAutosizeMaxRows="20"
+                        [(ngModel)]="individu.donnesQualitatives.objectif"
+              ></textarea>
+            </mat-form-field>
+
+          </div>
+        </mat-card-content>
+
+
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
