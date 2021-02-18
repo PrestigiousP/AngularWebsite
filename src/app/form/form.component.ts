@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -10,14 +10,140 @@ export class FormComponent {
   startDate = new Date();
   itinerance = false;
 
-  form = this.fb.group({});
+  form = this.fb.group({
+    actif: ['', Validators.required],
+    prenom: ['', Validators.required],
+    nom: ['', Validators.required],
+    dateNaissance: ['', Validators.required],
+    sexe: ['', Validators.required],
+    adresse: ['', Validators.required],
+    noTelephone: ['', Validators.required, ],
+    nas: ['', Validators.required],
+    infosAdd: this.fb.group({
+      sante: [''],
+      lieuTravail: [''],
+      dateDebutParticipation: [''],
+      dateFinParticipation: [''],
+      reference: [''],
+      typeResidence: [''],
+      niveauScolarite: [''],
+      programmeEmployabilite: this.fb.group({
+        ouiNon: [''],
+        dateDebut: [''],
+        dateFin: [''],
+        motifDepart: [''],
+        heuresParJour: ['']
+      }),
+      statut: [''],
+      itinerance: this.fb.group({
+        ouiNon: [''],
+        dateDebut: [''],
+        dateFin: ['']
+      }),
+      travauxCommunautaires: this.fb.group({
+        ouiNon: [''],
+        dateDebut: [''],
+        dateFin: [''],
+      }),
+      tauxHoraire: [''],
+      primeTransport: [''],
+      intervenantResponsable: [''],
+      personneRessource: this.fb.group({
+        prenom: [''],
+        nom: [''],
+        lien: [''],
+        noTelephone: [''],
+      }),
+      suiviPar: this.fb.group({
+        statut: [''],
+        prenom: [''],
+        nom: [''],
+        noTelephone: [''],
+        organisme: [''],
+        courriel: [''],
+        fax: ['']
+      }),
+    }),
+  });
 
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
+    // console.log(this.form.value.infosAdd.programmeEmployabilite, 'JE VEUX SAVOIR LE TYPE');
+    // tslint:disable-next-line:forin
+    // for (const field in this.form.controls) {
+    //   const control = this.form.get(field);
+    //   if (control.value === '' ||
+    //       control.value === null ||
+    //       control.value === undefined){
+    //     alert('Le champ ' + field + ' est invalide');
+    //     return;
+    //   }
+    // }
+    // if (this.form.value.infosAdd.programmeEmployabilite.ouiNon === 'oui' ||
+    //   this.form.value.infosAdd.itinerance.ouiNon === 'oui') {
+    //   this.form.value.infosAdd.programmeEmployabilite.forEach(field => {
+    //     const control = this.form.get(field);
+    //     if (control.value === '' ||
+    //       control.value === null ||
+    //       control.value === undefined) {
+    //       alert('Le champ ' + field + ' est invalide');
+    //       return;
+    //     }
+    //   });
+    // }
+    // if (this.form.value.infosAdd.itinerance.ouiNon === 'oui') {
+    //     this.form.value.infosAdd.programmeEmployabilite.forEach(field => {
+    //       const control = this.form.get(field);
+    //       if (control.value === '' ||
+    //         control.value === null ||
+    //         control.value === undefined) {
+    //         alert('Le champ ' + field + ' est invalide');
+    //         return;
+    //       }
+    //     });
+    //   }
+    this.checkFormControls(this.form, 0);
+    this.checkFormControls(this.form.value.infosAdd.programmeEmployabilite, 1);
+    this.checkFormControls(this.form.value.infosAdd.itinerance, 1);
+    this.checkFormControls(this.form.value.infosAdd.travauxCommunautaires, 1);
+    this.checkFormControls(this.form.value.infosAdd.personneRessource, 1);
+    this.checkFormControls(this.form.value.infosAdd.suiviPar, 1);
     alert('Thanks!');
   }
-  test(): void {
-    console.log(this.itinerance);
+
+  checkFormControls(form: FormGroup, i: number): void {
+    if (i === 0) {
+      // tslint:disable-next-line:forin
+      for (const field in form.controls) {
+        const control = this.form.get(field);
+        if (control.value === '' ||
+          control.value === null ||
+          control.value === undefined) {
+          alert('Le champ ' + field + ' est invalide');
+          return;
+        }
+      }
+    }
+    else
+      {
+        // console.log(typeof form);
+        // // tslint:disable-next-line:forin
+        // for (const field in form.controls) {
+        //   console.log(form);
+        //   const control = this.form.get(field);
+        //   console.log(control.value);
+        //   if (control.value === '' ||
+        //     control.value === null ||
+        //     control.value === undefined) {
+        //     alert('Le champ ' + field + ' est invalide');
+        //     return;
+        //   }
+        // }
+
+      }
+  }
+  test(e: any): void {
+    console.log(e);
   }
 }
