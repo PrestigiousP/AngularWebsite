@@ -1,0 +1,59 @@
+
+<section>
+  <h2>Liste des individus</h2>
+  <table mat-table [dataSource]="listIndividu">
+
+    <ng-container matColumnDef="sexe">
+      <mat-header-cell *matHeaderCellDef> Sexe </mat-header-cell>
+      <mat-cell *matCellDef="let individu">
+        <mat-icon *ngIf="individu.genre=='M'">male</mat-icon>
+        <mat-icon *ngIf="individu.genre=='F'">female</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <mat-header-cell *matHeaderCellDef> Prénom </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let individu"> {{individu.prenom}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="no">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let idx=index"> {{idx}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nom">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let individu"> {{individu.nom}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="intervenant">
+      <mat-header-cell *matHeaderCellDef> Intervenant </mat-header-cell>
+      <mat-cell *matCellDef="let individu"> {{individu.intervenantResponsable.prenom}} {{individu.intervenantResponsable.nom}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lieuTravail">
+      <mat-header-cell *matHeaderCellDef> Lieu de travail </mat-header-cell>
+      <mat-cell *matCellDef="let individu"> {{individu.travail.lieu}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="liens">
+      <mat-header-cell *matHeaderCellDef> Liens </mat-header-cell>
+      <mat-cell *matCellDef="let individu; let idx = index">
+        <button mat-icon-button color="primary" aria-label="Afficher les détails de l'individu" [routerLink]="['/details', idx]" routerLinkActive="active">
+          <mat-icon>article</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" aria-label="Modifier l'individu">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let myRowData; let idx = index; columns: columnsToDisplay">
+    </mat-row>
+  </table>
+</section>
+
+

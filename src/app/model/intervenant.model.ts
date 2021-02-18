@@ -1,7 +1,10 @@
+import {Adresse} from './adresse.model';
+
 export interface Intervenant {
-  fName: string;
-  lName: string;
+  prenom: string;
+  nom: string;
   email: string;
-  numTel: string;
-  address: string;
+  noTel: number;
+  address: Adresse;
+  organisme: string;
 }
