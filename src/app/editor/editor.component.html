@@ -177,34 +177,12 @@
             </mat-form-field>
 
             <h3><b>Scolarité et expériences</b></h3>
+
             <mat-form-field >
               <mat-label>Niveau de scolarité</mat-label>
               <input matInput  [(ngModel)]="individu.niveauScolarite">
             </mat-form-field>
 
-            <p>Niveau de scolarité : {{individu.niveauScolarite}}
-              <mat-form-field appearance="fill">
-                <mat-label>{{individu.niveauScolarite}}</mat-label>
-                <mat-select [(ngModel)]="individu.niveauScolarite">
-                  <mat-option [ngValue]="a">
-                    Aucun
-                  </mat-option>
-                  <mat-option [ngValue]="b">
-                    secondaire
-                  </mat-option>
-                  <mat-option [ngValue]="c">
-                    professionnel
-                  </mat-option>
-                  <mat-option [ngValue]="d">
-                    collégial
-                  </mat-option>
-                  <mat-option [ngValue]="e">
-                    universitaire
-                  </mat-option>
-
-                </mat-select>
-              </mat-form-field>
-            </p>
 
             <mat-form-field >
               <mat-label>Référence</mat-label>
