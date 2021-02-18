@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { EditorComponent } from './editor/editor.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 import { LoginComponent } from './login/login.component';
-
-
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -45,10 +43,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NavMenuComponent} from './nav-menu/nav-menu.component';
-import {LayoutModule} from '@angular/cdk/layout';
-import {RouterModule} from '@angular/router';
-
 
 @NgModule({
   declarations: [

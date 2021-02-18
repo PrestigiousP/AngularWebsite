@@ -5,11 +5,15 @@ import {EditorComponent} from './editor/editor.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginComponent} from './login/login.component';
 import {FormComponent} from './form/form.component';
+// import {AppComponent} from "./app.component";
 
 
 const routes: Routes = [
-  { path: '', component: FormComponent}, // Seulement à titre de test
-  { path: 'details/:idx',  component: DetailsComponent },
+  // { path: '', component: DetailsComponent}, // Seulement à titre de test
+  { path: '', component: LoginComponent}, // Seulement à titre de test
+  // { path: '', component: DetailsComponent}, // Seulement à titre de test
+  { path: 'form', component: FormComponent}, // Seulement à titre de test
+  { path: 'details',  component: DetailsComponent },
   { path: 'edit/:idx',  component: EditorComponent },
   { path: '**', component: PageNotFoundComponent }
   ];
