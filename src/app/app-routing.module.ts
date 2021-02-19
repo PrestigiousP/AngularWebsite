@@ -6,17 +6,24 @@ import {DetailsComponent} from './details/details.component';
 import {LoginComponent} from './login/login.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {EditorComponent} from './editor/editor.component';
+import {AuthAccessGuard} from './auth-access.guard';
+import {NavMenuComponent} from './nav-menu/nav-menu.component';
+import {AppComponent} from './app.component';
 
 
 
 const routes: Routes = [
-  {path: '', component: ListeIndividuComponent},
-  {path: 'form', component: FormComponent},
-//   {path: 'details', component: DetailsComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'details/:idx', component: DetailsComponent},
-{ path: 'edit/:idx',  component: EditorComponent },
-  { path: '**', component: PageNotFoundComponent }
+  // {path: 'auth', component: LoggedInComponent, canActivate: [AuthAccessGuard]},
+  // {path: 'home', component: LoggedInComponent},
+  // {path: 'home', component: NavMenuComponent},
+  {path: 'list', component: ListeIndividuComponent, canActivate: [AuthAccessGuard]},
+  // {path: '', component: ListeIndividuComponent},
+  {path: 'form', component: FormComponent, canActivate: [AuthAccessGuard]},
+  {path: '', component: AppComponent},
+  // {path: 'details/:idx', component: DetailsComponent},
+  {path: 'details', component: DetailsComponent, canActivate: [AuthAccessGuard]},
+  { path: 'edit/:idx',  component: EditorComponent, canActivate: [AuthAccessGuard]},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

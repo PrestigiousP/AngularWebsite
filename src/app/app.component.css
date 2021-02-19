@@ -6,7 +6,6 @@ nav{
   margin-left:auto;
 }
 
-
 ol>li{
   padding-left: 10px;
   padding-right: 10px;
@@ -31,16 +30,71 @@ ol>li:active{
   color: brown;
 }
 
-
-
-
-
 .example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
 
 .example-right-align {
   text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+/*css original ci-dessus*/
+
+mat-form-field {
+  width: 7cm;
+
+}
+
+.example-right-align {
+  text-align: right;
+}
+.background{
+  height: 100%;
+  width: 100%;
+  background-color: #4d87e3;
+
+}
+div>h1{
+  padding-top: 15px;
+}
+
+.login{
+  /*margin: auto;*/
+  /*width: 30%;*/
+  /*border-radius: 15px;*/
+  /*top: 50%;*/
+  /*transform: translateY(60%);*/
+
+
+  position: absolute;
+  margin: auto;
+  top: 25%;
+  left: 35%;
+  width: 10cm;
+  background-color: #f0f3f6;
+  padding: 10px;
+  border-radius: 25px;
+
+}
+mat-button-toggle{
+  margin-bottom: 15px;
+}
+
+.login>div{
+  display:flex;
+  padding-left: 1.6cm;
+}
+.login>h1{
+  text-align: center;
 }
 
 input.example-right-align::-webkit-outer-spin-button,

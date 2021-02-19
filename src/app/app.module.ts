@@ -55,6 +55,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthAccessGuard} from './auth-access.guard';
 // import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -117,7 +118,8 @@ import {MatButtonModule} from '@angular/material/button';
   providers: [
     IndividuService,
     IntervenantService,
-    MedecinService
+    MedecinService,
+    AuthAccessGuard
   ],
   bootstrap: [AppComponent]
 })

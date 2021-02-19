@@ -1,2 +1,28 @@
-<app-nav-menu></app-nav-menu>
+<!--<app-nav-menu></app-nav-menu>-->
+<!--<app-login></app-login>-->
+<div *ngIf="hide" class="background">
+  <div class="login" >
+    <h1>Authentification</h1>
+    <div class="username">
+      <mat-form-field appearance="fill">
+        <mat-label>Entrez votre nom d'utilisateur</mat-label>
+        <input matInput [(ngModel)]="loginUserData.username">
+      </mat-form-field>
+    </div>
 
+    <div class="password">
+      <mat-form-field appearance="fill">
+        <mat-label>Entrez votre mot de passe</mat-label>
+        <input matInput [type]="hideText ? 'password' : 'text'" [(ngModel)]="loginUserData.password">
+      </mat-form-field>
+
+    </div>
+    <div>
+      <!--      <mat-button-toggle (click)="loginUser()" [routerLink]="['/auth']" routerLinkActive="active">Connexion</mat-button-toggle>-->
+      <mat-button-toggle (click)="loginUser()" [routerLink]="['/list']" routerLinkActive="active">Connexion</mat-button-toggle>
+    </div>
+  </div>
+</div>
+
+<app-nav-menu *ngIf="!hide"></app-nav-menu>
+<!--<router-outlet></router-outlet>-->

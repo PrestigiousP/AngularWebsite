@@ -6,15 +6,36 @@ mat-form-field {
 .example-right-align {
   text-align: right;
 }
+.background{
+  height: 100%;
+  width: 100%;
+  background-color: #4d87e3;
+
+}
+div>h1{
+  padding-top: 15px;
+}
 
 .login{
+  /*margin: auto;*/
+  /*width: 30%;*/
+  /*border-radius: 15px;*/
+  /*top: 50%;*/
+  /*transform: translateY(60%);*/
+
+
   position: absolute;
-  top: 40%;
-  left: 40%;
+  margin: auto;
+  top: 25%;
+  left: 35%;
   width: 10cm;
   background-color: #f0f3f6;
   padding: 10px;
   border-radius: 25px;
+
+}
+mat-button-toggle{
+  margin-bottom: 15px;
 }
 
 .login>div{
