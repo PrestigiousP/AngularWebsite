@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {ListeIndividuComponent} from './liste-individu/liste-individu.component';
 import {FormComponent} from './form/form.component';
 import {DetailsComponent} from './details/details.component';
-import {LoginComponent} from './login/login.component';
+// import {LoginComponent} from './login/login.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {EditorComponent} from './editor/editor.component';
-import {AuthAccessGuard} from './auth-access.guard';
+import {AuthAccessGuard} from './login/auth-access.guard';
 import {NavMenuComponent} from './nav-menu/nav-menu.component';
 import {AppComponent} from './app.component';
 

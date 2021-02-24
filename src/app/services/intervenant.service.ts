@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Intervenant} from './model/intervenant.model';
-import {Adresse} from './model/adresse.model';
+import {Intervenant} from '../model/intervenant.model';
+import {Adresse} from '../model/adresse.model';
 
 @Injectable({
   providedIn: 'root'

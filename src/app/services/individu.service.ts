@@ -1,11 +1,11 @@
 import {Injectable, OnInit} from '@angular/core';
-import {Individu} from './model/individu.model';
-import {Adresse} from './model/adresse.model';
-import {Travail} from './model/travail.model';
+import {Individu} from '../model/individu.model';
+import {Adresse} from '../model/adresse.model';
+import {Travail} from '../model/travail.model';
 import {IntervenantService} from './intervenant.service';
 import {MedecinService} from './medecin.service';
-import {Intervenant} from './model/intervenant.model';
-import {Medecin} from './model/medecin';
+import {Intervenant} from '../model/intervenant.model';
+import {Medecin} from '../model/medecin';
 
 @Injectable({
   providedIn: 'root'
