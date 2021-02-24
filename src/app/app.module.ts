@@ -4,16 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 // Les services
-import {IntervenantService} from './intervenant.service';
-import {MedecinService} from './medecin.service';
-import {IndividuService} from './individu.service';
+import {IntervenantService} from './services/intervenant.service';
+import {MedecinService} from './services/medecin.service';
+import {IndividuService} from './services/individu.service';
 
 // Composants dans notre service
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { EditorComponent } from './editor/editor.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ListeIndividuComponent } from './liste-individu/liste-individu.component';
 import { FormComponent } from './form/form.component';
@@ -55,7 +54,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
-import {AuthAccessGuard} from './auth-access.guard';
+import {AuthAccessGuard} from './login/auth-access.guard';
 // import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -64,7 +63,6 @@ import {AuthAccessGuard} from './auth-access.guard';
     DetailsComponent,
     EditorComponent,
     PageNotFoundComponent,
-    LoginComponent,
     NavMenuComponent,
     FormComponent,
     ListeIndividuComponent

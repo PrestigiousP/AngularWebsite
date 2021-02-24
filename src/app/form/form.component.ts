@@ -69,40 +69,6 @@ export class FormComponent {
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    // console.log(this.form.value.infosAdd.programmeEmployabilite, 'JE VEUX SAVOIR LE TYPE');
-    // tslint:disable-next-line:forin
-    // for (const field in this.form.controls) {
-    //   const control = this.form.get(field);
-    //   if (control.value === '' ||
-    //       control.value === null ||
-    //       control.value === undefined){
-    //     alert('Le champ ' + field + ' est invalide');
-    //     return;
-    //   }
-    // }
-    // if (this.form.value.infosAdd.programmeEmployabilite.ouiNon === 'oui' ||
-    //   this.form.value.infosAdd.itinerance.ouiNon === 'oui') {
-    //   this.form.value.infosAdd.programmeEmployabilite.forEach(field => {
-    //     const control = this.form.get(field);
-    //     if (control.value === '' ||
-    //       control.value === null ||
-    //       control.value === undefined) {
-    //       alert('Le champ ' + field + ' est invalide');
-    //       return;
-    //     }
-    //   });
-    // }
-    // if (this.form.value.infosAdd.itinerance.ouiNon === 'oui') {
-    //     this.form.value.infosAdd.programmeEmployabilite.forEach(field => {
-    //       const control = this.form.get(field);
-    //       if (control.value === '' ||
-    //         control.value === null ||
-    //         control.value === undefined) {
-    //         alert('Le champ ' + field + ' est invalide');
-    //         return;
-    //       }
-    //     });
-    //   }
     this.checkFormControls(this.form, 0);
     this.checkFormControls(this.form.value.infosAdd.programmeEmployabilite, 1);
     this.checkFormControls(this.form.value.infosAdd.itinerance, 1);
@@ -125,23 +91,6 @@ export class FormComponent {
         }
       }
     }
-    else
-      {
-        // console.log(typeof form);
-        // // tslint:disable-next-line:forin
-        // for (const field in form.controls) {
-        //   console.log(form);
-        //   const control = this.form.get(field);
-        //   console.log(control.value);
-        //   if (control.value === '' ||
-        //     control.value === null ||
-        //     control.value === undefined) {
-        //     alert('Le champ ' + field + ' est invalide');
-        //     return;
-        //   }
-        // }
-
-      }
   }
   test(e: any): void {
     console.log(e);
