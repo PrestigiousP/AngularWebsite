@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'form', component: FormComponent, canActivate: [AuthAccessGuard]},
   {path: '', component: AppComponent},
   // {path: 'details/:idx', component: DetailsComponent},
-  {path: 'details', component: DetailsComponent, canActivate: [AuthAccessGuard]},
+  {path: 'details/:idx', component: DetailsComponent, canActivate: [AuthAccessGuard]},
   { path: 'edit/:idx',  component: EditorComponent, canActivate: [AuthAccessGuard]},
   { path: '**', component: PageNotFoundComponent}
 ];
