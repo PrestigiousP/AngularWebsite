@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -6,9 +6,8 @@ import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
   startDate = new Date();
-  itinerance = false;
 
   form = this.fb.group({
     actif: ['', Validators.required],
@@ -17,82 +16,71 @@ export class FormComponent {
     dateNaissance: ['', Validators.required],
     sexe: ['', Validators.required],
     adresse: ['', Validators.required],
-    noTelephone: ['', Validators.required, ],
+    noTelephone: ['', Validators.required],
     nas: ['', Validators.required],
-    infosAdd: this.fb.group({
-      sante: [''],
-      lieuTravail: [''],
-      dateDebutParticipation: [''],
-      dateFinParticipation: [''],
+    travail: this.fb.group({
+      lieu: [''],
+      heuresParJour: ['', Validators.required],
+      dateDebut: ['', Validators.required],
+      dateFin: [''],
       reference: [''],
-      typeResidence: [''],
-      niveauScolarite: [''],
-      programmeEmployabilite: this.fb.group({
-        ouiNon: [''],
-        dateDebut: [''],
-        dateFin: [''],
-        motifDepart: [''],
-        heuresParJour: ['']
-      }),
-      statut: [''],
-      itinerance: this.fb.group({
-        ouiNon: [''],
-        dateDebut: [''],
-        dateFin: ['']
-      }),
-      travauxCommunautaires: this.fb.group({
-        ouiNon: [''],
-        dateDebut: [''],
-        dateFin: [''],
-      }),
-      tauxHoraire: [''],
+      motifDepart: [''],
+      tauxHoraire: ['', Validators.required],
       primeTransport: [''],
       intervenantResponsable: [''],
-      personneRessource: this.fb.group({
-        prenom: [''],
-        nom: [''],
-        lien: [''],
-        noTelephone: [''],
-      }),
-      suiviPar: this.fb.group({
-        statut: [''],
-        prenom: [''],
-        nom: [''],
-        noTelephone: [''],
-        organisme: [''],
-        courriel: [''],
-        fax: ['']
-      }),
     }),
+    infosAdd: this.fb.group({
+      sante: [''],
+      typeResidence: [''],
+      niveauScolarite: [''],
+      statut: ['']
+    }),
+    programmeEmployabilite: this.fb.group({
+      ouiNon: [''],
+      dateDebut: [''],
+      dateFin: [''],
+    }),
+    itinerance: this.fb.group({
+      ouiNon: [''],
+      dateDebut: [''],
+      dateFin: ['']
+    }),
+    travauxCommunautaires: this.fb.group({
+      ouiNon: [''],
+      dateDebut: [''],
+      dateFin: [''],
+    }),
+    personneRessource: this.fb.group({
+      prenom: [''],
+      nom: [''],
+      lien: [''],
+      noTelephone: [''],
+    }),
+    suiviPar: this.fb.group({
+      statut: [''],
+      prenom: [''],
+      nom: [''],
+      noTelephone: [''],
+      organisme: [''],
+      courriel: [''],
+      fax: ['']
+    }),
+    notes: this.fb.group({
+      notesEvolutives: [''],
+      suivi: [''],
+      objectif: ['']
+    })
   });
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit(): void {
-    this.checkFormControls(this.form, 0);
-    this.checkFormControls(this.form.value.infosAdd.programmeEmployabilite, 1);
-    this.checkFormControls(this.form.value.infosAdd.itinerance, 1);
-    this.checkFormControls(this.form.value.infosAdd.travauxCommunautaires, 1);
-    this.checkFormControls(this.form.value.infosAdd.personneRessource, 1);
-    this.checkFormControls(this.form.value.infosAdd.suiviPar, 1);
-    alert('Thanks!');
+  ngOnInit(): void {
+    // this.form = this.indForm.getForm();
   }
 
-  checkFormControls(form: FormGroup, i: number): void {
-    if (i === 0) {
-      // tslint:disable-next-line:forin
-      for (const field in form.controls) {
-        const control = this.form.get(field);
-        if (control.value === '' ||
-          control.value === null ||
-          control.value === undefined) {
-          alert('Le champ ' + field + ' est invalide');
-          return;
-        }
-      }
-    }
-  }
-  test(e: any): void {
-    console.log(e);
+  onSubmit(): void {
+    alert('Thanks!');
+    // httpclient (get)
+    // send to the individu service
   }
 }

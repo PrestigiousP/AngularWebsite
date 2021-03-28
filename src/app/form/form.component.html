@@ -96,7 +96,7 @@
             <mat-label>Numéro de téléphone</mat-label>
             <input formControlName="noTelephone" matInput type="number">
             <mat-icon matSuffix>phone</mat-icon>
-<!--            <mat-hint>Entrez seulement des nombres</mat-hint>-->
+            <!--            <mat-hint>Entrez seulement des nombres</mat-hint>-->
           </mat-form-field>
           <div class="invalid" *ngIf="form.get('noTelephone').invalid
           && (form.get('noTelephone').dirty
@@ -125,7 +125,6 @@
       </div>
 
       <div formGroupName="infosAdd">
-
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -134,49 +133,6 @@
             </mat-form-field>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Lieu de travail</mat-label>
-              <mat-select formControlName="lieuTravail">
-                <mat-option value="Trois-Rivières">Trois-Rivières</mat-option>
-                <mat-option value="Shawinigan">Shawinigan</mat-option>
-                <mat-option value="Louiseville">Louiseville</mat-option>
-                <mat-option value="St-Tite">St-Tite</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Date de début</mat-label>
-              <input [matDatepicker]="picker1" formControlName="dateDebutParticipation" matInput>
-              <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #picker1 [startAt]="startDate" startView="year"></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Date de fin</mat-label>
-              <input [matDatepicker]="picker2" formControlName="dateFinParticipation" matInput>
-              <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #picker2 [startAt]="startDate" startView="year"></mat-datepicker>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Référence</mat-label>
-              <input formControlName="reference" matInput>
-            </mat-form-field>
-          </div>
-        </div>
-
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -191,7 +147,6 @@
             </mat-form-field>
           </div>
         </div>
-
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -206,64 +161,6 @@
             </mat-form-field>
           </div>
         </div>
-
-        Participation à un programme d'employabilité
-
-        <div formGroupName="programmeEmployabilite">
-          <div class="row">
-            <div class="col">
-              <label>Actif</label>
-              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
-                <mat-radio-button value="oui">Oui</mat-radio-button>
-                <mat-radio-button value="non">Non</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div *ngIf="form.value.infosAdd.programmeEmployabilite.ouiNon === 'oui'">
-            <div class="row">
-              <div class="col">
-                <mat-form-field appearance="fill" class="full-width">
-                  <mat-label>Date de début</mat-label>
-                  <input [matDatepicker]="picker3" formControlName="dateDebut" matInput>
-                  <mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
-                  <mat-datepicker #picker3 [startAt]="startDate" startView="year"></mat-datepicker>
-                </mat-form-field>
-              </div>
-              <div class="col">
-                <mat-form-field appearance="fill" class="full-width">
-                  <mat-label>Date de fin</mat-label>
-                  <input [matDatepicker]="picker4" formControlName="dateFin" matInput>
-                  <mat-datepicker-toggle [for]="picker4" matSuffix></mat-datepicker-toggle>
-                  <mat-datepicker #picker4 [startAt]="startDate" startView="year"></mat-datepicker>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <mat-form-field appearance="fill" class="full-width">
-                  <mat-label>Motif de départ</mat-label>
-                  <mat-select formControlName="motifDepart">
-                    <mat-option value="emploi">Emploi</mat-option>
-                    <mat-option value="retourEtudes">Retour aux études</mat-option>
-                    <mat-option value="santeMentale">Problèmes de santé mentale</mat-option>
-                    <mat-option value="santePhysique">Problèmes de santé physique</mat-option>
-                    <mat-option value="Demenagement">Déménagement</mat-option>
-                    <mat-option value="finContrat">Fin de contrat</mat-option>
-                    <mat-option value="deces">Décès</mat-option>
-                    <mat-option value="autre">Autres</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div class="col">
-                <mat-form-field appearance="fill" class="full-width">
-                  <mat-label>Heures travaillées par jour</mat-label>
-                  <input formControlName="heuresParJour" matInput type="number">
-                </mat-form-field>
-              </div>
-            </div>
-          </div>
-        </div>
-
         Je ne comprends pas encore la signification de ce champ
         <div class="row">
           <div class="col">
@@ -278,66 +175,71 @@
             </mat-form-field>
           </div>
         </div>
+      </div>
 
-        <div formGroupName="itinerance">
-          <div class="row">
-            <div class="col">
-              <label>Suivi en itinérance</label>
-              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
-                <mat-radio-button value="oui">Oui</mat-radio-button>
-                <mat-radio-button value="non">Non</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div *ngIf="form.value.infosAdd.itinerance.ouiNon === 'oui'" class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Date de début</mat-label>
-                <input [matDatepicker]="picker5" formControlName="dateDebut" matInput>
-                <mat-datepicker-toggle [for]="picker5" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #picker5 [startAt]="startDate" startView="year"></mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Date de fin</mat-label>
-                <input [matDatepicker]="picker6" formControlName="dateFin" matInput>
-                <mat-datepicker-toggle [for]="picker6" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #picker6 [startAt]="startDate" startView="year"></mat-datepicker>
-              </mat-form-field>
-            </div>
+      <div formGroupName="travail">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Lieu de travail</mat-label>
+              <mat-select formControlName="lieu">
+                <mat-option value="Trois-Rivières">Trois-Rivières</mat-option>
+                <mat-option value="Shawinigan">Shawinigan</mat-option>
+                <mat-option value="Louiseville">Louiseville</mat-option>
+                <mat-option value="St-Tite">St-Tite</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
-        <div formGroupName="travauxCommunautaires">
-          <div class="row">
-            <div class="col">
-              <label>Travaux communautaire</label>
-              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
-                <mat-radio-button value="oui">Oui</mat-radio-button>
-                <mat-radio-button value="non">Non</mat-radio-button>
-              </mat-radio-group>
-            </div>
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Heures de travail par jour</mat-label>
+            <input formControlName="heuresParJour" matInput type="number">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de début</mat-label>
+              <input [matDatepicker]="picker1" formControlName="dateDebut" matInput>
+              <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker1 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
           </div>
-          <div *ngIf="form.value.infosAdd.travauxCommunautaires.ouiNon === 'oui'" class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Date de début</mat-label>
-                <input [matDatepicker]="picker7" formControlName="dateDebut" matInput>
-                <mat-datepicker-toggle [for]="picker7" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #picker7 [startAt]="startDate" startView="year"></mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Date de fin</mat-label>
-                <input [matDatepicker]="picker8" formControlName="dateFin" matInput>
-                <mat-datepicker-toggle [for]="picker8" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #picker8 [startAt]="startDate" startView="year"></mat-datepicker>
-              </mat-form-field>
-            </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de fin</mat-label>
+              <input [matDatepicker]="picker2" formControlName="dateFin" matInput>
+              <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker2 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Référence</mat-label>
+              <input formControlName="reference" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Motif de départ</mat-label>
+              <mat-select formControlName="motifDepart">
+                <mat-option value="emploi">Emploi</mat-option>
+                <mat-option value="retourEtudes">Retour aux études</mat-option>
+                <mat-option value="santeMentale">Problèmes de santé mentale</mat-option>
+                <mat-option value="santePhysique">Problèmes de santé physique</mat-option>
+                <mat-option value="Demenagement">Déménagement</mat-option>
+                <mat-option value="finContrat">Fin de contrat</mat-option>
+                <mat-option value="deces">Décès</mat-option>
+                <mat-option value="autre">Autres</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -356,8 +258,6 @@
             </mat-form-field>
           </div>
         </div>
-
-        <!--              PAS ENCORE FINI IL VA FALLOIR AVOIR LA LISTE DES INTERVENANT DANS LE PROGRAMME-->
         Intervenant Responsable
         <div class="row">
           <div class="col">
@@ -368,107 +268,227 @@
             </mat-form-field>
           </div>
         </div>
+      </div>
 
-
-        Personne ressource en cas d'urgence
-        <div formGroupName="personneRessource">
-          <div class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Prénom</mat-label>
-                <input formControlName="prenom" matInput>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Nom</mat-label>
-                <input formControlName="nom" matInput>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Lien</mat-label>
-                <input formControlName="lien" matInput type="text">
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Numéro de téléphone</mat-label>
-                <input formControlName="noTelephone" matInput type="number">
-                <mat-icon matSuffix>phone</mat-icon>
-                <mat-hint>Entrez seulement des nombres</mat-hint>
-              </mat-form-field>
-            </div>
+      Participation à un programme d'employabilité
+      <div formGroupName="programmeEmployabilite">
+        <div class="row">
+          <div class="col">
+            <label>Actif</label>
+            <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+              <mat-radio-button value="oui">Oui</mat-radio-button>
+              <mat-radio-button value="non">Non</mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
-        Suivi par:
-        <div formGroupName="suiviPar">
+        <div *ngIf="form.value.programmeEmployabilite.ouiNon === 'oui'">
           <div class="row">
             <div class="col">
               <mat-form-field appearance="fill" class="full-width">
-                <mat-select aria-label="Select an option" formControlName="statut">
-                  <mat-option value="intervenant">Intervenant</mat-option>
-                  <mat-option value="médecin">Médecin</mat-option>
-                  <mat-option value="autre">Autre</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Prénom</mat-label>
-                <input formControlName="prenom" matInput type="text">
+                <mat-label>Date de début</mat-label>
+                <input [matDatepicker]="picker3" formControlName="dateDebut" matInput>
+                <mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker3 [startAt]="startDate" startView="year"></mat-datepicker>
               </mat-form-field>
             </div>
             <div class="col">
               <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Nom</mat-label>
-                <input formControlName="nom" matInput type="text">
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Numéro de téléphone</mat-label>
-                <input formControlName="noTelephone" matInput type="number">
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div *ngIf="form.value.infosAdd.suiviPar.statut !== 'médecin'" class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Organisme</mat-label>
-                <input formControlName="organisme" matInput type="text">
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div *ngIf="form.value.infosAdd.suiviPar.statut !== 'autre'" class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>courriel</mat-label>
-                <input formControlName="courriel" matInput type="text">
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div *ngIf="form.value.infosAdd.suiviPar.statut === 'médecin'" class="row">
-            <div class="col">
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Fax</mat-label>
-                <input formControlName="fax" matInput type="number">
+                <mat-label>Date de fin</mat-label>
+                <input [matDatepicker]="picker4" formControlName="dateFin" matInput>
+                <mat-datepicker-toggle [for]="picker4" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker4 [startAt]="startDate" startView="year"></mat-datepicker>
               </mat-form-field>
             </div>
           </div>
         </div>
       </div>
+
+      <div formGroupName="itinerance">
+        <div class="row">
+          <div class="col">
+            <label>Suivi en itinérance</label>
+            <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+              <mat-radio-button value="oui">Oui</mat-radio-button>
+              <mat-radio-button value="non">Non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div *ngIf="form.value.itinerance.ouiNon === 'oui'" class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de début</mat-label>
+              <input [matDatepicker]="picker5" formControlName="dateDebut" matInput>
+              <mat-datepicker-toggle [for]="picker5" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker5 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de fin</mat-label>
+              <input [matDatepicker]="picker6" formControlName="dateFin" matInput>
+              <mat-datepicker-toggle [for]="picker6" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker6 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="travauxCommunautaires">
+        <div class="row">
+          <div class="col">
+            <label>Travaux communautaire</label>
+            <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+              <mat-radio-button value="oui">Oui</mat-radio-button>
+              <mat-radio-button value="non">Non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div *ngIf="form.value.travauxCommunautaires.ouiNon === 'oui'" class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de début</mat-label>
+              <input [matDatepicker]="picker7" formControlName="dateDebut" matInput>
+              <mat-datepicker-toggle [for]="picker7" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker7 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Date de fin</mat-label>
+              <input [matDatepicker]="picker8" formControlName="dateFin" matInput>
+              <mat-datepicker-toggle [for]="picker8" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker8 [startAt]="startDate" startView="year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!--              PAS ENCORE FINI IL VA FALLOIR AVOIR LA LISTE DES INTERVENANT DANS LE PROGRAMME-->
+      Personne ressource en cas d'urgence
+      <div formGroupName="personneRessource">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Prénom</mat-label>
+              <input formControlName="prenom" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Nom</mat-label>
+              <input formControlName="nom" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Lien</mat-label>
+              <input formControlName="lien" matInput type="text">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Numéro de téléphone</mat-label>
+              <input formControlName="noTelephone" matInput type="number">
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-hint>Entrez seulement des nombres</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      Suivi par:
+      <div formGroupName="suiviPar">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-select aria-label="Select an option" formControlName="statut">
+                <mat-option value="intervenant">Intervenant</mat-option>
+                <mat-option value="médecin">Médecin</mat-option>
+                <mat-option value="autre">Autre</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Prénom</mat-label>
+              <input formControlName="prenom" matInput type="text">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Nom</mat-label>
+              <input formControlName="nom" matInput type="text">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Numéro de téléphone</mat-label>
+              <input formControlName="noTelephone" matInput type="number">
+            </mat-form-field>
+          </div>
+        </div>
+        <div *ngIf="form.value.suiviPar.statut !== 'médecin'" class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Organisme</mat-label>
+              <input formControlName="organisme" matInput type="text">
+            </mat-form-field>
+          </div>
+        </div>
+        <div *ngIf="form.value.suiviPar.statut !== 'autre'" class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>courriel</mat-label>
+              <input formControlName="courriel" matInput type="text">
+            </mat-form-field>
+          </div>
+        </div>
+        <div *ngIf="form.value.suiviPar.statut === 'médecin'" class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Fax</mat-label>
+              <input formControlName="fax" matInput type="number">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="notes">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Notes évolutives</mat-label>
+              <textarea formControlName="notesEvolutives" matInput>
+              </textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Suivi</mat-label>
+              <textarea formControlName="suivi" matInput>
+              </textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Objectifs à atteindre</mat-label>
+              <textarea formControlName="objectif" matInput>
+              </textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
     </mat-card-content>
 
     <mat-card-actions>
