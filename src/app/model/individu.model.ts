@@ -11,6 +11,7 @@ export interface Individu {
   nom: string;
   genre: 'M' | 'F' | 'autre'; // pt à changer
   age: number;
+  dateNaissance: Date;
   nas: number; // il avait **** dans le doc du prof je sais pas pk
   actif: true | false;
   adresse: Adresse;
@@ -26,5 +27,5 @@ export interface Individu {
   intervenantResponsable: Intervenant;
   personneRessource: Contact; // devrait-on faire un model pour lui ?
   suiviPar: Intervenant | Medecin | 'Autres';
-  donnesQualitatives: DonneesQualitatives; // not sure
+  donneesQualitatives: DonneesQualitatives; // not sure
 }

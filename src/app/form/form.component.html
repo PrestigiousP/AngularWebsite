@@ -14,7 +14,6 @@
           </mat-radio-group>
         </div>
       </div>
-
       <div class="row">
         <div class="col">
           <label>Sexe</label>
@@ -25,7 +24,6 @@
           </mat-radio-group>
         </div>
       </div>
-
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
@@ -37,7 +35,7 @@
           || form.get('prenom').touched)">
             <mat-hint *ngIf="form.get('prenom').errors.required">
               Le champ est obligatoire
-            </mat-hint>
+            </mat-hint>f
           </div>
         </div>
         <div class="col">
@@ -96,7 +94,6 @@
             <mat-label>Numéro de téléphone</mat-label>
             <input formControlName="noTelephone" matInput type="number">
             <mat-icon matSuffix>phone</mat-icon>
-            <!--            <mat-hint>Entrez seulement des nombres</mat-hint>-->
           </mat-form-field>
           <div class="invalid" *ngIf="form.get('noTelephone').invalid
           && (form.get('noTelephone').dirty
@@ -263,7 +260,7 @@
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
               <mat-select aria-label="Select an option" formControlName="intervenantResponsable">
-                <mat-option value="Jannie Ducharme">Jannie Ducharme</mat-option>
+                <mat-option *ngFor="let i of listIntervenant" value="this.i.id">{{this.i.prenom + ' ' + this.i.nom}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -363,7 +360,6 @@
         </div>
       </div>
 
-      <!--              PAS ENCORE FINI IL VA FALLOIR AVOIR LA LISTE DES INTERVENANT DANS LE PROGRAMME-->
       Personne ressource en cas d'urgence
       <div formGroupName="personneRessource">
         <div class="row">

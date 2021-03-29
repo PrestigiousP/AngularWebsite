@@ -55,6 +55,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {AuthAccessGuard} from './login/auth-access.guard';
+import {HttpClientModule} from '@angular/common/http';
 // import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -112,12 +113,14 @@ import {AuthAccessGuard} from './login/auth-access.guard';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     IndividuService,
     IntervenantService,
     MedecinService,
-    AuthAccessGuard
+    AuthAccessGuard,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

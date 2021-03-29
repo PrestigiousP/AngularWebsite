@@ -2,11 +2,13 @@ import { Injectable, OnDestroy } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { AppComponent} from '../app.component';
 import {Observable, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnDestroy {
+  private loginUrl = 'http://localhost:3000/users';
   private hide = true;
   private subject = new Subject<any>();
   private subjectReturned = new Subject<boolean>();
@@ -19,7 +21,7 @@ export class AuthService implements OnDestroy {
     username: '',
     password: ''
   };
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   sendLogin(login: {username: string; password: string; }): void {
     this.subject.next(login);
@@ -42,4 +44,7 @@ export class AuthService implements OnDestroy {
     this.subject.unsubscribe();
   }
 
+  loginUser(user): Observable<any>{
+    return this.http.post<any>(this.loginUrl, user);
+  }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {Individu} from './model/individu.model';
 import {AuthService} from './login/auth.service';
-import {Router} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,10 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'travail-session';
+  form = this.fb.group({
+    username: [''],
+    password: ['']
+  });
   hideText = true;
   hide = true;
   loginUserData = {
@@ -17,16 +20,20 @@ export class AppComponent {
     password: ''
   };
   constructor(private auth: AuthService,
-              private router: Router) {
-    this.auth.getAns().subscribe( ans => { this.hide = ans;
-                                           console.log(this.hide);
-    });
+              private fb: FormBuilder) {
+    this.auth.getAns().subscribe( ans => { this.hide = ans; });
   }
 
   // Envoie une demande d'autorisation
   loginUser(): void {
-    console.log(this.hide);
-    this.auth.sendLogin(this.loginUserData);
+    console.log('this is working ', this.form.getRawValue());
+    console.log('this is json ', JSON.stringify(this.form.getRawValue()));
+    this.auth.loginUser(JSON.stringify(this.form.getRawValue()))
+      .subscribe(
+        res => console.log(res),
+        err => console.log(err)
+      );
+    // this.auth.sendLogin(this.loginUserData);
   }
 
   onKey($event: KeyboardEvent): void {

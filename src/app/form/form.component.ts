@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {IndividuService} from '../services/individu.service';
+import {Intervenant} from '../model/intervenant.model';
+import {IntervenantService} from '../services/intervenant.service';
 
 @Component({
   selector: 'app-form',
@@ -8,6 +11,7 @@ import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '
 })
 export class FormComponent implements OnInit{
   startDate = new Date();
+  listIntervenant: Intervenant[];
 
   form = this.fb.group({
     actif: ['', Validators.required],
@@ -72,10 +76,12 @@ export class FormComponent implements OnInit{
     })
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+              private intService: IntervenantService) {}
 
   ngOnInit(): void {
     // this.form = this.indForm.getForm();
+    this.listIntervenant = this.intService.listeIntervenant;
   }
 
   onSubmit(): void {

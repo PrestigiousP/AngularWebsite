@@ -1,0 +1,79 @@
+{
+  "individus": [
+    {
+      "prenom": "Philippe",
+      "nom": "Baillargeon",
+      "genre": "M",
+      "age": 23,
+      "dateNaissance": "1997-04-28",
+      "nas": 999999999,
+      "actif": true,
+      "adresse": "placeholder",
+      "noTel": "8195881132",
+      "santeAllergie": "aucune",
+      "travail": "placeholder",
+      "reference": "Stéphanie Gagnon",
+      "niveauScolarite": "universitaire",
+      "programmeEmployabilite": "placeholder",
+      "motifDepart": null,
+      "statut": "autre",
+      "suiviItinerance": "placeholder",
+      "intervenantResponsable": "placeholder",
+      "personneRessource": "placeholder",
+      "suiviPar": "placeholder",
+      "donneesQualitatives": "placeholder"
+    },
+    {
+      "prenom": "Tommy",
+      "nom": "Dumont",
+      "genre": "F",
+      "age": 56,
+      "dateNaissance": "1965-03-29",
+      "nas": 123456789,
+      "actif": false,
+      "adresse": "placeholder",
+      "noTel": "8195556777",
+      "santeAllergie": "toute",
+      "travail": "placeholder",
+      "reference": "Harry Potter",
+      "niveauScolarite": "universitaire",
+      "programmeEmployabilite": "placeholder",
+      "motifDepart": null,
+      "statut": "autre",
+      "suiviItinerance": "placeholder",
+      "intervenantResponsable": "placeholder",
+      "personneRessource": "placeholder",
+      "suiviPar": "placeholder",
+      "donneesQualitatives": "placeholder"
+    },
+    {
+      "prenom": "Julien",
+      "nom": "Turcotte",
+      "genre": "F",
+      "age": 21,
+      "dateNaissance": "2000-01-29",
+      "nas": 987654321,
+      "actif": false,
+      "adresse": "placeholder",
+      "noTel": "777777777",
+      "santeAllergie": "toute",
+      "travail": "placeholder",
+      "reference": "Aucune",
+      "niveauScolarite": "universitaire",
+      "programmeEmployabilite": "placeholder",
+      "motifDepart": null,
+      "statut": "autre",
+      "suiviItinerance": "placeholder",
+      "intervenantResponsable": "placeholder",
+      "personneRessource": "placeholder",
+      "suiviPar": "placeholder",
+      "donneesQualitatives": "placeholder"
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}

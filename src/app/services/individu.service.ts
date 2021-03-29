@@ -33,7 +33,8 @@ export class IndividuService{
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
-        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        dateNaissance: new Date('03/25/1997'),
+        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
         intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
@@ -55,7 +56,8 @@ export class IndividuService{
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
-        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        dateNaissance: new Date('01/31/1990'),
+        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
         intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
@@ -77,7 +79,8 @@ export class IndividuService{
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
-        donnesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
+        dateNaissance: new Date('03/12/1984'),
+        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
         genre: 'M',
         intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
         motifDepart: 'S/O',
@@ -163,4 +166,6 @@ export class IndividuService{
   get listeIndividu(): Individu[]{
     return this.listIndividu;
   }
+
+
 }

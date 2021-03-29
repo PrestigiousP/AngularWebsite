@@ -5,7 +5,6 @@ import {IndividuService} from '../services/individu.service';
 import {map, take} from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
-import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-editor',
@@ -13,7 +12,6 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  form: FormGroup;
   /** Based on the screen size, switch from standard to one column per row */
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   cardContent: string[];
@@ -57,10 +55,5 @@ export class EditorComponent implements OnInit {
     // attend de recevoir du changement puis ca resize le text area
     this.ngZone.onStable.pipe(take(1))
       .subscribe(() => this.autosize.resizeToFitContent(true));
-  }
-
-
-  onSubmit(): void{
-    console.log('hhghhhhhhh');
   }
 }

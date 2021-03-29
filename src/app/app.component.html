@@ -1,27 +1,31 @@
 <!--<app-nav-menu></app-nav-menu>-->
 <!--<app-login></app-login>-->
 <div *ngIf="hide" class="background">
-  <div class="login" >
-    <h1>Authentification</h1>
-    <div class="username">
-      <mat-form-field appearance="fill">
-        <mat-label>Entrez votre nom d'utilisateur</mat-label>
-        <input (keyup)="onKey($event)" matInput [(ngModel)]="loginUserData.username">
-      </mat-form-field>
-    </div>
+  <form (ngSubmit)="loginUser()" [formGroup]="form" novalidate>
+    <div class="login">
+      <h1>Authentification</h1>
+      <div class="username">
+        <mat-form-field appearance="fill">
+          <mat-label>Entrez votre nom d'utilisateur</mat-label>
+          <input (keyup)="onKey($event)" matInput formControlName="username">
+        </mat-form-field>
+      </div>
 
-    <div class="password">
-      <mat-form-field appearance="fill">
-        <mat-label>Entrez votre mot de passe</mat-label>
-        <input (keyup)="onKey($event)" matInput [type]="hideText ? 'password' : 'text'" [(ngModel)]="loginUserData.password">
-      </mat-form-field>
+      <div class="password">
+        <mat-form-field appearance="fill">
+          <mat-label>Entrez votre mot de passe</mat-label>
+          <input (keyup)="onKey($event)" matInput [type]="hideText ? 'password' : 'text'"
+                 formControlName="password">
+        </mat-form-field>
 
+      </div>
+      <div>
+        <button type="submit" [routerLink]="['/list']" routerLinkActive="active">
+          Connexion
+        </button>
+      </div>
     </div>
-    <div>
-      <!--      <mat-button-toggle (click)="loginUser()" [routerLink]="['/auth']" routerLinkActive="active">Connexion</mat-button-toggle>-->
-      <mat-button-toggle id="auto-trigger" (click)="loginUser()" [routerLink]="['/list']" routerLinkActive="active">Connexion</mat-button-toggle>
-    </div>
-  </div>
+  </form>
 </div>
 
 <app-nav-menu *ngIf="!hide"></app-nav-menu>
