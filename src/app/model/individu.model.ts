@@ -12,6 +12,7 @@ export interface Individu {
   genre: 'M' | 'F' | 'autre'; // pt à changer
   age: number;
   dateNaissance: Date;
+  departement: 'Recyclage' | 'SousTraitance' | 'AtelierArtistique' | 'TravauxCommunautaires' | '';
   nas: number; // il avait **** dans le doc du prof je sais pas pk
   actif: true | false;
   adresse: Adresse;

@@ -26,14 +26,18 @@ export class AppComponent {
 
   // Envoie une demande d'autorisation
   loginUser(): void {
-    console.log('this is working ', this.form.getRawValue());
-    console.log('this is json ', JSON.stringify(this.form.getRawValue()));
-    this.auth.loginUser(JSON.stringify(this.form.getRawValue()))
+   /* this.auth.loginUser(JSON.stringify({username: 'admin', password: 'admin'})).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );*/
+    // console.log('this is working ', this.form.getRawValue());
+    // console.log('this is json ', JSON.stringify(this.form.getRawValue()));
+   /* this.auth.loginUser(JSON.stringify(this.form.getRawValue()))
       .subscribe(
         res => console.log(res),
         err => console.log(err)
-      );
-    // this.auth.sendLogin(this.loginUserData);
+      );*/
+    this.auth.sendLogin(this.form.value);
   }
 
   onKey($event: KeyboardEvent): void {

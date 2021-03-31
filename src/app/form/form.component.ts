@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Form, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {IndividuService} from '../services/individu.service';
+import {FormBuilder, Validators} from '@angular/forms';
 import {Intervenant} from '../model/intervenant.model';
 import {IntervenantService} from '../services/intervenant.service';
 
@@ -18,6 +17,7 @@ export class FormComponent implements OnInit{
     prenom: ['', Validators.required],
     nom: ['', Validators.required],
     dateNaissance: ['', Validators.required],
+    departement: [''],
     sexe: ['', Validators.required],
     adresse: ['', Validators.required],
     noTelephone: ['', Validators.required],

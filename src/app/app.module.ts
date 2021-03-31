@@ -119,8 +119,7 @@ import {HttpClientModule} from '@angular/common/http';
     IndividuService,
     IntervenantService,
     MedecinService,
-    AuthAccessGuard,
-    HttpClientModule
+    AuthAccessGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -74,6 +74,20 @@
 
       <div class="row">
         <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <label>Département</label>
+            <mat-select formControlName="departement">
+              <mat-option value="Recyclage">Recyclage</mat-option>
+              <mat-option value="SousTraitance">SousTraitance</mat-option>
+              <mat-option value="AtelierArtistique">AtelierArtistique</mat-option>
+              <mat-option value="TravauxCommunautaires">TravauxCommunautaires</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
             <mat-label>Adresse</mat-label>
             <input formControlName="adresse" matInput>

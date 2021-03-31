@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.0.6",
     "@angular/router": "~11.0.6",
     "@auth0/angular-jwt": "^5.0.2",
+    "cors": "^2.8.5",
     "json-server": "^0.16.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
