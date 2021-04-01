@@ -6,7 +6,7 @@ import {DonneesQualitatives} from './donneesQualitatives';
 import {Contact} from './contact.model';
 
 export interface Individu {
-
+  id: number;
   prenom: string;
   nom: string;
   genre: 'M' | 'F' | 'autre'; // pt à changer

@@ -54,8 +54,10 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
-import {AuthAccessGuard} from './login/auth-access.guard';
-import {HttpClientModule} from '@angular/common/http';
+import {AuthAccessGuard} from './guards/auth-access.guard';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { RapportComponent } from './rapport/rapport.component';
+import {RequestInterceptor} from './services/RequestInterceptor';
 // import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -66,7 +68,8 @@ import {HttpClientModule} from '@angular/common/http';
     PageNotFoundComponent,
     NavMenuComponent,
     FormComponent,
-    ListeIndividuComponent
+    ListeIndividuComponent,
+    RapportComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -119,7 +122,12 @@ import {HttpClientModule} from '@angular/common/http';
     IndividuService,
     IntervenantService,
     MedecinService,
-    AuthAccessGuard
+    AuthAccessGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

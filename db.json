@@ -1,6 +1,7 @@
 {
   "individus": [
     {
+      "id": 1,
       "prenom": "Philippe",
       "nom": "Baillargeon",
       "genre": "M",
@@ -24,6 +25,7 @@
       "donneesQualitatives": "placeholder"
     },
     {
+      "id": 2,
       "prenom": "Tommy",
       "nom": "Dumont",
       "genre": "F",
@@ -47,6 +49,7 @@
       "donneesQualitatives": "placeholder"
     },
     {
+      "id": 3,
       "prenom": "Julien",
       "nom": "Turcotte",
       "genre": "F",
@@ -70,8 +73,35 @@
       "donneesQualitatives": "placeholder"
     }
   ],
+  "TalonPaie": [
+    {
+      "id": 1,
+      "semaineDu": "2021-03-28",
+      "tauxHoraire": 15,
+      "heures": 25,
+      "primeTransport": 10,
+      "heuresAccumulees": 20,
+    },
+    {
+      "id": 2,
+      "semaineDu": "2021-03-28",
+      "tauxHoraire": 20,
+      "heures": 40,
+      "primeTransport": 5,
+      "heuresAccumulees": 5
+    },
+    {
+      "id": 3,
+      "semaineDu": "2021-03-28",
+      "tauxHoraire": 18,
+      "heures": 35,
+      "primeTransport": 12,
+      "heuresAccumulees": 50
+    }
+  ],
   "users": [
     {
+      "id": "1",
       "username": "admin",
       "password": "admin"
     }

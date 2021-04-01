@@ -17,7 +17,8 @@ export class IndividuService{
   private nbInter: number;
   private nbMedecin: number;
 
-  constructor(private interService: IntervenantService, private medecinService: MedecinService) {
+  constructor(private interService: IntervenantService,
+              private medecinService: MedecinService) {
     this.listMedecin = this.medecinService.listeMedecin;
     this.listIntervenant = this.interService.listeIntervenant;
     this.nbInter = this.listIntervenant.length;
@@ -30,6 +31,7 @@ export class IndividuService{
   mockIndividusData(): Individu[]{
     return[
       {
+        id: 1,
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
@@ -54,6 +56,7 @@ export class IndividuService{
         travail: this.mockTravailData()
       },
       {
+        id: 2,
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
@@ -78,6 +81,7 @@ export class IndividuService{
         travail: this.mockTravailData()
       },
       {
+        id: 3,
         actif: true,
         adresse: this.mockAdresseData(),
         age: 20,
@@ -158,7 +162,6 @@ export class IndividuService{
           transport: Math.floor(Math.random() * 11),
           travauxCommunautaires: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()}
         };
-
     }
   }
 
