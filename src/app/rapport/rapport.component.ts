@@ -15,7 +15,8 @@ export class RapportComponent implements OnInit {
  // id, nom, prenom, heures
   // le service notify la liste des individus ?
   listeIndividus: Individu[];
-  listeTalonPaie = Array<any>(0);
+  listeTalonPaie = [];
+  hide: any;
 
   form = this.fb.group({
     rapport: ['', Validators.required],
@@ -38,16 +39,14 @@ export class RapportComponent implements OnInit {
           this.listeIndividus.forEach(ind => {
           // pas fini, va falloir gérer la valeur de retour
           this.rcs.getTalonPaie(ind.id)
-            .subscribe(pipe(
-                map( data => {
-                  this.listeTalonPaie.push(data);
-                  console.log('asdfa ', this.listeTalonPaie);
-                })
-              ));
+            .subscribe( data => {
+                this.listeTalonPaie.push(data.heures);
+                console.log('aaaa ', data.heures);
+              });
           });
           // console.log('listeTalonPaie ', this.listeTalonPaie);
           // console.log('listeTalonPaie ', JSON.stringify(this.listeTalonPaie));
-          console.log('listeTalonPaie ', this.listeTalonPaie);
+          console.log('listeTalonPaie ', this.listeTalonPaie.length);
           break;
       }
       case '2': {

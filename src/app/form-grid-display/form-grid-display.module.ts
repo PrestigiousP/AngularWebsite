@@ -14,6 +14,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormComponent} from '../form/form.component';
+import {RapportComponent} from '../rapport/rapport.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -22,6 +24,7 @@ import {FormComponent} from '../form/form.component';
     DetailsComponent,
     EditorComponent,
     FormComponent,
+    RapportComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import {FormComponent} from '../form/form.component';
     MatInputModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatRadioModule,
   ]
 })
 export class FormGridDisplayModule { }

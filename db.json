@@ -101,9 +101,23 @@
   ],
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "username": "admin",
       "password": "admin"
+    }
+  ],
+  "intervenants": [
+
+  ],
+  "addresse": [
+    {
+      "id": 1,
+      "numCivic": 1900,
+      "appartement": 9,
+      "rue": "Charles-Le Gardeur",
+      "codePostal": "G8H 4T5",
+      "ville": "Trois-Rivières",
+      "typeResidence": "condo"
     }
   ]
 }

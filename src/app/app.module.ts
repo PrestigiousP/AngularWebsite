@@ -14,9 +14,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AuthAccessGuard} from './login/auth-access.guard';
+import {AuthAccessGuard} from './guards/auth-access.guard';
 import {FormGridDisplayModule} from './form-grid-display/form-grid-display.module';
 import {ListeIndividuComponent} from './liste-individu/liste-individu.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {RequestInterceptor} from './services/RequestInterceptor';
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -30,7 +37,12 @@ import {ListeIndividuComponent} from './liste-individu/liste-individu.component'
     BrowserAnimationsModule,
     AppRoutingModule,
     FormGridDisplayModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [
     IndividuService,
