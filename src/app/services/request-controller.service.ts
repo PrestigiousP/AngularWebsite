@@ -15,4 +15,7 @@ export class RequestControllerService {
   getTalonPaie(id: number): Observable<any>{
     return this.http.get(this.db + 'TalonPaie/' + id);
   }
+  getRapportAnnuel(id: number): Observable<any>{
+    return this.http.get(this.db + 'RapportAnnuel/' + id);
+  }
 }

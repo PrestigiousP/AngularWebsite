@@ -18,6 +18,13 @@ export class RapportComponent implements OnInit {
   listeTalonPaie = [];
   hide: any;
 
+  // listes pour rapport annuel
+
+  journeesMaladies = [];
+  sessionsManquee = [];
+  retards = [];
+  //
+
   form = this.fb.group({
     rapport: ['', Validators.required],
   });
@@ -59,6 +66,26 @@ export class RapportComponent implements OnInit {
       }
       case '4': {
         // get des rapports statistiques annuels
+        this.listeIndividus = this.indS.listeIndividu;
+        this.listeIndividus.forEach(ind => {
+          // pas fini, va falloir gérer la valeur de retour
+          this.rcs.getTalonPaie(ind.id)
+            .subscribe( data => {
+              this.listeTalonPaie.push(data.heures);
+              console.log('aaaa ', data.heures);
+            });
+        });
+        this.listeIndividus.forEach(ind => {
+          // pas fini, va falloir gérer la valeur de retour
+          this.rcs.getRapportAnnuel(ind.id)
+            .subscribe( data2 => {
+              this.journeesMaladies.push(data2.journeeMaladies);
+              this.sessionsManquee.push(data2.sessionsManquee);
+              this.retards.push(data2.retards);
+              console.log('aaaa ', data2.heures);
+            });
+        });
+
         break;
       }
       default: {

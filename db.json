@@ -99,6 +99,15 @@
       "heuresAccumulees": 50
     }
   ],
+  "StatsAnnuelles": [
+    {
+      "id": 1,
+      "annee": "2021",
+      "journeeMaladies": 3,
+      "sessionsmanquee": 3,
+      "retards": 25
+    }
+  ],
   "users": [
     {
       "id": 1,
