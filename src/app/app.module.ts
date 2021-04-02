@@ -18,6 +18,7 @@ import {AuthAccessGuard} from './login/auth-access.guard';
 import {FormGridDisplayModule} from './form-grid-display/form-grid-display.module';
 import {ListeIndividuComponent} from './liste-individu/liste-individu.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +30,18 @@ import {ListeIndividuComponent} from './liste-individu/liste-individu.component'
     BrowserAnimationsModule,
     AppRoutingModule,
     FormGridDisplayModule,
+    HttpClientModule
   ],
   providers: [
     IndividuService,
     IntervenantService,
     MedecinService,
-    AuthAccessGuard
+    AuthAccessGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

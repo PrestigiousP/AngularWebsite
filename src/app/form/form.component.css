@@ -7,6 +7,10 @@
   margin: 20px auto;
 }
 
+.fat{
+  height: 70px;
+}
+
 .mat-radio-button {
   display: block;
   margin: 5px 0;

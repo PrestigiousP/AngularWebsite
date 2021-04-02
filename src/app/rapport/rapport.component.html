@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>
+        Choisissez votre rapport
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Rapport</mat-label>
+            <mat-select formControlName="rapport">
+              <mat-option value="1">Rapport hebdo sur le nombre d’heures travaillées par personne</mat-option>
+              <mat-option value="2">Rapport mensuel sur le nombre d’heures travaillées par personne</mat-option>
+              <mat-option value="3">Rapport mensuel sur le nombre de personnes dans les services</mat-option>
+              <mat-option value="4">Rapport statistique annuel</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+<!--      <div class="row">-->
+<!--        <div class="col">-->
+<!--          <mat-form-field appearance="fill" class="full-width">-->
+<!--              <mat-label>Type de rapport</mat-label>-->
+<!--              <mat-select formControlName="type">-->
+<!--                <mat-option value="nbPersonnes">Nombres de personnes</mat-option>-->
+<!--                <mat-option value="nbHeures">Nombres d'heures travaillées par personne</mat-option>-->
+<!--                <mat-option value="statsServices">Statistiques sur les services</mat-option>-->
+<!--              </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--      </div>-->
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Exécuter</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<!--
+id, nom, prenom, heures
+-->
+
+<mat-grid-list cols="4" rowHeight="4:1">
+  <mat-grid-tile class="test">{{listeTalonPaie}}</mat-grid-tile>
+  <mat-grid-tile class="test">2</mat-grid-tile>
+  <mat-grid-tile class="test">3</mat-grid-tile>
+  <mat-grid-tile class="test">4</mat-grid-tile>
+</mat-grid-list>

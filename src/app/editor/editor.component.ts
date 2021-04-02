@@ -13,6 +13,7 @@ import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 })
 export class EditorComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
   cardContent: string[];
   index: number;
   individu: Individu;
@@ -36,7 +37,9 @@ export class EditorComponent implements OnInit {
   );
 
   // tslint:disable-next-line:variable-name max-line-length
-  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private  service: IndividuService, private _ngZone: NgZone) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private route: ActivatedRoute, private  service: IndividuService,
+              private ngZone: NgZone) {
   }
 
   ngOnInit(): void {
@@ -46,15 +49,11 @@ export class EditorComponent implements OnInit {
       this.individu = this.service.listeIndividu[idx];
     });
   }
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
   // tslint:disable-next-line:typedef
   triggerResize() {
     // attend de recevoir du changement puis ca resize le text area
-    this._ngZone.onStable.pipe(take(1))
+    this.ngZone.onStable.pipe(take(1))
       .subscribe(() => this.autosize.resizeToFitContent(true));
   }
-
-
-
 }

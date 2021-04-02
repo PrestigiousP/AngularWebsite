@@ -15,6 +15,7 @@ export class IntervenantService {
   private mockIntervenantsData(): Intervenant[] {
     return [
       {
+        id: '1002',
         prenom: 'Frédérique',
         nom: 'Poliquin',
         email: 'frederique_poliquin@hotmail.com',
@@ -23,6 +24,7 @@ export class IntervenantService {
         organisme: 'CoeurPetit'
       },
       {
+        id: '1000',
         prenom: 'Maxime',
         nom: 'Larivière',
         email: 'maxime_lariviere@hotmail.com',
@@ -31,6 +33,7 @@ export class IntervenantService {
         organisme: 'AdulteUnJour'
       },
       {
+        id: '1001',
         prenom: 'Olivier',
         nom: 'Beauchemin',
         email: 'olivier_beauchemin@hotmail.com',
