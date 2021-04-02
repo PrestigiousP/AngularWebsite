@@ -12,6 +12,7 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private injector: Injector) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('interceptor got called');
     // Add auth token
     // In production you would get the token value by the auth service
     const hardCodedToken = 'AJi4QfHu_jhfnHkHKNjlkKQRyshhX7aSvifd_gSZO86Z4LiDCshQNzgpnoTPjbD9TxzsjlVvx6A';

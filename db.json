@@ -80,7 +80,7 @@
       "tauxHoraire": 15,
       "heures": 25,
       "primeTransport": 10,
-      "heuresAccumulees": 20,
+      "heuresAccumulees": 20
     },
     {
       "id": 2,
@@ -94,7 +94,7 @@
       "id": 3,
       "semaineDu": "2021-03-28",
       "tauxHoraire": 18,
-      "heures": 35,
+      "heures": 36,
       "primeTransport": 12,
       "heuresAccumulees": 50
     }
