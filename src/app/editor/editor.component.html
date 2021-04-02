@@ -31,9 +31,11 @@
               <input matInput  [(ngModel)]="individu.prenom">
             </mat-form-field>
 
-            <mat-form-field >
-              <mat-label>Âge</mat-label>
-              <input matInput type="number" [(ngModel)]="individu.age">
+            <mat-form-field appearance="fill">
+              <mat-label>Date de naissance</mat-label>
+              <input matInput [matDatepicker]="picker3" [value]="individu.dateNaissance" [(ngModel)]="individu.dateNaissance">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field >
@@ -156,13 +158,25 @@
             <!--            </mat-form-field>-->
             <!--            <p>Lieu de travail : <input [(ngModel)]="individu.travail.lieu"></p>-->
 
-            <mat-form-field appearance="fill" class="full-width">
+            <mat-form-field appearance="fill" class="full-width" >
               <mat-label>Lieu de travail</mat-label>
-              <mat-select>
+              <mat-select value="individu.travail.lieu" [(ngModel)]="individu.travail.lieu">
                 <mat-option value="Trois-Rivières">Trois-Rivières</mat-option>
                 <mat-option value="Shawinigan">Shawinigan</mat-option>
                 <mat-option value="Louiseville">Louiseville</mat-option>
                 <mat-option value="St-Tite">St-Tite</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill" class="full-width" >
+              <mat-label>Departement</mat-label>
+              <mat-select value="individu.departement"[(ngModel)]="individu.departement">
+                <mat-option value="">Aucun</mat-option>
+                <mat-option value="Recyclage">Recyclage</mat-option>
+                <mat-option value="SousTraitance">SousTraitance</mat-option>
+                <mat-option value="AtelierArtistique">Atelier artistique</mat-option>
+                <mat-option value="TravauxCommunautaires">Travaux communautaires</mat-option>
               </mat-select>
             </mat-form-field>
 
@@ -196,9 +210,15 @@
 
             <h3><b>Scolarité et expériences</b></h3>
 
-            <mat-form-field >
+            <mat-form-field appearance="fill" class="full-width" >
               <mat-label>Niveau de scolarité</mat-label>
-              <input matInput  [(ngModel)]="individu.niveauScolarite">
+              <mat-select value="individu.niveauScolarite"[(ngModel)]="individu.niveauScolarite">
+                <mat-option value="">Aucun</mat-option>
+                <mat-option value="secondaire">secondaire</mat-option>
+                <mat-option value="professionnel">professionnel</mat-option>
+                <mat-option value="collégial">collégial</mat-option>
+                <mat-option value="universitaire">universitaire</mat-option>
+              </mat-select>
             </mat-form-field>
 
 
