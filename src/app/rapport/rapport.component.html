@@ -1,53 +1,141 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <mat-card class="shipping-card">
-    <mat-card-header>
-      <mat-card-title>
-        Choisissez votre rapport
-      </mat-card-title>
-    </mat-card-header>
+<!--<form (ngSubmit)="onSubmit()" [formGroup]="form">-->
+<!--  <mat-card class="shipping-card">-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-title>-->
+<!--        Choisissez votre rapport-->
+<!--      </mat-card-title>-->
+<!--    </mat-card-header>-->
 
-    <mat-card-content>
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Rapport</mat-label>
-            <mat-select formControlName="rapport">
-              <mat-option value="1">Rapport hebdo sur le nombre d’heures travaillées par personne</mat-option>
-              <mat-option value="2">Rapport mensuel sur le nombre d’heures travaillées par personne</mat-option>
-              <mat-option value="3">Rapport mensuel sur le nombre de personnes dans les services</mat-option>
-              <mat-option value="4">Rapport statistique annuel</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
+<!--    <mat-card-content>-->
 <!--      <div class="row">-->
 <!--        <div class="col">-->
 <!--          <mat-form-field appearance="fill" class="full-width">-->
-<!--              <mat-label>Type de rapport</mat-label>-->
-<!--              <mat-select formControlName="type">-->
-<!--                <mat-option value="nbPersonnes">Nombres de personnes</mat-option>-->
-<!--                <mat-option value="nbHeures">Nombres d'heures travaillées par personne</mat-option>-->
-<!--                <mat-option value="statsServices">Statistiques sur les services</mat-option>-->
-<!--              </mat-select>-->
+<!--            <mat-label>Rapport</mat-label>-->
+<!--            <mat-select formControlName="rapport">-->
+<!--              <mat-option value="1">Rapport hebdo sur le nombre d’heures travaillées par personne</mat-option>-->
+<!--              <mat-option value="2">Rapport mensuel sur le nombre d’heures travaillées par personne</mat-option>-->
+<!--              <mat-option value="3">Rapport mensuel sur le nombre de personnes dans les services</mat-option>-->
+<!--              <mat-option value="4">Rapport statistique annuel</mat-option>-->
+<!--            </mat-select>-->
 <!--          </mat-form-field>-->
 <!--        </div>-->
 <!--      </div>-->
-    </mat-card-content>
-    <mat-card-actions>
-      <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Exécuter</button>
-    </mat-card-actions>
-  </mat-card>
-</form>
+<!--&lt;!&ndash;      <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;          <mat-form-field appearance="fill" class="full-width">&ndash;&gt;-->
+<!--&lt;!&ndash;              <mat-label>Type de rapport</mat-label>&ndash;&gt;-->
+<!--&lt;!&ndash;              <mat-select formControlName="type">&ndash;&gt;-->
+<!--&lt;!&ndash;                <mat-option value="nbPersonnes">Nombres de personnes</mat-option>&ndash;&gt;-->
+<!--&lt;!&ndash;                <mat-option value="nbHeures">Nombres d'heures travaillées par personne</mat-option>&ndash;&gt;-->
+<!--&lt;!&ndash;                <mat-option value="statsServices">Statistiques sur les services</mat-option>&ndash;&gt;-->
+<!--&lt;!&ndash;              </mat-select>&ndash;&gt;-->
+<!--&lt;!&ndash;          </mat-form-field>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-actions>-->
+<!--      <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Exécuter</button>-->
+<!--    </mat-card-actions>-->
+<!--  </mat-card>-->
+<!--</form>-->
 
-<!--
-id, nom, prenom, heures
--->
-<div>
-  <mat-grid-list cols="4" rowHeight="4:1">
-    <mat-grid-tile class="test">{{listeTalonPaie[0]}}</mat-grid-tile>
-    <mat-grid-tile class="test">2</mat-grid-tile>
-    <mat-grid-tile class="test">3</mat-grid-tile>
-    <mat-grid-tile class="test">4</mat-grid-tile>
-  </mat-grid-list>
-</div>
+<!--&lt;!&ndash;-->
+<!--id, nom, prenom, heures-->
+<!--&ndash;&gt;-->
+<!--<div>-->
+<!--  <mat-grid-list cols="4" rowHeight="4:1">-->
+<!--    <mat-grid-tile class="test">{{listeTalonPaie[0]}}</mat-grid-tile>-->
+<!--    <mat-grid-tile class="test">2</mat-grid-tile>-->
+<!--    <mat-grid-tile class="test">3</mat-grid-tile>-->
+<!--    <mat-grid-tile class="test">4</mat-grid-tile>-->
+<!--  </mat-grid-list>-->
+<!--</div>-->
+<!--&lt;!&ndash;-->
+<!--<div >-->
+<!--  <mat-grid-list cols="4" rowHeight="4:1"-->
 
+<!--                 *ngFor="let maladie of this.journeesMaladies"-->
+<!--                 *ngFor="let maladie of this.journeesMaladies"-->
+<!--                 >-->
+<!--    <mat-grid-tile class="test">Journées maladies:{{maladie}}</mat-grid-tile>-->
+<!--    <mat-grid-tile class="test">Retards:{{maladie}}</mat-grid-tile>-->
+<!--    <mat-grid-tile class="test">:{{maladie}}</mat-grid-tile>-->
+
+<!--  </mat-grid-list>-->
+<!--</div>-->
+<!--&ndash;&gt;-->
+
+<table>
+  <tr>
+    <th> Id:</th>
+    <th> annee:</th>
+    <th> Journées maladies:</th>
+    <th> Sessions manquées:</th>
+    <th> Retards :</th>
+
+
+  </tr>
+  <tr *ngFor="let obj of listeRapportAnnuel; index as i">
+    <td>{{obj.id}}</td>
+    <td>{{obj.annee}}</td>
+    <td>{{obj.journeeMaladies}}</td>
+    <td>{{obj.sessionsManquee}}</td>
+    <td>{{obj.retards}}</td>
+
+  </tr>
+</table>
+<!--<table mat-table [dataSource]="listeRapportAnnuel" class="table">-->
+
+<!--  &lt;!&ndash;- Note that these columns can be defined in any order.-->
+<!--        The actual rendered columns are set as a property on the row definition" &ndash;&gt;-->
+
+<!--  &lt;!&ndash; Position Column &ndash;&gt;-->
+
+<!--  &lt;!&ndash; Name Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="id">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Id </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.id}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="annee">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Année </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.annee}} </td>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash; Weight Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="journeeMaladies">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Journee Maladies </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.journeeMaladies}} </td>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash; Symbol Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="sessionsManquee">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Sessions manquées </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.sessionsManquee}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="retards">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Retards </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.retards}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>-->
+<!--</table>-->
+
+
+<!--<table mat-table [dataSource]="listeIndividus" class="table">-->
+
+<!--  <ng-container matColumnDef="id">-->
+<!--    <th mat-header-cell *matHeaderCellDef> id </th>-->
+<!--    <td mat-cell *matCellDef="let individu"> {{individu.id}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="annee">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Prénom </th>-->
+<!--    <td mat-cell *matCellDef="let individu"> {{individu.prenom}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>-->
+<!--</table>-->

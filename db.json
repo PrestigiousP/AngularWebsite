@@ -104,8 +104,22 @@
       "id": 1,
       "annee": "2021",
       "journeeMaladies": 3,
-      "sessionsmanquee": 3,
+      "sessionsManquee": 3,
       "retards": 25
+    },
+    {
+      "id": 2,
+      "annee": "2021",
+      "journeeMaladies": 33,
+      "sessionsManquee": 34,
+      "retards": 2
+    },
+    {
+      "id": 3,
+      "annee": "2021",
+      "journeeMaladies": 32,
+      "sessionsManquee": 36,
+      "retards": 265
     }
   ],
   "users": [

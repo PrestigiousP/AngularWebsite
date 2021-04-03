@@ -5,6 +5,7 @@ import {IndividuService} from '../services/individu.service';
 import {Individu} from '../model/individu.model';
 import {pipe} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {RapportAnnuel} from '../model/RapportAnnuel';
 
 @Component({
   selector: 'app-rapport',
@@ -18,12 +19,8 @@ export class RapportComponent implements OnInit {
   listeTalonPaie = [];
   hide: any;
 
-  // listes pour rapport annuel
-
-  journeesMaladies = [];
-  sessionsManquee = [];
-  retards = [];
-  //
+  listeRapportAnnuel = [];
+  displayedColumns: string[] = [/*'id',*/ 'annee', 'journeeMaladies', 'sessionsManquee', 'retards'];  //
 
   form = this.fb.group({
     rapport: ['', Validators.required],
@@ -34,6 +31,44 @@ export class RapportComponent implements OnInit {
               private indS: IndividuService) { }
 
   ngOnInit(): void {
+     this.listeIndividus = this.indS.listeIndividu;
+    // this.listeIndividus.forEach(ind => {
+    //   // pas fini, va falloir gérer la valeur de retour
+    //   this.rcs.getTalonPaie(ind.id)
+    //     .subscribe( data => {
+    //       this.listeTalonPaie.push(data.heures);
+    //       this.listeTalonPaie.push(data.tauxHoraire);
+    //
+    //       console.log('aaaa ', data.tauxHoraire);
+    //     });
+    // });
+
+    this.listeIndividus.forEach(ind => {
+      // pas fini, va falloir gérer la valeur de retour
+      this.rcs.getRapportAnnuel(ind.id)
+        .subscribe( data => {
+          this.listeRapportAnnuel.push(data);
+          // this.listeRapportAnnuel.push(data.id);
+          // this.listeRapportAnnuel.push(data.annee);
+          // this.listeRapportAnnuel.push(data.journeeMaladies);
+          // this.listeRapportAnnuel.push(data.sessionsManquee);
+          // this.listeRapportAnnuel.push(data.retards);
+          console.log('aaaabbbbbb ', data.id);
+          console.log('aaaabbbbbb ', data.annee);
+
+          console.log('aaaabbbbbb ', data.journeeMaladies);
+
+          console.log('aaaabbbbbb ', data.sessionsManquee);
+          console.log('aaaabbbbbb ', data.retards);
+
+
+
+        });
+
+      this.listeRapportAnnuel.forEach(arr => {
+          console.log(arr);
+      });
+    });
   }
 
   onSubmit(): void {
@@ -69,20 +104,10 @@ export class RapportComponent implements OnInit {
         this.listeIndividus = this.indS.listeIndividu;
         this.listeIndividus.forEach(ind => {
           // pas fini, va falloir gérer la valeur de retour
-          this.rcs.getTalonPaie(ind.id)
-            .subscribe( data => {
-              this.listeTalonPaie.push(data.heures);
-              console.log('aaaa ', data.heures);
-            });
-        });
-        this.listeIndividus.forEach(ind => {
-          // pas fini, va falloir gérer la valeur de retour
           this.rcs.getRapportAnnuel(ind.id)
-            .subscribe( data2 => {
-              this.journeesMaladies.push(data2.journeeMaladies);
-              this.sessionsManquee.push(data2.sessionsManquee);
-              this.retards.push(data2.retards);
-              console.log('aaaa ', data2.heures);
+            .subscribe( data => {
+              this.listeRapportAnnuel.push(data);
+              console.log('aaaa ', data);
             });
         });
 
