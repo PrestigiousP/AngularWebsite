@@ -4,6 +4,15 @@
 .test{
   border:solid black 1px;
 }
-.table{
-  width:100%;
+
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color:#3f51b5;}

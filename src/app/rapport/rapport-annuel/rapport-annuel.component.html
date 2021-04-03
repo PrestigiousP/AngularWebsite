@@ -1,0 +1,22 @@
+<!-- les tables material ont pas l'air d'aimer les objets json-->
+<table>
+  <tr>
+    <th> Id</th>
+    <th> Employé</th>
+
+    <th> Année</th>
+    <th> Journées maladies</th>
+    <th> Sessions manquées</th>
+    <th> Retards</th>
+
+
+  </tr>
+  <tr *ngFor="let obj of listeRapportAnnuel; index as i">
+    <td>{{obj.id}}</td>
+    <td>{{listeIndividus[i].prenom+" "+ listeIndividus[i].nom}}</td>
+    <td>{{obj.annee}}</td>
+    <td>{{obj.journeeMaladies}}</td>
+    <td>{{obj.sessionsManquee}}</td>
+    <td>{{obj.retards}}</td>
+  </tr>
+</table>

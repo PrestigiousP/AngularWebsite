@@ -15,9 +15,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormComponent} from '../form/form.component';
 import {RapportComponent} from '../rapport/rapport.component';
-import {MatRadioModule} from "@angular/material/radio";
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSortModule} from '@angular/material/sort';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -42,8 +44,9 @@ import {MatSortModule} from "@angular/material/sort";
     MatNativeDateModule,
     ReactiveFormsModule,
     MatRadioModule,
+    MatButtonModule,
     MatTableModule,
-    MatSortModule,
+    MatPaginatorModule,
   ]
 })
 export class FormGridDisplayModule { }

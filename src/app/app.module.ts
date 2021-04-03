@@ -24,9 +24,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
-import { DataTableComponent } from './data-table/data-table.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RapportHeuresHebdoComponent } from './rapport/rapport-heures-hebdo/rapport-heures-hebdo.component';
+import { RapportAnnuelComponent } from './rapport/rapport-annuel/rapport-annuel.component';
 
 
 @NgModule({
@@ -35,21 +39,25 @@ import { MatSortModule } from '@angular/material/sort';
     PageNotFoundComponent,
     NavMenuComponent,
     ListeIndividuComponent,
-    DataTableComponent,
+    RapportHeuresHebdoComponent,
+    RapportAnnuelComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
     FormGridDisplayModule,
     HttpClientModule,
+    MatDatepickerModule,
     MatTableModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatPaginatorModule,
-    MatSortModule
-  ],
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule,
+],
   providers: [
     IndividuService,
     IntervenantService,

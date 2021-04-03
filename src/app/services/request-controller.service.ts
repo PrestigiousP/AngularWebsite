@@ -13,6 +13,10 @@ export class RequestControllerService {
   constructor(private http: HttpClient) { }
 
   getTalonPaie(id: number): Observable<any>{
-    return this.http.get(this.db + 'TalonPaie/' + id);
+    return this.http.get(this.db + 'talonPaie/' + id);
   }
+  getRapportAnnuel(id: number): Observable<any>{
+    return this.http.get(this.db + 'statsAnnuelles/' + id);
+  }
+
 }

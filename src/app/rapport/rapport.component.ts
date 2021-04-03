@@ -3,7 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {RequestControllerService} from '../services/request-controller.service';
 import {IndividuService} from '../services/individu.service';
 import {Individu} from '../model/individu.model';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-rapport',
@@ -11,45 +11,36 @@ import {Individu} from '../model/individu.model';
   styleUrls: ['./rapport.component.css']
 })
 export class RapportComponent implements OnInit {
+  rapportChoisi: number;
   listeIndividus: Individu[];
   listeTalonPaie = [];
   listeAny = [];
   displayedColumns: string[] = ['id', 'prenom', 'nom'];
   hide: any;
+  listeRapportAnnuel = [];
 
   form = this.fb.group({
     rapport: ['', Validators.required],
   });
 
   constructor(private fb: FormBuilder,
-              private rcs: RequestControllerService,
-              private indS: IndividuService) { }
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.rapportChoisi = null;
+    console.log(this.rapportChoisi);
   }
 
   onSubmit(): void {
-    const test = [1, 2, 3];
-    const test2 = [];
     switch (this.form.value.rapport){
       case '1': {
-          // get une liste de nombres d'heures par semaine selon le id de l'individu
-          this.listeIndividus = this.indS.listeIndividu;
-          this.listeIndividus.forEach(ind => {
-            console.log(JSON.stringify(ind));
-            this.listeAny.push(ind);
-          // pas fini, va falloir gérer la valeur de retour
-            this.rcs.getTalonPaie(ind.id)
-              .subscribe( data => {
-                this.listeTalonPaie.push(data.heures);
-                this.listeAny.push(data.heures);
-              });
-          });
-          console.log('listeAny ', this.listeAny);
+          this.router.navigate(['rapport/rapportHeuresHebdo']);
           break;
       }
       case '2': {
         // get une liste de nombres d'heures par mois selon le id de l'individu
+        this.router.navigate(['**']);
+
         break;
       }
       case '3': {
@@ -57,6 +48,7 @@ export class RapportComponent implements OnInit {
         break;
       }
       case '4': {
+        this.router.navigate(['rapport/rapportAnnuel']);
         // get des rapports statistiques annuels
         break;
       }
@@ -65,10 +57,4 @@ export class RapportComponent implements OnInit {
       }
     }
   }
- /* logDataList(data: any): void {
-    // console.log('testingnnas ', data);
-    this.listeTalonPaie.push(data.heures);
-    console.log('vvvv ', this.listeTalonPaie);
-  }*/
-
 }

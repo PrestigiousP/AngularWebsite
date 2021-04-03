@@ -8,11 +8,22 @@ import {EditorComponent} from './editor/editor.component';
 import {AuthAccessGuard} from './guards/auth-access.guard';
 import {AppComponent} from './app.component';
 import {RapportComponent} from './rapport/rapport.component';
+import {RapportHeuresHebdoComponent} from './rapport/rapport-heures-hebdo/rapport-heures-hebdo.component';
+import {RapportAnnuelComponent} from './rapport/rapport-annuel/rapport-annuel.component';
 
 
 
 const routes: Routes = [
-  {path: 'rapport', component: RapportComponent, canActivate: [AuthAccessGuard]},
+  {
+    path: 'rapport',
+    children:
+    [
+      {path: 'rapportAnnuel', component: RapportAnnuelComponent},
+      {path: 'rapportHeuresHebdo', component: RapportHeuresHebdoComponent},
+    ],
+   component: RapportComponent,
+   canActivate: [AuthAccessGuard]
+  },
   {path: 'list', component: ListeIndividuComponent, canActivate: [AuthAccessGuard]},
   {path: 'form', component: FormComponent, canActivate: [AuthAccessGuard]},
   {path: '', component: AppComponent},

@@ -20,64 +20,22 @@
           </mat-form-field>
         </div>
       </div>
-<!--      <div class="row">-->
-<!--        <div class="col">-->
-<!--          <mat-form-field appearance="fill" class="full-width">-->
-<!--              <mat-label>Type de rapport</mat-label>-->
-<!--              <mat-select formControlName="type">-->
-<!--                <mat-option value="nbPersonnes">Nombres de personnes</mat-option>-->
-<!--                <mat-option value="nbHeures">Nombres d'heures travaillées par personne</mat-option>-->
-<!--                <mat-option value="statsServices">Statistiques sur les services</mat-option>-->
-<!--              </mat-select>-->
-<!--          </mat-form-field>-->
-<!--        </div>-->
-<!--      </div>-->
     </mat-card-content>
     <mat-card-actions>
-      <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Exécuter</button>
+      <button
+        [disabled]="!form.valid" disabled
+        color="primary"
+        mat-raised-button
+        type="submit"
+      >Exécuter</button>
     </mat-card-actions>
   </mat-card>
 </form>
 
+<router-outlet></router-outlet>
 <!--
 id, nom, prenom, heures
 -->
-<div>
-  <div>
 
-  </div>
 
-  <table matSort mat-table [dataSource]="listeIndividus" class="table">
-
-    <ng-container matColumnDef="id">
-      <th mat-header-cell mat-sort-header *matHeaderCellDef> id </th>
-      <td mat-cell *matCellDef="let individu"> {{individu.id}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="prenom">
-      <th mat-header-cell *matHeaderCellDef> Prénom </th>
-      <td mat-cell *matCellDef="let individu"> {{individu.prenom}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="nom">
-      <th mat-header-cell *matHeaderCellDef> Nom </th>
-      <td mat-cell *matCellDef="let individu"> {{individu.nom}} </td>
-    </ng-container>
-
-    <th>
-      asdfasdfasdf
-    </th>
-    <tr>
-      testesttes
-    </tr>
-
-   <!-- <ng-container matColumnDef="heures">
-      <th mat-header-cell *matHeaderCellDef> Heures Travaillées </th>
-      <td mat-cell *matCellDef="let talon"> {{talon.heures}} </td>
-    </ng-container> -->
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
-  </table>
-</div>
 
