@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import {IndividuService} from '../services/individu.service';
 
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
@@ -11,7 +12,7 @@ export interface DataTableItem {
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: DataTableItem[] = [
+/*const EXAMPLE_DATA: DataTableItem[] = [
   {id: 1, name: 'Hydrogen'},
   {id: 2, name: 'Helium'},
   {id: 3, name: 'Lithium'},
@@ -32,7 +33,7 @@ const EXAMPLE_DATA: DataTableItem[] = [
   {id: 18, name: 'Argon'},
   {id: 19, name: 'Potassium'},
   {id: 20, name: 'Calcium'},
-];
+];*/
 
 /**
  * Data source for the DataTable view. This class should
@@ -40,11 +41,33 @@ const EXAMPLE_DATA: DataTableItem[] = [
  * (including sorting, pagination, and filtering).
  */
 export class DataTableDataSource extends DataSource<DataTableItem> {
-  data: DataTableItem[] = EXAMPLE_DATA;
+  EXAMPLE_DATA: DataTableItem[] = [
+    {id: 1, name: 'Hydrogen'},
+    {id: 2, name: 'Helium'},
+    {id: 3, name: 'Lithium'},
+    {id: 4, name: 'Beryllium'},
+    {id: 5, name: 'Boron'},
+    {id: 6, name: 'Carbon'},
+    {id: 7, name: 'Nitrogen'},
+    {id: 8, name: 'Oxygen'},
+    {id: 9, name: 'Fluorine'},
+    {id: 10, name: 'Neon'},
+    {id: 11, name: 'Sodium'},
+    {id: 12, name: 'Magnesium'},
+    {id: 13, name: 'Aluminum'},
+    {id: 14, name: 'Silicon'},
+    {id: 15, name: 'Phosphorus'},
+    {id: 16, name: 'Sulfur'},
+    {id: 17, name: 'Chlorine'},
+    {id: 18, name: 'Argon'},
+    {id: 19, name: 'Potassium'},
+    {id: 20, name: 'Calcium'},
+  ];
+  data: DataTableItem[] = this.EXAMPLE_DATA;
   paginator: MatPaginator;
   sort: MatSort;
 
-  constructor() {
+  constructor(private indS: IndividuService) {
     super();
   }
 
@@ -71,12 +94,14 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
+  // tslint:disable-next-line:typedef
   disconnect() {}
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
+  // tslint:disable-next-line:typedef
   private getPagedData(data: DataTableItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
@@ -86,6 +111,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
+  // tslint:disable-next-line:typedef
   private getSortedData(data: DataTableItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
@@ -103,6 +129,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
+// tslint:disable-next-line:typedef
 function compare(a: string | number, b: string | number, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

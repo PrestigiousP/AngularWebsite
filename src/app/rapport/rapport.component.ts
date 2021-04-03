@@ -36,6 +36,7 @@ export class RapportComponent implements OnInit {
           // get une liste de nombres d'heures par semaine selon le id de l'individu
           this.listeIndividus = this.indS.listeIndividu;
           this.listeIndividus.forEach(ind => {
+            console.log(JSON.stringify(ind));
             this.listeAny.push(ind);
           // pas fini, va falloir gérer la valeur de retour
             this.rcs.getTalonPaie(ind.id)
