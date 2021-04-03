@@ -65,23 +65,27 @@
 <!--</div>-->
 <!--&ndash;&gt;-->
 
+
+<!-- les tables material ont pas l'air d'aimmer les objets json-->
 <table>
   <tr>
-    <th> Id:</th>
-    <th> annee:</th>
-    <th> Journées maladies:</th>
-    <th> Sessions manquées:</th>
-    <th> Retards :</th>
+    <th> Id</th>
+    <th> Employé</th>
+
+    <th> année</th>
+    <th> Journées maladies</th>
+    <th> Sessions manquées</th>
+    <th> Retards</th>
 
 
   </tr>
   <tr *ngFor="let obj of listeRapportAnnuel; index as i">
     <td>{{obj.id}}</td>
+    <td>{{listeIndividus[i].nom+" "+ listeIndividus[i].prenom}}</td>
     <td>{{obj.annee}}</td>
     <td>{{obj.journeeMaladies}}</td>
     <td>{{obj.sessionsManquee}}</td>
     <td>{{obj.retards}}</td>
-
   </tr>
 </table>
 <!--<table mat-table [dataSource]="listeRapportAnnuel" class="table">-->

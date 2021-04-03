@@ -5,7 +5,15 @@
   border:solid black 1px;
 }
 
-tr,td,table {
-  border:solid black 1px;
-
+table {
+  border-collapse: collapse;
+  width: 50%;
 }
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#3f51b5;}
