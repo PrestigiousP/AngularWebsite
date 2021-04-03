@@ -19,11 +19,14 @@ import {FormGridDisplayModule} from './form-grid-display/form-grid-display.modul
 import {ListeIndividuComponent} from './liste-individu/liste-individu.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RequestInterceptor} from './services/RequestInterceptor';
-import {MatTableModule} from "@angular/material/table";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatListModule} from "@angular/material/list";
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import {MatListModule} from "@angular/material/list";
     PageNotFoundComponent,
     NavMenuComponent,
     ListeIndividuComponent,
+    DataTableComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,7 +46,9 @@ import {MatListModule} from "@angular/material/list";
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     IndividuService,

@@ -173,5 +173,8 @@ export class IndividuService{
     return this.listIndividu;
   }
 
+  getId(i: number): number{
+    return this.listeIndividu[i].id;
+  }
 
 }

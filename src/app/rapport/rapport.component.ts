@@ -3,8 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {RequestControllerService} from '../services/request-controller.service';
 import {IndividuService} from '../services/individu.service';
 import {Individu} from '../model/individu.model';
-import {pipe} from 'rxjs';
-import {map} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-rapport',
@@ -12,10 +11,10 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./rapport.component.css']
 })
 export class RapportComponent implements OnInit {
- // id, nom, prenom, heures
-  // le service notify la liste des individus ?
   listeIndividus: Individu[];
   listeTalonPaie = [];
+  listeAny = [];
+  displayedColumns: string[] = ['id', 'prenom', 'nom'];
   hide: any;
 
   form = this.fb.group({
@@ -37,16 +36,15 @@ export class RapportComponent implements OnInit {
           // get une liste de nombres d'heures par semaine selon le id de l'individu
           this.listeIndividus = this.indS.listeIndividu;
           this.listeIndividus.forEach(ind => {
+            this.listeAny.push(ind);
           // pas fini, va falloir gérer la valeur de retour
-          this.rcs.getTalonPaie(ind.id)
-            .subscribe( data => {
+            this.rcs.getTalonPaie(ind.id)
+              .subscribe( data => {
                 this.listeTalonPaie.push(data.heures);
-                console.log('aaaa ', data.heures);
+                this.listeAny.push(data.heures);
               });
           });
-          // console.log('listeTalonPaie ', this.listeTalonPaie);
-          // console.log('listeTalonPaie ', JSON.stringify(this.listeTalonPaie));
-          console.log('listeTalonPaie ', this.listeTalonPaie.length);
+          console.log('listeAny ', this.listeAny);
           break;
       }
       case '2': {

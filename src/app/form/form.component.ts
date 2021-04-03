@@ -86,7 +86,6 @@ export class FormComponent implements OnInit{
 
   onSubmit(): void {
     alert('Thanks!');
-    // httpclient (get)
-    // send to the individu service
+    console.log('asdfasdf');
   }
 }
