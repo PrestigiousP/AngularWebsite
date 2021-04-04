@@ -10,6 +10,8 @@ import {AppComponent} from './app.component';
 import {RapportComponent} from './rapport/rapport.component';
 import {RapportHeuresHebdoComponent} from './rapport/rapport-heures-hebdo/rapport-heures-hebdo.component';
 import {RapportAnnuelComponent} from './rapport/rapport-annuel/rapport-annuel.component';
+import {RapportHeuresMensuelComponent} from './rapport/rapport-heures-mensuel/rapport-heures-mensuel.component';
+import {RapportNombrePersonnesComponent} from './rapport/rapport-nombre-personnes/rapport-nombre-personnes.component';
 
 
 
@@ -18,7 +20,9 @@ const routes: Routes = [
     path: 'rapport',
     children:
     [
+      {path: 'rapportNbPersonnesParService', component: RapportNombrePersonnesComponent},
       {path: 'rapportAnnuel', component: RapportAnnuelComponent},
+      {path: 'rapportHeuresMensuel', component: RapportHeuresMensuelComponent},
       {path: 'rapportHeuresHebdo', component: RapportHeuresHebdoComponent},
     ],
    component: RapportComponent,

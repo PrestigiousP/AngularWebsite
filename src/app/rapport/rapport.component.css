@@ -1,5 +1,5 @@
 .full-width {
-  width: 30%;
+  width: 50%;
 }
 .test{
   border:solid black 1px;
@@ -15,4 +15,4 @@ th, td {
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
-tr:hover {background-color:#3f51b5;}
+.select:hover {background-color: #697df1;}

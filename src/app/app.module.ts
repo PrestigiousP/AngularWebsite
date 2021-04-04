@@ -31,6 +31,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RapportHeuresHebdoComponent } from './rapport/rapport-heures-hebdo/rapport-heures-hebdo.component';
 import { RapportAnnuelComponent } from './rapport/rapport-annuel/rapport-annuel.component';
+import { RapportHeuresMensuelComponent } from './rapport/rapport-heures-mensuel/rapport-heures-mensuel.component';
+import { RapportNombrePersonnesComponent } from './rapport/rapport-nombre-personnes/rapport-nombre-personnes.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { RapportAnnuelComponent } from './rapport/rapport-annuel/rapport-annuel.
     ListeIndividuComponent,
     RapportHeuresHebdoComponent,
     RapportAnnuelComponent,
+    RapportHeuresMensuelComponent,
+    RapportNombrePersonnesComponent,
   ],
   imports: [
     BrowserAnimationsModule,

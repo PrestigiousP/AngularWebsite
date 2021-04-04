@@ -7,6 +7,7 @@
       "genre": "M",
       "age": 23,
       "dateNaissance": "1997-04-28",
+      "departement": "Recyclage",
       "nas": 999999999,
       "actif": true,
       "adresse": "placeholder",
@@ -31,6 +32,7 @@
       "genre": "F",
       "age": 56,
       "dateNaissance": "1965-03-29",
+      "departement": "Recyclage",
       "nas": 123456789,
       "actif": false,
       "adresse": "placeholder",
@@ -55,6 +57,7 @@
       "genre": "F",
       "age": 21,
       "dateNaissance": "2000-01-29",
+      "departement": "SousTraitance",
       "nas": 987654321,
       "actif": false,
       "adresse": "placeholder",
@@ -76,27 +79,84 @@
   "talonPaie": [
     {
       "id": 1,
-      "semaineDu": "2021-03-28",
       "tauxHoraire": 15,
-      "heures": 25,
       "primeTransport": 10,
-      "heuresAccumulees": 20
+      "semaines": [
+        {
+          "semaineDu": "2021-03-28",
+          "heures": 25,
+          "heuresAccumulees": 20
+        },
+        {
+          "semaineDu": "2021-03-21",
+          "heures": 22,
+          "heuresAccumulees": 12
+        },
+        {
+          "semaineDu": "2021-03-14",
+          "heures": 33,
+          "heuresAccumulees": 20
+        },
+        {
+          "semaineDu": "2021-03-07",
+          "heures": 22,
+          "heuresAccumulees": 20
+        }
+      ]
     },
     {
       "id": 2,
-      "semaineDu": "2021-03-28",
       "tauxHoraire": 20,
-      "heures": 40,
       "primeTransport": 5,
-      "heuresAccumulees": 5
+      "semaines": [
+        {
+          "semaineDu": "2021-03-28",
+          "heures": 40,
+          "heuresAccumulees": 5
+        },
+        {
+          "semaineDu": "2021-03-21",
+          "heures": 35,
+          "heuresAccumulees": 5
+        },
+        {
+          "semaineDu": "2021-03-14",
+          "heures": 35,
+          "heuresAccumulees": 5
+        },
+        {
+          "semaineDu": "2021-03-07",
+          "heures": 29,
+          "heuresAccumulees": 5
+        }
+      ]
     },
     {
       "id": 3,
-      "semaineDu": "2021-03-28",
       "tauxHoraire": 18,
-      "heures": 36,
       "primeTransport": 12,
-      "heuresAccumulees": 50
+      "semaines": [
+        {
+          "semaineDu": "2021-03-28",
+          "heures": 36,
+          "heuresAccumulees": 50
+        },
+        {
+          "semaineDu": "2021-03-21",
+          "heures": 18,
+          "heuresAccumulees": 50
+        },
+        {
+          "semaineDu": "2021-03-14",
+          "heures": 30,
+          "heuresAccumulees": 50
+        },
+        {
+          "semaineDu": "2021-03-07",
+          "heures": 40,
+          "heuresAccumulees": 50
+        }
+      ]
     }
   ],
   "statsAnnuelles": [
@@ -130,7 +190,6 @@
     }
   ],
   "intervenants": [
-
   ],
   "addresse": [
     {

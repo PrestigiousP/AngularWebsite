@@ -12,23 +12,22 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RapportHeuresHebdoComponent implements OnInit {
   listeIndividus: Individu[];
-  listeTalonPaie: TalonPaie[];
+  listeNbHeures: TalonPaie[];
 
   constructor(private indS: IndividuService,
-              private rcs: RequestControllerService,
-              private route: ActivatedRoute) {
-    this.route.parent.params.subscribe(params => console.log('heyyyeyyeyeee ', params));
+              private rcs: RequestControllerService) {
+    // this.route.parent.params.subscribe(params => console.log('heyyyeyyeyeee ', params));
   }
 
   ngOnInit(): void {
-    this.listeTalonPaie = [];
+    this.listeNbHeures = [];
     // get une liste de nombres d'heures par semaine selon le id de l'individu
     this.listeIndividus = this.indS.listeIndividu;
     this.listeIndividus.forEach(ind => {
       // pas fini, va falloir gérer la valeur de retour
       this.rcs.getTalonPaie(ind.id)
         .subscribe( data => {
-          this.listeTalonPaie.push(data.heures);
+          this.listeNbHeures.push(data.semaines[0].heures);
         });
     });
   }

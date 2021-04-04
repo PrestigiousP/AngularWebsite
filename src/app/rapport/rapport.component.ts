@@ -11,13 +11,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./rapport.component.css']
 })
 export class RapportComponent implements OnInit {
-  rapportChoisi: number;
-  listeIndividus: Individu[];
-  listeTalonPaie = [];
-  listeAny = [];
-  displayedColumns: string[] = ['id', 'prenom', 'nom'];
-  hide: any;
-  listeRapportAnnuel = [];
 
   form = this.fb.group({
     rapport: ['', Validators.required],
@@ -27,8 +20,6 @@ export class RapportComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.rapportChoisi = null;
-    console.log(this.rapportChoisi);
   }
 
   onSubmit(): void {
@@ -39,12 +30,13 @@ export class RapportComponent implements OnInit {
       }
       case '2': {
         // get une liste de nombres d'heures par mois selon le id de l'individu
-        this.router.navigate(['**']);
+        this.router.navigate(['rapport/rapportHeuresMensuel']);
 
         break;
       }
       case '3': {
         // get un nombres de personnes par services
+        this.router.navigate(['rapport/rapportNbPersonnesParService']);
         break;
       }
       case '4': {

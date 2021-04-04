@@ -11,7 +11,7 @@
 
 
   </tr>
-  <tr *ngFor="let obj of listeRapportAnnuel; index as i">
+  <tr class="select" *ngFor="let obj of listeRapportAnnuel; index as i">
     <td>{{obj.id}}</td>
     <td>{{listeIndividus[i].prenom+" "+ listeIndividus[i].nom}}</td>
     <td>{{obj.annee}}</td>
