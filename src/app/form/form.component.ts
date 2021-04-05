@@ -81,7 +81,9 @@ export class FormComponent implements OnInit{
 
   ngOnInit(): void {
     // this.form = this.indForm.getForm();
-    this.listIntervenant = this.intService.listeIntervenant;
+    this.intService.listeIntervenant.subscribe(
+      data => this.listIntervenant = data
+    );
   }
 
   onSubmit(): void {

@@ -15,9 +15,7 @@ export class AuthAccessGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const currentUser = this.authService.currentUserValue;
     // this.authService.getCurrentUserValue()
-    console.log('the guard got triggered ', currentUser);
     if (currentUser) {
-      console.log('the guard is true');
       // authorised so return true
       return true;
     }

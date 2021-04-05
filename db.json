@@ -7,23 +7,63 @@
       "genre": "M",
       "age": 23,
       "dateNaissance": "1997-04-28",
-      "departement": "Recyclage",
       "nas": 999999999,
       "actif": true,
-      "adresse": "placeholder",
+      "adresse":
+      {
+        "id": 1,
+        "numCivic": 1900,
+        "appartement": 9,
+        "rue": "Charles-Le Gardeur",
+        "codePostal": "G8H 4T5",
+        "ville": "Trois-Rivières",
+        "typeResidence": "condo"
+      },
       "noTel": "8195881132",
       "santeAllergie": "aucune",
-      "travail": "placeholder",
+      "travail": {
+        "lieu": "Trois-Rivières",
+        "dateDebut": "2020-04-28",
+        "dateFin": "2021-04-28",
+        "heuresTravailJour": 5,
+        "tauxHoraire": 12,
+        "travauxCommunautaires": {"dateDebut": "2020-04-28", "dateFin": "2021-04-28"},
+        "transport": 0
+      },
       "reference": "Stéphanie Gagnon",
       "niveauScolarite": "universitaire",
-      "programmeEmployabilite": "placeholder",
+      "programmeEmployabilite": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
       "motifDepart": null,
       "statut": "autre",
-      "suiviItinerance": "placeholder",
-      "intervenantResponsable": "placeholder",
-      "personneRessource": "placeholder",
-      "suiviPar": "placeholder",
-      "donneesQualitatives": "placeholder"
+      "suiviItinerance": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
+      "intervenantResponsable": {
+        "id":"1002",
+        "prenom":"Frédérique",
+        "nom":"Poliquin",
+        "email":"frederique_poliquin@hotmail.com",
+        "noTel":4836587485,
+        "address":
+        {
+          "numCivic":2157,
+          "appartement":null,
+          "codePostal":"J0C 1M0",
+          "rue":"9e Rang",
+          "ville":"Saint-Léonard d'Aston",
+          "typeResidence":"maison"
+        },
+        "organisme":"CoeurPetit"
+      },
+      "personneRessource": {
+        "prenom": "Julien",
+        "nom": "Baillargeon",
+        "noTel": 8192327585
+      },
+      "suiviPar": {"courriel":"frederick_simard@gmail.com","fax":8192735743,"genre":"M","noTel":8192753423,"nom":"Simard","prenom":"Frederick"},
+      "donneesQualitatives": {
+        "notesEvolutives": "",
+        "suivi": "",
+        "objectif": ""
+      }
     },
     {
       "id": 2,
@@ -32,23 +72,62 @@
       "genre": "F",
       "age": 56,
       "dateNaissance": "1965-03-29",
-      "departement": "Recyclage",
       "nas": 123456789,
       "actif": false,
-      "adresse": "placeholder",
+      "adresse": {
+        "id": 1,
+        "numCivic": 1900,
+        "appartement": 9,
+        "rue": "Charles-Le Gardeur",
+        "codePostal": "G8H 4T5",
+        "ville": "Trois-Rivières",
+        "typeResidence": "condo"
+      },
       "noTel": "8195556777",
       "santeAllergie": "toute",
-      "travail": "placeholder",
+      "travail": {
+        "lieu": "Trois-Rivières",
+        "dateDebut": "2020-04-28",
+        "dateFin": "2021-04-28",
+        "heuresTravailJour": 5,
+        "tauxHoraire": 12,
+        "travauxCommunautaires": {"dateDebut": "2020-04-28", "dateFin": "2021-04-28"},
+        "transport": 0
+      },
       "reference": "Harry Potter",
       "niveauScolarite": "universitaire",
-      "programmeEmployabilite": "placeholder",
+      "programmeEmployabilite": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
       "motifDepart": null,
       "statut": "autre",
-      "suiviItinerance": "placeholder",
-      "intervenantResponsable": "placeholder",
-      "personneRessource": "placeholder",
-      "suiviPar": "placeholder",
-      "donneesQualitatives": "placeholder"
+      "suiviItinerance": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
+      "intervenantResponsable": {
+        "id":"1002",
+        "prenom":"Frédérique",
+        "nom":"Poliquin",
+        "email":"frederique_poliquin@hotmail.com",
+        "noTel":4836587485,
+        "address":
+        {
+          "numCivic":2157,
+          "appartement":null,
+          "codePostal":"J0C 1M0",
+          "rue":"9e Rang",
+          "ville":"Saint-Léonard d'Aston",
+          "typeResidence":"maison"
+        },
+        "organisme":"CoeurPetit"
+      },
+      "personneRessource": {
+        "prenom": "Julien",
+        "nom": "Baillargeon",
+        "noTel": 8192327585
+      },
+      "suiviPar": {"courriel":"frederick_simard@gmail.com","fax":8192735743,"genre":"M","noTel":8192753423,"nom":"Simard","prenom":"Frederick"},
+      "donneesQualitatives": {
+        "notesEvolutives": "",
+        "suivi": "",
+        "objectif": ""
+      }
     },
     {
       "id": 3,
@@ -57,23 +136,62 @@
       "genre": "F",
       "age": 21,
       "dateNaissance": "2000-01-29",
-      "departement": "SousTraitance",
       "nas": 987654321,
       "actif": false,
-      "adresse": "placeholder",
+      "adresse": {
+        "id": 1,
+        "numCivic": 1900,
+        "appartement": 9,
+        "rue": "Charles-Le Gardeur",
+        "codePostal": "G8H 4T5",
+        "ville": "Trois-Rivières",
+        "typeResidence": "condo"
+      },
       "noTel": "777777777",
       "santeAllergie": "toute",
-      "travail": "placeholder",
+      "travail": {
+        "lieu": "Trois-Rivières",
+        "dateDebut": "2020-04-28",
+        "dateFin": "2021-04-28",
+        "heuresTravailJour": 5,
+        "tauxHoraire": 12,
+        "travauxCommunautaires": {"dateDebut": "2020-04-28", "dateFin": "2021-04-28"},
+        "transport": 0
+      },
       "reference": "Aucune",
       "niveauScolarite": "universitaire",
-      "programmeEmployabilite": "placeholder",
+      "programmeEmployabilite": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
       "motifDepart": null,
       "statut": "autre",
-      "suiviItinerance": "placeholder",
-      "intervenantResponsable": "placeholder",
-      "personneRessource": "placeholder",
-      "suiviPar": "placeholder",
-      "donneesQualitatives": "placeholder"
+      "suiviItinerance": {"dateDebut": "2018-04-23", "dateFin": "2021-05-23"},
+      "intervenantResponsable": {
+        "id":"1002",
+        "prenom":"Frédérique",
+        "nom":"Poliquin",
+        "email":"frederique_poliquin@hotmail.com",
+        "noTel":4836587485,
+        "address":
+        {
+          "numCivic":2157,
+          "appartement":null,
+          "codePostal":"J0C 1M0",
+          "rue":"9e Rang",
+          "ville":"Saint-Léonard d'Aston",
+          "typeResidence":"maison"
+        },
+        "organisme":"CoeurPetit"
+      },
+      "personneRessource": {
+        "prenom": "Julien",
+        "nom": "Baillargeon",
+        "noTel": 8192327585
+      },
+      "suiviPar": {"courriel":"frederick_simard@gmail.com","fax":8192735743,"genre":"M","noTel":8192753423,"nom":"Simard","prenom":"Frederick"},
+      "donneesQualitatives": {
+        "notesEvolutives": "",
+        "suivi": "",
+        "objectif": ""
+      }
     }
   ],
   "talonPaie": [
@@ -217,16 +335,75 @@
       "id": 6
     }
   ],
-  "intervenants": [],
-  "addresse": [
+  "intervenants": [
     {
-      "id": 1,
-      "numCivic": 1900,
-      "appartement": 9,
-      "rue": "Charles-Le Gardeur",
-      "codePostal": "G8H 4T5",
-      "ville": "Trois-Rivières",
-      "typeResidence": "condo"
+      "id":"1002",
+      "prenom":"Frédérique",
+      "nom":"Poliquin",
+      "email":"frederique_poliquin@hotmail.com",
+      "noTel":4836587485,
+      "address":
+      {
+        "numCivic":2157,
+        "appartement":null,
+        "codePostal":"J0C 1M0",
+        "rue":"9e Rang",
+        "ville":"Saint-Léonard d'Aston",
+        "typeResidence":"maison"
+      },
+      "organisme":"CoeurPetit"
+    },
+    {
+      "id":"1000",
+      "prenom":"Maxime",
+      "nom":"Larivière",
+      "email":"maxime_lariviere@hotmail.com",
+      "noTel":8547327695,
+      "address":
+      {
+        "numCivic":465,
+        "appartement":null,
+        "codePostal":"J0C 1M0",
+        "rue":"9e Rang",
+        "ville":"Saint-Léonard d'Aston",
+        "typeResidence":"maison"
+      },
+      "organisme":"AdulteUnJour"
+    },
+    {
+      "id":"1001",
+      "prenom":"Olivier",
+      "nom":"Beauchemin",
+      "email":"olivier_beauchemin@hotmail.com",
+      "noTel":7590489375,
+      "address":
+      {
+        "numCivic":1899,
+        "appartement":null,
+        "codePostal":"J0C 1M0",
+        "rue":"9e Rang",
+        "ville":"Saint-Léonard d'Aston",
+        "typeResidence":"maison"
+      },
+      "organisme":"FiabilitéPourTous"
     }
+  ],
+
+  "medecins" : [
+    {
+      "courriel":"frederick_simard@gmail.com",
+      "fax":8192735743,
+      "genre":"M","noTel":8192753423,
+      "nom":"Simard",
+      "prenom":"Frederick"},
+    {
+      "courriel":"julien_turcotte@gmail.com",
+      "fax":7468285743,
+      "genre":"M",
+      "noTel":7595348589,
+      "nom":"Turcotte",
+      "prenom":"Julien"},
+    {
+      "courriel":"olivier_chenard@gmail.com","fax":8743598490,"genre":"M","noTel":6589376453,"nom":"Chenard","prenom":"Olivier"}
   ]
 }

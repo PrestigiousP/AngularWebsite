@@ -52,7 +52,6 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line:typedef
   get f() { return this.loginForm.controls; }
 
-   // TODO: Finir l'auth (get admin admin to login)
   // TODO: Finir formulaire enrolement (send info qui crée objet individu)
 
   onKey($event: KeyboardEvent): void {

@@ -18,13 +18,15 @@ export class RapportAnnuelComponent implements OnInit {
 
   ngOnInit(): void {
     this.listeRapportAnnuel = [];
-    this.listeIndividus = this.indS.listeIndividu;
-    this.listeIndividus.forEach(ind => {
-      // pas fini, va falloir gérer la valeur de retour
-      this.rcs.getRapportAnnuel(ind.id)
-        .subscribe( data => {
-          this.listeRapportAnnuel.push(data);
-        });
+    this.indS.listeIndividu.subscribe( data => {
+      this.listeIndividus = data;
+      this.listeIndividus.forEach(ind => {
+        // pas fini, va falloir gérer la valeur de retour
+        this.rcs.getRapportAnnuel(ind.id)
+          .subscribe( stat => {
+            this.listeRapportAnnuel.push(stat);
+          });
+      });
     });
   }
 

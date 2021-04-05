@@ -1,180 +1,91 @@
 import {Injectable, OnInit} from '@angular/core';
+import {RequestControllerService} from './request-controller.service';
+import {Observable} from 'rxjs';
 import {Individu} from '../model/individu.model';
-import {Adresse} from '../model/adresse.model';
-import {Travail} from '../model/travail.model';
-import {IntervenantService} from './intervenant.service';
-import {MedecinService} from './medecin.service';
-import {Intervenant} from '../model/intervenant.model';
-import {Medecin} from '../model/medecin';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IndividuService{
-  private listIndividu: Individu[];
-  private listIntervenant: Intervenant[];
-  private listMedecin: Medecin[];
-  private nbInter: number;
-  private nbMedecin: number;
+  individu: Individu;
 
-  constructor(private interService: IntervenantService,
-              private medecinService: MedecinService) {
-    this.listMedecin = this.medecinService.listeMedecin;
-    this.listIntervenant = this.interService.listeIntervenant;
-    this.nbInter = this.listIntervenant.length;
-    this.nbMedecin = this.listIntervenant.length;
+  constructor(private rcs: RequestControllerService) {
 
-    this.listIndividu = this.mockIndividusData();
   }
 
-  // Créer des individus
-  mockIndividusData(): Individu[]{
-    return[
-      {
-        id: 1,
-        actif: true,
-        adresse: this.mockAdresseData(),
-        age: 20,
-        dateNaissance: new Date('03/25/1997'),
-        departement: 'Recyclage',
-        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
-        genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
-        motifDepart: 'S/O',
-        nas: 847938625,
-        niveauScolarite: 'secondaire',
-        noTel: 8547940329,
-        nom: 'Turcotte',
-        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
-        prenom: 'Julien',
-        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        reference: 'Ami',
-        santeAllergie: 'Banane',
-        statut: 'clientèle',
-        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
-        travail: this.mockTravailData()
-      },
-      {
-        id: 2,
-        actif: true,
-        adresse: this.mockAdresseData(),
-        age: 20,
-        dateNaissance: new Date('01/31/1990'),
-        departement: 'Recyclage',
-        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
-        genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
-        motifDepart: 'S/O',
-        nas: 9348437489,
-        niveauScolarite: 'universitaire',
-        noTel: 8594840329,
-        nom: 'Roy-Ouellet',
-        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
-        prenom: 'Julien',
-        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        reference: 'Ami',
-        santeAllergie: 'Banane',
-        statut: 'clientèle',
-        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
-        travail: this.mockTravailData()
-      },
-      {
-        id: 3,
-        actif: true,
-        adresse: this.mockAdresseData(),
-        age: 20,
-        dateNaissance: new Date('03/12/1984'),
-        departement: 'TravauxCommunautaires',
-        donneesQualitatives: {notesEvolutives: '', objectif: '', suivi: ''},
-        genre: 'M',
-        intervenantResponsable: this.listIntervenant[Math.floor(Math.random() * this.nbInter)],
-        motifDepart: 'S/O',
-        nas: 847938625,
-        niveauScolarite: 'aucun',
-        noTel: 8547940329,
-        nom: 'Dumont',
-        personneRessource: {prenom: 'Maxime', nom: 'Turgeon', noTel: 9376189274},
-        prenom: 'Tommy',
-        programmeEmployabilite: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        reference: 'Ami',
-        santeAllergie: 'Banane',
-        statut: 'clientèle',
-        suiviItinerance: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()},
-        suiviPar: this.listMedecin[Math.floor(Math.random() * this.nbMedecin)],
-        travail: this.mockTravailData()
-      },
-    ];
-  }
-
-  mockAdresseData(): Adresse{
-    return {
-      numCivic : Math.floor(Math.random() * 3000),
-      appartement : null,
-      codePostal: 'J0C 1M0',
-      rue: '9e Rang',
-      ville: 'Saint-Léonard d\'Aston',
-      typeResidence: 'maison'
-    };
-  }
-
-  // Génère un travail aléatoire
-  mockTravailData(): Travail{
-    switch (Math.floor(Math.random() * 4)){
-      case(0):
-        return{
-          dateDebut: this.mockRandomDate(),
-          dateFin: this.mockRandomDate(),
-          heuresTravailJour: Math.floor(Math.random() * 9),
-          lieu: 'Trois-Rivières',
-          tauxHoraire: Math.floor(Math.random() * 9) + 10,
-          transport: Math.floor(Math.random() * 11),
-          travauxCommunautaires: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()}
-        };
-      case(1):
-        return{
-          dateDebut: this.mockRandomDate(),
-          dateFin: this.mockRandomDate(),
-          heuresTravailJour: Math.floor(Math.random() * 9),
-          lieu: 'Shawinigan',
-          tauxHoraire: Math.floor(Math.random() * 9) + 10,
-          transport: Math.floor(Math.random() * 11),
-          travauxCommunautaires: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()}
-        };
-      case(2):
-        return{
-          dateDebut: this.mockRandomDate(),
-          dateFin: this.mockRandomDate(),
-          heuresTravailJour: Math.floor(Math.random() * 9),
-          lieu: 'St-Tite',
-          tauxHoraire: Math.floor(Math.random() * 9) + 10,
-          transport: Math.floor(Math.random() * 11),
-          travauxCommunautaires: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()}
-        };
-      case(3):
-        return{
-          dateDebut: this.mockRandomDate(),
-          dateFin: this.mockRandomDate(),
-          heuresTravailJour: Math.floor(Math.random() * 9),
-          lieu: 'Louiseville',
-          tauxHoraire: Math.floor(Math.random() * 9) + 10,
-          transport: Math.floor(Math.random() * 11),
-          travauxCommunautaires: {dateDebut: this.mockRandomDate(), dateFin: this.mockRandomDate()}
-        };
-    }
-  }
-
-  mockRandomDate(): Date{
-    return new Date(2020, Math.floor(Math.random() * 13), Math.floor(Math.random() * 29));
-  }
-
-  get listeIndividu(): Individu[]{
-    return this.listIndividu;
+  get listeIndividu(): Observable<any>{
+    return this.rcs.getIndividus();
   }
 
   getId(i: number): number{
     return this.listeIndividu[i].id;
+  }
+  initIndividu(): Individu {
+    return this.individu = {
+      departement: '',
+      id: -1,
+      prenom: '',
+      nom: '',
+      genre: 'M',
+      age: -1,
+      dateNaissance: null,
+      nas: 999999999,
+      actif: true,
+      adresse:
+        {
+          numCivic: -1,
+          appartement: -1,
+          rue: '',
+          codePostal: '',
+          ville: '',
+          typeResidence: 'appartement'
+        },
+      noTel: 0,
+      santeAllergie: '',
+      travail: {
+        lieu: 'Trois-Rivières',
+        dateDebut: new Date(),
+        dateFin: new Date(),
+        heuresTravailJour: 5,
+        tauxHoraire: 12,
+        travauxCommunautaires: {dateDebut: new Date(), dateFin: new Date()},
+        transport: 0
+      },
+      reference: '',
+      niveauScolarite: 'aucun',
+      programmeEmployabilite: {dateDebut: new Date(), dateFin: new Date()},
+      motifDepart: null,
+      statut: 'autre',
+      suiviItinerance: {dateDebut: new Date(), dateFin: new Date()},
+      intervenantResponsable: {
+        id: '',
+        prenom: '',
+        nom: '',
+        email: '',
+        noTel: 0,
+        address:
+          {
+            numCivic: 0,
+            appartement: null,
+            codePostal: '',
+            rue: '',
+            ville: '',
+            typeResidence: 'maison'
+          },
+        organisme: ''
+      },
+      personneRessource: {
+        prenom: '',
+        nom: '',
+        noTel: 0
+      },
+      suiviPar: {courriel: '', fax: 0, genre: 'M', noTel: 0, nom: '', prenom: ''},
+      donneesQualitatives: {
+        notesEvolutives: '',
+        suivi: '',
+        objectif: ''
+      }
+    };
   }
 
 }

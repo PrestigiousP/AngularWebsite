@@ -12,6 +12,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class DetailsComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
+  listIndiv: Individu[];
   cardContent: string[];
   index: number;
   individu: Individu;
@@ -34,15 +35,24 @@ export class DetailsComponent implements OnInit {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private  service: IndividuService) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private route: ActivatedRoute,
+              private  service: IndividuService) {
   }
 
   ngOnInit(): void {
+    this.individu = this.service.initIndividu();
+
     this.route.paramMap.subscribe(param => {
       const idx = Number(param.get('idx'));
       this.index = idx;
-      this.individu = this.service.listeIndividu[idx];
+      this.service.listeIndividu.subscribe(
+        data => {
+          this.listIndiv = data;
+          this.individu = this.listIndiv[this.index];
+        }
+      );
     });
-  }
 
+  }
 }

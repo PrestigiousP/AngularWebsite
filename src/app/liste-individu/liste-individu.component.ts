@@ -14,7 +14,10 @@ export class ListeIndividuComponent implements OnInit {
   constructor(private service: IndividuService) { }
 
   ngOnInit(): void {
-    this.listIndividu = this.service.listeIndividu;
+    this.service.listeIndividu.subscribe(
+      data =>  {this.listIndividu = data;
+      }
+    );
   }
 
 }

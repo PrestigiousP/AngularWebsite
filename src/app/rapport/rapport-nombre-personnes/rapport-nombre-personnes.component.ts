@@ -19,17 +19,20 @@ export class RapportNombrePersonnesComponent implements OnInit {
   ngOnInit(): void {
     this.listeNbPersonnes = [0, 0, 0, 0];
     // get une liste de nombres d'heures par semaine selon le id de l'individu
-    this.listeIndividusDepartement = this.indS.listeIndividu;
-    this.listeIndividusDepartement.forEach(ind => {
-      if (ind.departement === 'Recyclage') {
-        this.listeNbPersonnes[0] += 1;
-      } else if (ind.departement === 'SousTraitance') {
-        this.listeNbPersonnes[1] += 1;
-      } else if (ind.departement === 'AtelierArtistique') {
-        this.listeNbPersonnes[2] += 1;
-      } else if (ind.departement === 'TravauxCommunautaires') {
-        this.listeNbPersonnes[3] += 1;
-      }
+    this.indS.listeIndividu.subscribe( data => {
+      this.listeIndividusDepartement = data;
+      this.listeIndividusDepartement.forEach(ind => {
+        if (ind.departement === 'Recyclage') {
+          this.listeNbPersonnes[0] += 1;
+        } else if (ind.departement === 'SousTraitance') {
+          this.listeNbPersonnes[1] += 1;
+        } else if (ind.departement === 'AtelierArtistique') {
+          this.listeNbPersonnes[2] += 1;
+        } else if (ind.departement === 'TravauxCommunautaires') {
+          this.listeNbPersonnes[3] += 1;
+        }
+      });
     });
+
   }
 }

@@ -23,5 +23,14 @@ export class RequestControllerService {
   getAll() {
     return this.http.get<User[]>(this.db + 'users');
   }
+  getMedecins(): Observable<any>{
+    return this.http.get(this.db + 'medecins');
+  }
+  getIntervenants(): Observable<any>{
+    return this.http.get(this.db + 'intervenants');
+  }
+  getIndividus(): Observable<any>{
+    return this.http.get(this.db + 'individus');
+  }
 
 }

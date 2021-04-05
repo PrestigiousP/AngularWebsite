@@ -20,25 +20,22 @@ export class RapportHeuresMensuelComponent implements OnInit {
   ngOnInit(): void {
     this.listeNbHeures = [];
     // get une liste de nombres d'heures par semaine selon le id de l'individu
-    this.listeIndividus = this.indS.listeIndividu;
-    this.listeIndividus.forEach( ind => {
-      this.rcs.getTalonPaie(ind.id)
-        .subscribe( data => {
-          let nbHeures = 0;
-          data.semaines.forEach( semaine => {
-            nbHeures += semaine.heures;
+    this.indS.listeIndividu.subscribe( data => {
+      this.listeIndividus = data;
+      this.listeIndividus.forEach( ind => {
+        this.rcs.getTalonPaie(ind.id)
+          .subscribe( data2 => {
+            let nbHeures = 0;
+            data2.semaines.forEach( semaine => {
+              nbHeures += semaine.heures;
+            });
+            this.listeNbHeures.push(nbHeures);
+            // console.log(data.semaines);
           });
-          this.listeNbHeures.push(nbHeures);
-          // console.log(data.semaines);
-        });
+      });
     });
-    /*this.listeIndividus.forEach(ind => {
-      // pas fini, va falloir gérer la valeur de retour
-      this.rcs.getTalonPaie(ind.id)
-        .subscribe( data => {
-          this.listeTalonPaie.push(data.heures);
-        });
-    });*/
+
+
   }
 
 }
