@@ -3,25 +3,29 @@ import {
   HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
 } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
+import {AuthService} from './auth.service';
+import {Router} from '@angular/router';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
   // authToken: 'auth-token';
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector,
+              private authService: AuthService,
+              private router: Router) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('interceptor got called');
-    // Add auth token
-    // In production you would get the token value by the auth service
-    const hardCodedToken = 'AJi4QfHu_jhfnHkHKNjlkKQRyshhX7aSvifd_gSZO86Z4LiDCshQNzgpnoTPjbD9TxzsjlVvx6A';
-    const authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${hardCodedToken}`
-      }
-      // { headers: req.headers.set('Authorization', `Bearer ${this.hardCodedToken}`)
-    });
-    return next.handle(authReq);
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // add authorization header with jwt token if available
+    const currentUser = this.authService.currentUserValue;
+    if (currentUser && currentUser.token) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${currentUser.token}`
+        }
+      });
+    }
+
+    return next.handle(request);
   }
 }

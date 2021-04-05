@@ -21,9 +21,7 @@ export class RapportNombrePersonnesComponent implements OnInit {
     // get une liste de nombres d'heures par semaine selon le id de l'individu
     this.listeIndividusDepartement = this.indS.listeIndividu;
     this.listeIndividusDepartement.forEach(ind => {
-      console.log('??? ', ind.departement);
       if (ind.departement === 'Recyclage') {
-        console.log('test');
         this.listeNbPersonnes[0] += 1;
       } else if (ind.departement === 'SousTraitance') {
         this.listeNbPersonnes[1] += 1;

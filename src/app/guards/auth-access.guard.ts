@@ -8,29 +8,22 @@ import {Subscription} from 'rxjs';
 })
 export class AuthAccessGuard implements CanActivate {
   subscription: Subscription;
-  bool: boolean;
-  account = {
-    username: 'admin',
-    password: 'admin',
-  };
 
   constructor(private authService: AuthService,
               private router: Router) { }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-    this.subscription = this.authService.getAuth().subscribe(
-      login => { if (login.username === this.account.username && login.password === this.account.password) {
-        this.authService.sendAns();
-        this.bool = true;
-        }
-        else{
-          this.bool =  false;
-        }
-      }
-    );
-    return this.bool;
-  }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const currentUser = this.authService.currentUserValue;
+    // this.authService.getCurrentUserValue()
+    console.log('the guard got triggered ', currentUser);
+    if (currentUser) {
+      console.log('the guard is true');
+      // authorised so return true
+      return true;
+    }
 
+    // not logged in so redirect to login page with the return url
+    this.router.navigate(['']);
+    return false;
+  }
 }

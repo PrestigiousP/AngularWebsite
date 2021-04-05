@@ -186,11 +186,38 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "firstName": "Philippe",
+      "lastName": "Baillargeon",
+      "token": "AJi4QfHu_jhfnHkHKNjlkKQRyshhX7aSvifd_gSZO86Z4LiDCshQNzgpnoTPjbD9TxzsjlVvx6A"
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 4
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 5
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 6
     }
   ],
-  "intervenants": [
-  ],
+  "intervenants": [],
   "addresse": [
     {
       "id": 1,

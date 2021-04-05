@@ -1,7 +1,7 @@
 <!--<app-nav-menu></app-nav-menu>-->
 <!--<app-login></app-login>-->
 <div *ngIf="hide" class="background">
-  <form (ngSubmit)="loginUser()" [formGroup]="form" novalidate>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" novalidate>
     <div class="login">
       <h1>Authentification</h1>
       <div class="username">

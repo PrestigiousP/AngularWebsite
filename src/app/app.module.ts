@@ -33,6 +33,7 @@ import { RapportHeuresHebdoComponent } from './rapport/rapport-heures-hebdo/rapp
 import { RapportAnnuelComponent } from './rapport/rapport-annuel/rapport-annuel.component';
 import { RapportHeuresMensuelComponent } from './rapport/rapport-heures-mensuel/rapport-heures-mensuel.component';
 import { RapportNombrePersonnesComponent } from './rapport/rapport-nombre-personnes/rapport-nombre-personnes.component';
+import {fakeBackendProvider} from './services/fake-backend-interceptor';
 
 
 @NgModule({
@@ -71,7 +72,9 @@ import { RapportNombrePersonnesComponent } from './rapport/rapport-nombre-person
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
       multi: true
-    }
+    },
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

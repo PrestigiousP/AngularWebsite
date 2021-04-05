@@ -1,63 +1,47 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {HttpClient, HttpClientXsrfModule, HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import {BehaviorSubject, config, Observable, Subject} from 'rxjs';
+import {RequestControllerService} from './request-controller.service';
+import {User} from '../model/user';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnDestroy {
-  private loginUrl = 'http://localhost:3000/users';
-  private loginUrl2 = 'https://my-json-server.typicode.com/typicode/demo';
-  private hide = true;
-  private subject = new Subject<any>();
-  private subjectReturned = new Subject<boolean>();
-  // sample = Observable.(this.hide);
-  testUser = {
-    username: 'admin',
-    password: 'admin',
-  };
-  user = {
-    username: '',
-    password: ''
-  };
-  constructor(private http: HttpClient) { }
+export class AuthService {
 
-  sendLogin(login: {username: string; password: string; }): void {
-    // this.subject.next(login);
-    this.subject.next(this.testUser);
+
+  constructor(private rcs: RequestControllerService,
+              private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  getAuth(): Observable<any> {
-    return this.subject.asObservable();
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+  db = 'http://localhost:3000/';
+  private test = false;
+  private userId = 0;
+
+  // tslint:disable-next-line:typedef
+  login(username, password) {
+    return this.http.post<any>(this.db + 'users/1', { username, password })
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
   }
 
-  sendAns(): void{
-    // Envoyer une réponse seulement si le login est bon
-    this.subjectReturned.next(false);
+  // tslint:disable-next-line:typedef
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
-  getAns(): Observable<boolean>{
-    return this.subjectReturned.asObservable();
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
-
-  ngOnDestroy(): void {
-    this.subject.unsubscribe();
-  }
-
-  /*loginUser(user): Observable<any>{
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-        Authorization: 'authkey'
-      })
-    };
-    // const header = new HttpHeaders().set('Authorization', 'auth-token');
-    // return this.http.get<any>(this.loginUrl);
-    // console.log('testtt ', xhr);
-    const data = {
-      username : 'admin',
-      password : 'admin',
-    };
-    return this.http.post<any>(`https://my-json-server.typicode.com/typicode/demo`, data, httpOptions);
-  }*/
 }
