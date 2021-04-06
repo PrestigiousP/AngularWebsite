@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../model/user';
+import {Individu} from '../model/individu.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,8 @@ export class RequestControllerService {
   getIndividus(): Observable<any>{
     return this.http.get(this.db + 'individus');
   }
-
+  createIndividu(ind: Individu): void {
+    console.log('Je suis en train de post mon individu');
+    this.http.post(this.db + 'individus', ind).subscribe();
+  }
 }

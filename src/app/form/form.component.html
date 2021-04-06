@@ -4,7 +4,7 @@
       <mat-card-title>Formulaire d'enrôlement</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
+      {{form.controls.programmeEmployabilite.value.dateDebut}}
       <div class="row">
         <div class="col">
           <label>Actif</label>
@@ -16,11 +16,11 @@
       </div>
       <div class="row">
         <div class="col">
-          <label>Sexe</label>
-          <mat-radio-group aria-label="Select an option" formControlName="sexe">
-            <mat-radio-button value="Homme">Homme</mat-radio-button>
-            <mat-radio-button value="Femme">Femme</mat-radio-button>
-            <mat-radio-button value="Autre">Autre</mat-radio-button>
+          <label>Genre</label>
+          <mat-radio-group aria-label="Select an option" formControlName="genre">
+            <mat-radio-button value="M">Homme</mat-radio-button>
+            <mat-radio-button value="F">Femme</mat-radio-button>
+            <mat-radio-button value="autre">Autre</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
@@ -38,22 +38,20 @@
             </mat-hint>
           </div>
         </div>
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Nom</mat-label>
-            <input formControlName="nom" matInput>
-          </mat-form-field>
-          <div class="invalid" *ngIf="form.get('nom').invalid
+      </div>
+      <div class="col">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nom</mat-label>
+          <input formControlName="nom" matInput>
+        </mat-form-field>
+        <div class="invalid" *ngIf="form.get('nom').invalid
           && (form.get('nom').dirty
           || form.get('nom').touched)">
-            <mat-hint *ngIf="form.get('nom').errors.required">
-              Le champ est obligatoire
-            </mat-hint>
-          </div>
+          <mat-hint *ngIf="form.get('nom').errors.required">
+            Le champ est obligatoire
+          </mat-hint>
         </div>
-
       </div>
-
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
@@ -71,7 +69,6 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
@@ -85,40 +82,6 @@
           </mat-form-field>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
-            <mat-label>Adresse</mat-label>
-            <input formControlName="adresse" matInput>
-          </mat-form-field>
-          <div class="invalid" *ngIf="form.get('adresse').invalid
-          && (form.get('adresse').dirty
-          || form.get('adresse').touched)">
-            <mat-hint *ngIf="form.get('adresse').errors.required">
-              Le champ est obligatoire
-            </mat-hint>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Numéro de téléphone</mat-label>
-            <input formControlName="noTelephone" matInput type="number">
-            <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
-          <div class="invalid" *ngIf="form.get('noTelephone').invalid
-          && (form.get('noTelephone').dirty
-          || form.get('noTelephone').touched)">
-            <mat-hint *ngIf="form.get('noTelephone').errors.required">
-              Le champ est obligatoire
-            </mat-hint>
-          </div>
-        </div>
-      </div>
-
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
@@ -135,13 +98,81 @@
         </div>
       </div>
 
-      <div formGroupName="infosAdd">
+      <div formGroupName="adresse">
+        <h4>Adresse</h4>
         <div class="row">
           <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Problèmes de santé/Allergies</mat-label>
-              <textarea formControlName="sante" matInput></textarea>
+            <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
+              <mat-label>Numéro civique</mat-label>
+              <input formControlName="numCivic" matInput type="number">
             </mat-form-field>
+            <div class="invalid" *ngIf="form.get('adresse.numCivic').invalid
+          && (form.get('adresse.numCivic').dirty
+          || form.get('adresse.numCivic').touched)">
+              <mat-hint *ngIf="form.get('adresse.numCivic').errors.required">
+                Le champ est obligatoire
+              </mat-hint>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
+              <mat-label>Rue</mat-label>
+              <input formControlName="rue" matInput>
+            </mat-form-field>
+            <div class="invalid" *ngIf="form.get('adresse.rue').invalid
+          && (form.get('adresse.rue').dirty
+          || form.get('adresse.rue').touched)">
+              <mat-hint *ngIf="form.get('adresse.rue').errors.required">
+                Le champ est obligatoire
+              </mat-hint>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
+              <mat-label>Numéro d'appartement</mat-label>
+              <input formControlName="appartement" matInput type="number">
+            </mat-form-field>
+            <div class="invalid" *ngIf="form.get('adresse.appartement').invalid
+          && (form.get('adresse.appartement').dirty
+          || form.get('adresse.appartement').touched)">
+              <mat-hint *ngIf="form.get('adresse.appartement').errors.required">
+                Le champ est obligatoire
+              </mat-hint>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
+              <mat-label>Code postal</mat-label>
+              <input formControlName="codePostal" matInput>
+            </mat-form-field>
+            <div class="invalid" *ngIf="form.get('adresse.codePostal').invalid
+          && (form.get('adresse.codePostal').dirty
+          || form.get('adresse.codePostal').touched)">
+              <mat-hint *ngIf="form.get('adresse.codePostal').errors.required">
+                Le champ est obligatoire
+              </mat-hint>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="mat-form-field-flex" class="full-width">
+              <mat-label>Ville</mat-label>
+              <input formControlName="ville" matInput>
+            </mat-form-field>
+            <div class="invalid" *ngIf="form.get('adresse.ville').invalid
+          && (form.get('adresse.ville').dirty
+          || form.get('adresse.ville').touched)">
+              <mat-hint *ngIf="form.get('adresse.ville').errors.required">
+                Le champ est obligatoire
+              </mat-hint>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -158,33 +189,69 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Niveau de scolarité</mat-label>
-              <mat-select formControlName="niveauScolarite">
-                <mat-option value="aucun">Aucun</mat-option>
-                <mat-option value="secondaire">Secondaire</mat-option>
-                <mat-option value="professionnel">Professionnel</mat-option>
-                <mat-option value="collegial">Collégial</mat-option>
-                <mat-option value="universitaire">Universitaire</mat-option>
-              </mat-select>
-            </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Numéro de téléphone</mat-label>
+            <input formControlName="noTel" matInput type="number">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+          <div class="invalid" *ngIf="form.get('noTel').invalid
+          && (form.get('noTel').dirty
+          || form.get('noTel').touched)">
+            <mat-hint *ngIf="form.get('noTel').errors.required">
+              Le champ est obligatoire
+            </mat-hint>
           </div>
         </div>
-        Je ne comprends pas encore la signification de ce champ
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Statut</mat-label>
-              <mat-select formControlName="statut">
-                <mat-option value="clientele">Clientèle</mat-option>
-                <mat-option value="administrateur">Administration</mat-option>
-                <mat-option value="intervenant">Intervenant</mat-option>
-                <mat-option value="soutient">Soutient</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Problèmes de santé/Allergies</mat-label>
+            <textarea formControlName="santeAllergie" matInput></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Niveau de scolarité</mat-label>
+            <mat-select formControlName="niveauScolarite">
+              <mat-option value="aucun">Aucun</mat-option>
+              <mat-option value="secondaire">Secondaire</mat-option>
+              <mat-option value="professionnel">Professionnel</mat-option>
+              <mat-option value="collegial">Collégial</mat-option>
+              <mat-option value="universitaire">Universitaire</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!--        Je ne comprends pas encore la signification de ce champ-->
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Statut</mat-label>
+            <mat-select formControlName="statut">
+              <mat-option value="clientele">Clientèle</mat-option>
+              <mat-option value="administrateur">Administration</mat-option>
+              <mat-option value="intervenant">Intervenant</mat-option>
+              <mat-option value="soutient">Soutient</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Référence</mat-label>
+            <input formControlName="reference" matInput>
+          </mat-form-field>
         </div>
       </div>
 
@@ -205,7 +272,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Heures de travail par jour</mat-label>
-            <input formControlName="heuresParJour" matInput type="number">
+            <input formControlName="heuresTravailJour" matInput type="number">
           </mat-form-field>
         </div>
         <div class="row">
@@ -229,31 +296,6 @@
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Référence</mat-label>
-              <input formControlName="reference" matInput>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Motif de départ</mat-label>
-              <mat-select formControlName="motifDepart">
-                <mat-option value="emploi">Emploi</mat-option>
-                <mat-option value="retourEtudes">Retour aux études</mat-option>
-                <mat-option value="santeMentale">Problèmes de santé mentale</mat-option>
-                <mat-option value="santePhysique">Problèmes de santé physique</mat-option>
-                <mat-option value="Demenagement">Déménagement</mat-option>
-                <mat-option value="finContrat">Fin de contrat</mat-option>
-                <mat-option value="deces">Décès</mat-option>
-                <mat-option value="autre">Autres</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
               <mat-label>Taux horaire</mat-label>
               <input formControlName="tauxHoraire" matInput type="number">
               <mat-icon matSuffix>attach_money</mat-icon>
@@ -264,25 +306,75 @@
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Prime de transport</mat-label>
-              <input formControlName="primeTransport" matInput type="number">
+              <input formControlName="transport" matInput type="number">
               <mat-icon matSuffix>attach_money</mat-icon>
             </mat-form-field>
           </div>
         </div>
-        Intervenant Responsable
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-select aria-label="Select an option" formControlName="intervenantResponsable">
-                <mat-option *ngFor="let i of listIntervenant" value="this.i.id">{{this.i.prenom + ' ' + this.i.nom}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+        <div formGroupName="travauxCommunautaires">
+          <div class="row">
+            <div class="col">
+              <label>Travaux communautaire</label>
+              <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
+                <mat-radio-button value="oui">Oui</mat-radio-button>
+                <mat-radio-button value="non">Non</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div *ngIf="form.value.travail.travauxCommunautaires.ouiNon === 'oui'" class="row">
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de début</mat-label>
+                <input [matDatepicker]="picker7" formControlName="dateDebut" matInput>
+                <mat-datepicker-toggle [for]="picker7" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker7 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Date de fin</mat-label>
+                <input [matDatepicker]="picker8" formControlName="dateFin" matInput>
+                <mat-datepicker-toggle [for]="picker8" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker8 [startAt]="startDate" startView="year"></mat-datepicker>
+              </mat-form-field>
+            </div>
           </div>
         </div>
       </div>
 
-      Participation à un programme d'employabilité
+      <h4>Intervenant Responsable</h4>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-select aria-label="Select an option" formControlName="intervenantResponsable">
+              <mat-option *ngFor="let i of listIntervenant"
+                          value="this.i.id">{{this.i.prenom + ' ' + this.i.nom}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--      <div class="row">-->
+      <!--        <div class="col">-->
+      <!--          <mat-form-field appearance="fill" class="full-width">-->
+      <!--            <mat-label>Motif de départ</mat-label>-->
+      <!--            <mat-select formControlName="motifDepart">-->
+      <!--              <mat-option value="emploi">Emploi</mat-option>-->
+      <!--              <mat-option value="retourEtudes">Retour aux études</mat-option>-->
+      <!--              <mat-option value="santeMentale">Problèmes de santé mentale</mat-option>-->
+      <!--              <mat-option value="santePhysique">Problèmes de santé physique</mat-option>-->
+      <!--              <mat-option value="Demenagement">Déménagement</mat-option>-->
+      <!--              <mat-option value="finContrat">Fin de contrat</mat-option>-->
+      <!--              <mat-option value="deces">Décès</mat-option>-->
+      <!--              <mat-option value="autre">Autres</mat-option>-->
+      <!--              <mat-option value="aucun">Aucun</mat-option>-->
+      <!--            </mat-select>-->
+      <!--          </mat-form-field>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
       <div formGroupName="programmeEmployabilite">
+        <h4>Participation à un programme d'employabilité</h4>
         <div class="row">
           <div class="col">
             <label>Actif</label>
@@ -314,7 +406,7 @@
         </div>
       </div>
 
-      <div formGroupName="itinerance">
+      <div formGroupName="suiviItinerance">
         <div class="row">
           <div class="col">
             <label>Suivi en itinérance</label>
@@ -324,7 +416,7 @@
             </mat-radio-group>
           </div>
         </div>
-        <div *ngIf="form.value.itinerance.ouiNon === 'oui'" class="row">
+        <div *ngIf="form.value.suiviItinerance.ouiNon === 'oui'" class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Date de début</mat-label>
@@ -344,38 +436,10 @@
         </div>
       </div>
 
-      <div formGroupName="travauxCommunautaires">
-        <div class="row">
-          <div class="col">
-            <label>Travaux communautaire</label>
-            <mat-radio-group aria-label="Select an option" formControlName="ouiNon">
-              <mat-radio-button value="oui">Oui</mat-radio-button>
-              <mat-radio-button value="non">Non</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
-        <div *ngIf="form.value.travauxCommunautaires.ouiNon === 'oui'" class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Date de début</mat-label>
-              <input [matDatepicker]="picker7" formControlName="dateDebut" matInput>
-              <mat-datepicker-toggle [for]="picker7" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #picker7 [startAt]="startDate" startView="year"></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Date de fin</mat-label>
-              <input [matDatepicker]="picker8" formControlName="dateFin" matInput>
-              <mat-datepicker-toggle [for]="picker8" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #picker8 [startAt]="startDate" startView="year"></mat-datepicker>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
 
-      Personne ressource en cas d'urgence
+
       <div formGroupName="personneRessource">
+        <h4>Personne ressource en cas d'urgence</h4>
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -393,14 +457,8 @@
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Lien</mat-label>
-              <input formControlName="lien" matInput type="text">
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
               <mat-label>Numéro de téléphone</mat-label>
-              <input formControlName="noTelephone" matInput type="number">
+              <input formControlName="noTel" matInput type="number">
               <mat-icon matSuffix>phone</mat-icon>
               <mat-hint>Entrez seulement des nombres</mat-hint>
             </mat-form-field>
@@ -408,8 +466,9 @@
         </div>
       </div>
 
-      Suivi par:
+
       <div formGroupName="suiviPar">
+        <h4>Suivi par:</h4>
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -439,7 +498,7 @@
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Numéro de téléphone</mat-label>
-              <input formControlName="noTelephone" matInput type="number">
+              <input formControlName="noTel" matInput type="number">
             </mat-form-field>
           </div>
         </div>
@@ -469,7 +528,8 @@
         </div>
       </div>
 
-      <div formGroupName="notes">
+      <div formGroupName="donneesQualitatives">
+        <h4>Notes détaillées</h4>
         <div class="row">
           <div class="col">
             <mat-form-field appearance="fill" class="full-width">
@@ -499,8 +559,8 @@
         </div>
       </div>
 
-    </mat-card-content>
 
+    </mat-card-content>
     <mat-card-actions>
       <button [disabled]="!form.valid" disabled color="primary" mat-raised-button type="submit">Soumettre</button>
     </mat-card-actions>

@@ -4,5 +4,5 @@ export interface Adresse{
   rue: string;
   codePostal: string;
   ville: string;
-  typeResidence: 'appartement' | 'famille d\'accueil' | 'logement supervisé' | 'maison' | 'autre';
+  typeResidence: 'appartement' | 'famille d\'accueil' | 'logement supervisé' | 'maison' | 'autre' | '';
 }

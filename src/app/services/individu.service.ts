@@ -79,7 +79,15 @@ export class IndividuService{
         nom: '',
         noTel: 0
       },
-      suiviPar: {courriel: '', fax: 0, genre: 'M', noTel: 0, nom: '', prenom: ''},
+      suiviPar:
+        {
+        courriel: '',
+        fax: 0,
+        genre: 'M',
+        noTel: 0,
+        nom: '',
+        prenom: ''
+        },
       donneesQualitatives: {
         notesEvolutives: '',
         suivi: '',

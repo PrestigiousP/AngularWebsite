@@ -20,10 +20,10 @@ export interface Individu {
   santeAllergie: string;
   travail: Travail;
   reference: string; // ami, famille, etc.
-  niveauScolarite: 'aucun' | 'secondaire' | 'professionnel' | 'collégial' | 'universitaire';
+  niveauScolarite: 'aucun' | 'secondaire' | 'professionnel' | 'collégial' | 'universitaire' | '';
   programmeEmployabilite: {dateDebut: Date; dateFin: Date};
   motifDepart: string; // choix de réponses ?
-  statut: 'clientèle' | 'employé régulier' | 'autre'; // pas sûr de comprendre
+  statut: 'clientèle' | 'employé régulier' | 'autre' | ''; // pas sûr de comprendre
   suiviItinerance: {dateDebut: Date; dateFin: Date} | null;
   intervenantResponsable: Intervenant;
   personneRessource: Contact; // devrait-on faire un model pour lui ?
