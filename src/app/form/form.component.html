@@ -4,7 +4,6 @@
       <mat-card-title>Formulaire d'enrôlement</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      {{form.controls.programmeEmployabilite.value.dateDebut}}
       <div class="row">
         <div class="col">
           <label>Actif</label>
@@ -348,7 +347,7 @@
           <mat-form-field appearance="fill" class="full-width">
             <mat-select aria-label="Select an option" formControlName="intervenantResponsable">
               <mat-option *ngFor="let i of listIntervenant"
-                          value="this.i.id">{{this.i.prenom + ' ' + this.i.nom}}</mat-option>
+                          [value]="i">{{this.i.prenom + ' ' + this.i.nom}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

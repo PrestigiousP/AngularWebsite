@@ -32,7 +32,7 @@ export class FormComponent implements OnInit{
     intervenantResponsable: ['', Validators.required],
     programmeEmployabilite: this.fb.group({
       ouiNon: [''],
-      dateDebut: ['AAAAAAAASDF'],
+      dateDebut: [''],
       dateFin: ['']
     }),
     adresse: this.fb.group({
@@ -102,7 +102,7 @@ export class FormComponent implements OnInit{
     console.log('test ', this.f.travail.value);
     // console.log('', this.f.adresse.numCivique.value);
     const individu = this.createIndividu();
-    console.log(individu);
+    console.log(this.f.intervenantResponsable.value);
     this.rcs.createIndividu(individu);
   }
   private createIndividu(): Individu {
@@ -164,7 +164,7 @@ export class FormComponent implements OnInit{
         dateDebut: this.f.suiviItinerance.value.dateDebut,
         dateFin: this.f.suiviItinerance.value.dateFin
       },
-      intervenantResponsable: this.findIntervenant(this.f.intervenantResponsable.value),
+      intervenantResponsable: this.f.intervenantResponsable.value,
       personneRessource:
       {
         prenom: this.f.personneRessource.value.prenom,
@@ -187,12 +187,5 @@ export class FormComponent implements OnInit{
         objectif: this.f.donneesQualitatives.value.objectif
       }
     };
-  }
-  private findIntervenant(id: string): Intervenant{
-    for (const int of this.listIntervenant){
-      if (int.id === id){
-        return int;
-      }
-    }
   }
 }

@@ -25,12 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private auth: AuthService,
               private fb: FormBuilder,
               private router: Router,
-              private rcs: RequestControllerService) {
-    // redirect to home if already logged in
-    /*if (this.auth.currentUserValue) {
-      this.router.navigate(['/list']);
-    }*/
-  }
+              private rcs: RequestControllerService) { }
 
   ngOnInit(): void {
       this.loginForm = this.fb.group({
@@ -52,8 +47,6 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line:typedef
   get f() { return this.loginForm.controls; }
 
-  // TODO: Finir formulaire enrolement (send info qui crée objet individu)
-
   onKey($event: KeyboardEvent): void {
     if ($event.key === 'Enter'){
       const element = document.getElementById('auto-trigger') as HTMLElement;
@@ -64,6 +57,7 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.submitted = true;
+    // this.rcs.deleteIndividu(4);
 
     // reset alerts on submit
     // this.alertService.clear();

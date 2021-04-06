@@ -37,4 +37,8 @@ export class RequestControllerService {
     console.log('Je suis en train de post mon individu');
     this.http.post(this.db + 'individus', ind).subscribe();
   }
+  // Juste pour les tests
+  deleteIndividu(id: number): void{
+    this.http.delete(this.db + 'individus/' + id).subscribe();
+  }
 }
